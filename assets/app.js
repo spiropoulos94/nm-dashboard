@@ -70,13 +70,11 @@ window.addEventListener("load", function() {
       });
     data.innerHTML = "";
     mainHeading.innerText = "User Data";
-    const button = document.createElement("button");
-    button.innerHTML = "Delete";
-    flexibleField = button;
+
+    flexibleField.innerHTML = `<button class="delete-btn">Delete</button>`;
 
     console.log(flexibleField);
 
-    //flexibleField.innerHTML = `Delete`;
     displayLength.innerHTML = ``;
   }
 

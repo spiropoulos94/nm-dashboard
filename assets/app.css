@@ -216,8 +216,19 @@ body {
 }
 
 .mini-wrapper {
-  background-color: lightblue;
   width: 12%;
+}
+
+.delete-btn {
+  background-color: var(--footer-color);
+  text-transform: uppercase;
+  color: var(--table-accent);
+  padding: 10px 20px;
+  border: 1px solid currentColor;
+  font-size: 1.1rem;
+}
+.delete-btn:hover {
+  cursor: pointer;
 }
 
 .not-visible {
