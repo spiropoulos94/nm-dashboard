@@ -1,3 +1,18 @@
+:root {
+    --primary: #0075a1;
+    /* applies to spinner, form elements and links */
+    --secondary: #004c6d;
+    /* applies to header */
+    --nav-background-color: #0d5d80;
+    --nav-accent: #1a6a8d;
+    /* applies to navigation borders and navigation item hover, focus and active state */
+    --footer-color: #8aa9b7;
+    --body-color: #333;
+    --border-color: #ccc;
+    --table-accent: #f5f5f5;
+    /* applies to table row zebra-striping style */
+}
+
 body,
 html {
     margin: 0;
