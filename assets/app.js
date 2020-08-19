@@ -31,11 +31,11 @@ window.addEventListener("load", function() {
                     imageDiv.className = "blurb";
                     imageDiv.innerHTML = `
                 <div style="background-color:${color.color};">
-                <h3 >${color.color}</h3>
+                <h3 class="color-code" style="color:${color.color}" >${color.color}</h3>
                 <div class="color-info">            
                 
                 <p class="color-year">${color.year}</p>
-                <p class="color-code">${color.name}</p>
+                <p class="color-name">${color.name}</p>
                 </div>
                 </div>
                 `;

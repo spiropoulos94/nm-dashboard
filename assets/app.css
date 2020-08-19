@@ -19,6 +19,10 @@ html {
     padding: 0;
 }
 
+body {
+    color: var(--body-color);
+}
+
 * {
     box-sizing: border-box;
     font-family: "Roboto", sans-serif;
@@ -37,7 +41,7 @@ html {
 .header {
     display: flex;
     height: 11vh;
-    background-color: #4546dc;
+    background-color: var(--secondary);
 }
 
 .logo-box {
@@ -56,6 +60,10 @@ html {
     margin: 0 25px;
     font-weight: bold;
     text-transform: uppercase;
+}
+
+.logo-txt:hover {
+    cursor: pointer;
 }
 
 .dash {
@@ -96,7 +104,8 @@ html {
 }
 
 .nav-bar {
-    background-color: #3363b8;
+    background-color: var(--nav-background-color);
+    border: 1px solid var(--nav-accent);
     width: 20%;
     display: flex;
     flex-direction: column;
@@ -115,8 +124,14 @@ html {
     padding: 7% 10% 3%;
 }
 
+.menu-items>li:hover {
+    cursor: pointer;
+    background-color: var(--nav-accent);
+}
+
 .footer-text {
     text-align: center;
+    color: var(--footer-color);
 }
 
 .menu-items li {
@@ -176,4 +191,12 @@ html {
     flex-direction: row-reverse;
     background-color: black;
     opacity: 30%;
+}
+
+.color-code {
+    filter: brightness(60%);
+}
+
+.not-visible {
+    display: none;
 }
