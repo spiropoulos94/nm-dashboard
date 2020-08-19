@@ -191,6 +191,9 @@ body {
     flex-direction: row-reverse;
     background-color: black;
     opacity: 30%;
+    color: white;
+    font-weight: bold;
+    font-size: 20px;
 }
 
 .color-code {
