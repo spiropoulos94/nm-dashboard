@@ -161,27 +161,28 @@ body {
   margin: 0;
 }
 
-.top-text {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  background-color: red;
-  width: 100%;
-}
-
 .main-head-wrapper {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: space-between;
-  background-color: aqua;
 }
 
 .mini-wrapper {
   display: flex;
-  width: 10%;
   font-size: 1.5rem;
   justify-content: space-between;
+
+  width: 10%;
+}
+
+.top-text {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+
+  width: 95%;
 }
 
 .data {
@@ -191,6 +192,7 @@ body {
   flex-wrap: wrap;
   justify-content: center;
   align-items: center;
+  width: 100%;
 }
 
 .blurb {
@@ -221,10 +223,6 @@ body {
 
 .color-code:hover {
   opacity: 100%;
-}
-
-.mini-wrapper {
-  width: 12%;
 }
 
 .delete-btn {
