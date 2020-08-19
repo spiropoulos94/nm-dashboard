@@ -117,7 +117,32 @@
         width: 100%;
     }
     
+    .main-heading {
+        color: red;
+        margin: 5%;
+    }
+    
     .main-screen-content {
-        padding: 40px;
         height: 100%;
+    }
+    
+    .blurbs-container {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        height: 70%;
+        justify-content: center;
+    }
+    
+    .blurb {
+        width: 25%;
+        height: 20%;
+        background-color: red;
+        opacity: 50%;
+        text-align: center;
+        margin: 5px 30px;
+    }
+    
+    .blurb:hover {
+        opacity: 100%;
     }
