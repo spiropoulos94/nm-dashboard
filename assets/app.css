@@ -162,6 +162,10 @@ body {
     justify-content: space-between;
 }
 
+.mini-wrapper {
+    background-color: red;
+}
+
 .data {
     height: 50%;
     color: white;
