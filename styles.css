@@ -17,5 +17,62 @@ html {
 }
 
 .header {
-    background-color: blue;
+    display: flex;
+    height: 11vh;
+    color: white;
+    background-color: #4546DC;
+}
+
+.logo-box {
+    display: flex;
+    width: 25%;
+    padding: 0px 30px;
+    align-items: center;
+}
+
+.logo-img {
+    background-color: white;
+}
+
+.logo-txt {
+    font-size: 3rem;
+    margin: 0 25px;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+.dash {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.dash>* {
+    height: 50%;
+    display: flex;
+    align-items: center;
+}
+
+.title {
+    padding: 10px;
+    margin: 0 20px;
+    text-transform: uppercase;
+    font-size: 1.5rem;
+}
+
+.logout-box {
+    display: flex;
+    padding: 0 3rem;
+}
+
+.logout-txt {
+    padding: 0 10px;
+    text-transform: uppercase;
+}
+
+.user-icon {
+    background-color: white;
+    border-radius: 100%;
+    padding: 5px;
 }
