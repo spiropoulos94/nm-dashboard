@@ -1,8 +1,8 @@
-const main_content = document.getElementsByClassName("main-screen-content")[0];
-
-let mainHeading = document.getElementsByClassName("main-heading")[0];
+const data = document.getElementsByClassName("data")[0];
+const mainHeading = document.getElementsByClassName("main-heading")[0];
 
 function welcomeScreen() {
+    data.innerHTML = "";
     mainHeading.innerText = "Welcome";
 }
 
@@ -13,16 +13,26 @@ function getColours() {
             colours = res.data;
             console.log("Colors Data", colours);
 
+            mainHeading.innerText = "Colours";
+
             let blurbsContainer = document.createElement("div");
             blurbsContainer.className = "blurbs-container";
+            data.innerText = "";
 
             colours.forEach((color) => {
                 let imageDiv = document.createElement("div");
                 imageDiv.className = "blurb";
-                imageDiv.innerHTML = `<h3>${color.name}</h3>
-                <p>${color.year}</p>
+                imageDiv.innerHTML = `
+                <div style="background-color:${color.color};">
+                <h3 >${color.color}</h3>
+                <div class="color-info">            
+                
+                <p class="color-year">${color.year}</p>
+                <p class="color-code">${color.name}</p>
+                </div>
+                </div>
                 `;
-                blurbsContainer.appendChild(imageDiv);
+                data.appendChild(imageDiv);
             });
         });
 }
@@ -34,4 +44,6 @@ function getUsers() {
             let users = res.data;
             console.log("User Data", users);
         });
+    data.innerHTML = "";
+    mainHeading.innerText = "User Data";
 }

@@ -127,32 +127,53 @@ html {
     display: flex;
 }
 
+
+/*Main screen starts here */
+
 .main-screen {
     color: black;
     width: 100%;
+    margin: 0;
+}
+
+.main-screen-content {
+    margin-top: 0;
+    height: 90%;
 }
 
 .main-heading {
     margin: 5%;
 }
 
-.blurbs-container {
+.data {
+    height: 50%;
+    color: white;
+    color: black;
     display: flex;
-    flex-direction: row;
     flex-wrap: wrap;
-    height: 70%;
-    justify-content: center;
+    justify-content: space-around;
 }
 
 .blurb {
     width: 25%;
-    height: 20%;
-    background-color: red;
+    height: 35%;
     opacity: 50%;
     text-align: center;
     margin: 5px 30px;
+    display: flex;
+    flex-direction: column;
+    color: white;
 }
 
 .blurb:hover {
     opacity: 100%;
+}
+
+.color-info {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    flex-direction: row-reverse;
+    background-color: red;
+    opacity: 70%;
 }
