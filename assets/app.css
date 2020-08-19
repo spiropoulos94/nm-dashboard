@@ -158,6 +158,9 @@ body {
 
 .main-heading {
     margin: 5%;
+    background-color: yellow;
+    display: flex;
+    justify-content: space-between;
 }
 
 .data {
@@ -167,21 +170,17 @@ body {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-around;
+    align-items: center;
 }
 
 .blurb {
     width: 25%;
     height: 35%;
-    opacity: 50%;
     text-align: center;
     margin: 5px 30px;
     display: flex;
     flex-direction: column;
     color: white;
-}
-
-.blurb:hover {
-    opacity: 100%;
 }
 
 .color-info {
@@ -197,7 +196,12 @@ body {
 }
 
 .color-code {
-    filter: brightness(60%);
+    filter: brightness(40%);
+    opacity: 50%;
+}
+
+.color-code:hover {
+    opacity: 100%;
 }
 
 .not-visible {

@@ -7,6 +7,8 @@ window.addEventListener("load", function() {
         mainHeading.innerText = "Welcome";
     }
 
+    let options = document.getElementById("data-length");
+
     document
         .getElementsByClassName("logo-txt")[0]
         .addEventListener("click", () => {
@@ -18,6 +20,7 @@ window.addEventListener("load", function() {
             .then((res) => res.json())
             .then((res) => {
                 colours = res.data;
+                console.log(colours.length);
                 console.log("Colors Data", colours);
 
                 mainHeading.innerText = "Colours";
