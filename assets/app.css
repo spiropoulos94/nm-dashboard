@@ -158,9 +158,16 @@ body {
 
 .main-heading {
     margin: 5%;
-    background-color: yellow;
     display: flex;
     justify-content: space-between;
+}
+
+.main-header-container {
+    background-color: yellow;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-right: 5%;
 }
 
 .data {

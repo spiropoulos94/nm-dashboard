@@ -1,6 +1,10 @@
 window.addEventListener("load", function() {
     const data = document.getElementsByClassName("data")[0];
     const mainHeading = document.getElementsByClassName("main-heading")[0];
+    const info = document.getElementById("info");
+    const mainHeaderContainer = document.getElementsByClassName(
+        "main-header-container"
+    )[0];
 
     function welcomeScreen() {
         data.innerHTML = "";
@@ -45,6 +49,7 @@ window.addEventListener("load", function() {
                     data.appendChild(imageDiv);
                 });
             });
+        mainHeaderContainer.appendChild(info);
     }
 
     document.getElementById("colours").addEventListener("click", () => {
