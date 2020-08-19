@@ -162,14 +162,6 @@ body {
     justify-content: space-between;
 }
 
-.main-header-container {
-    background-color: yellow;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding-right: 5%;
-}
-
 .data {
     height: 50%;
     color: white;
