@@ -136,10 +136,6 @@ html {
     margin: 5%;
 }
 
-.main-screen-content {
-    height: 100%;
-}
-
 .blurbs-container {
     display: flex;
     flex-direction: row;
