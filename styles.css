@@ -10,16 +10,18 @@ html {
 }
 
 .whole-page {
+    min-height: 100vh;
     height: 100vh;
-    width: 100vw;
+    min-width: 100vw;
     padding: 0;
     margin: 0;
+    background-color: #5779B7;
+    color: white;
 }
 
 .header {
     display: flex;
     height: 11vh;
-    color: white;
     background-color: #4546DC;
 }
 
@@ -35,7 +37,7 @@ html {
 }
 
 .logo-txt {
-    font-size: 3rem;
+    font-size: 3.3vw;
     margin: 0 25px;
     font-weight: bold;
     text-transform: uppercase;
@@ -58,7 +60,7 @@ html {
     padding: 10px;
     margin: 0 20px;
     text-transform: uppercase;
-    font-size: 1.5rem;
+    font-size: 1.2vw;
 }
 
 .logout-box {
@@ -69,10 +71,39 @@ html {
 .logout-txt {
     padding: 0 10px;
     text-transform: uppercase;
+    font-size: 1.2vw;
 }
 
 .user-icon {
     background-color: white;
     border-radius: 100%;
     padding: 5px;
+}
+
+.nav-bar {
+    background-color: #3363B8;
+    width: 25%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 89vh;
+}
+
+.menu-items {
+    padding: 0;
+}
+
+.menu-items li {
+    font-size: 2rem;
+    border-bottom: 1px solid white;
+    width: 100%;
+    padding: 7% 10% 3%;
+}
+
+.footer-text {
+    text-align: center;
+}
+
+.menu-items li {
+    list-style-type: none;
 }
