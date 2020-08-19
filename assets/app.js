@@ -1,3 +1,4 @@
+//window.addEventListener("load", function() { when i use onload function it throws me an error saying my functions are not defined
 const data = document.getElementsByClassName("data")[0];
 const mainHeading = document.getElementsByClassName("main-heading")[0];
 
@@ -47,3 +48,4 @@ function getUsers() {
     data.innerHTML = "";
     mainHeading.innerText = "User Data";
 }
+//});
