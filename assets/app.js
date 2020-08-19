@@ -38,7 +38,7 @@ window.addEventListener("load", function() {
         blurbsContainer.className = "blurbs-container";
         data.innerText = "";
 
-        flexibleField.innerHTML = `<p>Items </p>`;
+        flexibleField.innerHTML = `<p>items :</p>`;
         displayLength.innerHTML = `<p>${colours.length}</p>`;
 
         colours.forEach((color) => {
