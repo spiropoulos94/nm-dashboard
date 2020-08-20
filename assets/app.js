@@ -69,27 +69,48 @@ window.addEventListener("load", function() {
         fetch("https://reqres.in/api/users")
             .then((res) => res.json())
             .then((res) => {
-                let usersData = res.data;
-                //localStorage.setItem("localUserData", JSON.stringify(resData));
+                //let usersData = res.data;
+                localStorage.setItem("usersData", JSON.stringify(res.data));
+                let usersData = JSON.parse(localStorage.getItem("usersData"));
+                //confirm(`Are you sure you want to delete this user?`);
 
                 data.innerHTML = "";
                 mainHeading.innerText = "User Data";
-                flexibleField.innerHTML = `<button disabled class="delete-btn">Delete</button>`;
+
+                let deleteButton = document.createElement("button");
+                deleteButton.innerHTML = "DELETE";
+                deleteButton.setAttribute("disabled", true);
+                deleteButton.className = "delete-btn";
+                console.log(deleteButton);
+
+                let displaySpace = document.getElementById("space");
+                let displaySpaceWrapper = document.getElementById("display-wrapper");
+
+                displaySpace.appendChild(deleteButton);
+
+                if (displaySpace.children.length > 1) {
+                    displaySpace.removeChild(displaySpace.lastChild);
+                }
+
+                document
+                    .getElementsByClassName("delete-btn")[0]
+                    .addEventListener("click", () => {
+                        deleteUser();
+                    });
+
+                function deleteUser(e) {
+                    console.log("USER DELETEEEED");
+                }
                 displayLength.innerHTML = ``;
                 //Converting Data to Table
 
                 dataTable.classList.remove("not-visible");
                 data.appendChild(dataTable);
 
-                //  localUserData = localStorage.getItem("localUserData");
-                //  //localStorage.removeItem("localUserData");
-                //
-                //  let usersData = JSON.parse(localStorage.getItem("localUserData"));
-                //
                 usersData.forEach((user) => {
                     let tr = document.createElement("tr");
                     tr.innerHTML = `
-                    <td class="td user-checkbox"><input type="checkbox"></td>
+                    <td class="td user-checkbox"><input type="checkbox" id="delete-check"> <label for="delete-check"></label> </td>
                     <td class="td user-id">${user.id}</td>
                     <td class="td user-last">${user.last_name}</td>
                     <td class="td user-first">${user.first_name}</td>
