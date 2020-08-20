@@ -92,8 +92,8 @@ window.addEventListener("load", function() {
                 let tableStringHTML = "";
 
                 usersData.forEach((user) => {
-                    tableStringHTML += `<tr>
-                    <td class="td user-checkbox"><input type="checkbox" class="delete-checkbox" id="${
+                    tableStringHTML += `<tr ${user.id % 2 == 0}>
+                    <td class="td user-checkbox "><input type="checkbox" class="delete-checkbox " id="${
                       user.id
                     }" /> 
                       <label for="delete-check"></label> </td>
@@ -106,7 +106,11 @@ window.addEventListener("load", function() {
                       user.avatar.lastIndexOf("/128")
                     )}</td></tr>
                   `;
+                    if (user.id % 2 == 0) {
+                        console.log(user.id);
+                    }
                 });
+
                 dataTable.querySelector("tbody").innerHTML = tableStringHTML;
                 let checkboxes = document.querySelectorAll("input.delete-checkbox");
 

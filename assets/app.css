@@ -255,6 +255,10 @@ body {
     text-align: left;
 }
 
+tr:nth-child(even) td {
+    background-color: var(--table-accent);
+}
+
 .table-head {
     font-size: 25px;
     height: 6vh;
@@ -271,7 +275,11 @@ body {
 .td {
     font-size: 1.5rem;
     color: var(--body-color);
-    padding: 1.5vh;
+    padding: 1.5vh 0;
+}
+
+.true>td {
+    background-color: red;
 }
 
 .add-border {
