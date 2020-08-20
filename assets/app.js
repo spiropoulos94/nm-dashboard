@@ -83,14 +83,20 @@ window.addEventListener("load", function() {
                 //check if checkboxes are checked
 
                 let checkboxesArr = document.getElementsByClassName("delete-checkbox");
-                setTimeout(() => {
-                    console.log(checkboxesArr.length);
-                    for (let i = 0; i < checkboxesArr.length; i++) {
-                        console.log(checkboxesArr[i]["checked"]);
-                    }
-                }, 1);
 
                 deleteButton.className = "delete-btn";
+
+                function enableDeleteBtn() {
+                    deleteButton.removeAttribute("disabled");
+                }
+                // add onClick to each check box
+                setTimeout(() => {
+                    for (let i = 0; i < checkboxesArr.length; i++) {
+                        checkboxesArr[i].addEventListener("click", () => {
+                            enableDeleteBtn();
+                        });
+                    }
+                }, 1);
 
                 let displaySpace = document.getElementById("space");
                 let displaySpaceWrapper = document.getElementById("display-wrapper");
@@ -100,16 +106,6 @@ window.addEventListener("load", function() {
                 if (displaySpace.children.length > 1) {
                     displaySpace.removeChild(displaySpace.lastChild);
                 }
-
-                // i use a setTimeout function because if i dont the browser return a checkbox number of 0.
-                //setTimeout(function() {
-                //    console.log(checkboxesArr);
-                //    for (let i = 0; i < checkboxesArr.length; i++) {
-                //        if (checkboxesArr[i]["checked"]) {
-                //            console.log("we have checked buttons!!");
-                //        }
-                //    }
-                //}, 0);
 
                 displayLength.innerHTML = ``;
                 //Converting Data to Table
