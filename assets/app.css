@@ -245,8 +245,13 @@ body {
   display: none;
 }
 
+.overflow {
+  overflow-x: auto;
+}
+
 .data-table {
   margin: 5% 0;
+  width: 100%;
 }
 
 .td {

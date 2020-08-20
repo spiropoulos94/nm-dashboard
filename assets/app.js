@@ -109,9 +109,6 @@ window.addEventListener("load", function() {
                       user.avatar.lastIndexOf("/128")
                     )}</td></tr>
                   `;
-          if (user.id % 2 == 0) {
-            console.log(user.id);
-          }
         });
 
         dataTable.querySelector("tbody").innerHTML = tableStringHTML;
