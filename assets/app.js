@@ -30,7 +30,9 @@ window.addEventListener("load", function() {
             .then((res) => {
                 colours = res.data;
                 console.log("Colours length", colours.length);
-                console.log("Colors Data", colours);
+
+                colours.reverse();
+                console.log("Colours sorted", colours);
 
                 mainHeading.innerText = "Colours";
 
@@ -70,9 +72,7 @@ window.addEventListener("load", function() {
             });
         data.innerHTML = "";
         mainHeading.innerText = "User Data";
-
         flexibleField.innerHTML = `<button class="delete-btn">Delete</button>`;
-
         displayLength.innerHTML = ``;
     }
 
