@@ -108,11 +108,12 @@ window.addEventListener("load", function() {
                   `;
                 });
                 dataTable.querySelector("tbody").innerHTML = tableStringHTML;
-
-                //check if checkboxes are checked
-                let checkboxesArr = document.getElementsByClassName("delete-checkbox");
-
-                // add onClick to each check box
+                let checkboxes = document.querySelectorAll("input.delete-checkbox");
+                checkboxes.forEach((checkbox) => {
+                    if (checkbox["checked"]) {
+                        console.log("we have a checked on");
+                    }
+                });
             });
     }
     document.getElementById("users").addEventListener("click", getUsers);
