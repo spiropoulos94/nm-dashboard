@@ -248,5 +248,9 @@ body {
 }
 
 .td {
-    text-align: center;
+    text-align: left;
+}
+
+.table-head th {
+    text-align: left;
 }
