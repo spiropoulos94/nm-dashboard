@@ -94,10 +94,9 @@ window.addEventListener("load", function() {
                     )}</td>
                     `;
                     dataTable.appendChild(tr);
-                    console.log(dataTable);
-                    if (dataTable.children.length > usersData.length) {
+
+                    if (dataTable.children.length - 1 > usersData.length) {
                         dataTable.removeChild(dataTable.lastChild);
-                        console.log(dataTable.children.length);
                     }
                 });
             });
