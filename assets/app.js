@@ -94,7 +94,7 @@ window.addEventListener("load", function() {
                     )}</td>
                     `;
                     dataTable.appendChild(tr);
-
+                    //on the following line I used the -1 on dataTable length because it includes the table head elements.
                     if (dataTable.children.length - 1 > usersData.length) {
                         dataTable.removeChild(dataTable.lastChild);
                     }
