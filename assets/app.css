@@ -217,7 +217,13 @@ body {
 }
 
 .color-code {
-    filter: brightness(60%);
+    filter: brightness(40%);
+    font-size: 2rem;
+    opacity: 50%;
+}
+
+.color-code:hover {
+    opacity: 100%;
 }
 
 .delete-btn {
