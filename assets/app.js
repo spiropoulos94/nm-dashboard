@@ -111,10 +111,15 @@ window.addEventListener("load", function() {
                 let checkboxes = document.querySelectorAll("input.delete-checkbox");
                 checkboxes.forEach((checkbox) => {
                     checkbox.addEventListener("change", function() {
-                        console.log("fafas");
-                        document
-                            .querySelector("button.delete-btn")
-                            .removeAttribute("disabled");
+                        if (this.checked) {
+                            document
+                                .querySelector("button.delete-btn")
+                                .removeAttribute("disabled");
+                        } else {
+                            document
+                                .querySelector("button.delete-btn")
+                                .setAttribute("disabled", true);
+                        }
                     });
                 });
             });
