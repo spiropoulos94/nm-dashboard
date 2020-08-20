@@ -110,9 +110,12 @@ window.addEventListener("load", function() {
                 dataTable.querySelector("tbody").innerHTML = tableStringHTML;
                 let checkboxes = document.querySelectorAll("input.delete-checkbox");
                 checkboxes.forEach((checkbox) => {
-                    if (checkbox["checked"]) {
-                        console.log("we have a checked on");
-                    }
+                    checkbox.addEventListener("change", function() {
+                        console.log("fafas");
+                        document
+                            .querySelector("button.delete-btn")
+                            .removeAttribute("disabled");
+                    });
                 });
             });
     }
