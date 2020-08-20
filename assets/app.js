@@ -85,22 +85,24 @@ window.addEventListener("load", function() {
 
                 let displaySpace = document.getElementById("space");
                 let displaySpaceWrapper = document.getElementById("display-wrapper");
-
+                displaySpace.innerHTML = "";
                 displaySpace.appendChild(deleteButton);
 
                 if (displaySpace.children.length > 1) {
                     displaySpace.removeChild(displaySpace.lastChild);
                 }
 
-                document
-                    .getElementsByClassName("delete-btn")[0]
-                    .addEventListener("click", () => {
-                        deleteUser();
-                    });
+                //document
+                //    .getElementsByClassName("delete-btn")[0]
+                //    .addEventListener("click", () => {
+                //        deleteUser();
+                //    });
 
                 function deleteUser(e) {
-                    console.log("USER DELETEEEED");
+                    deleteButton.removeAttribute("disabled");
                 }
+
+                deleteUser();
                 displayLength.innerHTML = ``;
                 //Converting Data to Table
 
@@ -110,7 +112,9 @@ window.addEventListener("load", function() {
                 usersData.forEach((user) => {
                     let tr = document.createElement("tr");
                     tr.innerHTML = `
-                    <td class="td user-checkbox"><input type="checkbox" id="delete-check"> <label for="delete-check"></label> </td>
+                    <td class="td user-checkbox"><input type="checkbox" class="delete-checkbox" id="${
+                      user.id
+                    }"> <label for="delete-check"></label> </td>
                     <td class="td user-id">${user.id}</td>
                     <td class="td user-last">${user.last_name}</td>
                     <td class="td user-first">${user.first_name}</td>
