@@ -227,12 +227,16 @@ body {
 }
 
 .delete-btn {
-    background-color: var(--footer-color);
+    background-color: var(--primary);
     text-transform: uppercase;
     color: var(--table-accent);
     padding: 10px 20px;
     border: 1px solid currentColor;
     font-size: 1.1rem;
+}
+
+.delete-btn:disabled {
+    background-color: var(--footer-color);
 }
 
 .delete-btn:hover {
