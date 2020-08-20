@@ -211,18 +211,17 @@ body {
   color: white;
   font-weight: bold;
   font-size: 20px;
-  background: tomato;
+  opacity: 30%;
   background: rgba(0, 151, 20, 0.226);
+}
+
+.color-info:hover {
+  opacity: 100%;
 }
 
 .color-code {
   filter: brightness(40%);
   font-size: 2rem;
-  opacity: 50%;
-}
-
-.color-code:hover {
-  opacity: 100%;
 }
 
 .delete-btn {
