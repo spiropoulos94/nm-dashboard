@@ -264,9 +264,14 @@ body {
     text-align: left;
 }
 
+.table-head>th {
+    border-bottom: 2px solid var(--border-color);
+}
+
 .td {
     font-size: 1.5rem;
     color: var(--body-color);
+    padding: 1.5vh;
 }
 
 .add-border {
