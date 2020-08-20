@@ -246,3 +246,7 @@ body {
 .not-visible {
     display: none;
 }
+
+.td {
+    text-align: center;
+}

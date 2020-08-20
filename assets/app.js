@@ -9,6 +9,7 @@ window.addEventListener("load", function() {
     let displayLength = document.getElementsByClassName("length")[0];
     let dataTable = document.getElementsByClassName("data-table")[0];
     console.log(dataTable);
+    let tableHead = document.getElementsByClassName("table-head")[0];
 
     function welcomeScreen() {
         data.innerHTML = "";
@@ -95,7 +96,6 @@ window.addEventListener("load", function() {
                     dataTable.appendChild(tr);
                 });
             });
-        data.innerHTML = "";
     }
     document.getElementById("users").addEventListener("click", () => {
         getUsers();
