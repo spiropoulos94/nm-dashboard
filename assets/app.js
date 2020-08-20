@@ -92,17 +92,12 @@ window.addEventListener("load", function() {
                     displaySpace.removeChild(displaySpace.lastChild);
                 }
 
-                //document
-                //    .getElementsByClassName("delete-btn")[0]
-                //    .addEventListener("click", () => {
-                //        deleteUser();
-                //    });
-
-                function deleteUser(e) {
+                function enableButton(e) {
                     deleteButton.removeAttribute("disabled");
                 }
 
-                deleteUser();
+                enableButton();
+
                 displayLength.innerHTML = ``;
                 //Converting Data to Table
 
