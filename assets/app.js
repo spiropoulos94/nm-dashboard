@@ -1,6 +1,7 @@
 window.addEventListener("load", function() {
-  let spinner = document.querySelector("div.loader-wrapper");
-
+  //when page loads the spinner becomes hidden
+  let spinner = document.getElementById("spinner");
+  spinner.style.display = "none";
   let data = document.getElementsByClassName("data")[0];
   let mainHeading = document.getElementsByClassName("main-heading")[0];
   let info = document.getElementById("info");
