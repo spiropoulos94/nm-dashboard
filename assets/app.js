@@ -96,10 +96,8 @@ window.addEventListener("load", function() {
 
         usersData.forEach((user) => {
           tableStringHTML += `<tr ${user.id % 2 == 0}>
-                    <td class="td user-checkbox "><input type="radio" class="delete-checkbox " id="${
-                      user.id
-                    }" /> 
-                      <label for="delete-check"></label> </td>
+                    <td class="td user-checkbox "><input type="radio" name="radio-btn" class="delete-checkbox " id="radio-btn" /> 
+                      <label for="radio-btn"></label> </td>
                     <td class="td user-id">${user.id}</td>
                     <td class="td user-last">${user.last_name}</td>
                     <td class="td user-first">${user.first_name}</td>
