@@ -70,7 +70,6 @@ window.addEventListener("load", function() {
             .then((res) => res.json())
             .then((res) => {
                 const usersData = res.data;
-                console.log("User Data", usersData);
 
                 data.innerHTML = "";
                 mainHeading.innerText = "User Data";
