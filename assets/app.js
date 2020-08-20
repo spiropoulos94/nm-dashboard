@@ -8,7 +8,7 @@ window.addEventListener("load", function() {
     let flexibleField = document.getElementsByClassName("flexible")[0];
     let displayLength = document.getElementsByClassName("length")[0];
     let dataTable = document.getElementsByClassName("data-table")[0];
-    console.log(dataTable);
+
     let tableHead = document.getElementsByClassName("table-head")[0];
 
     function welcomeScreen() {
@@ -22,9 +22,7 @@ window.addEventListener("load", function() {
 
     document
         .getElementsByClassName("logo-txt")[0]
-        .addEventListener("click", () => {
-            welcomeScreen();
-        });
+        .addEventListener("click", welcomeScreen);
 
     function getColours() {
         fetch("https://reqres.in/api/products/")
@@ -61,15 +59,14 @@ window.addEventListener("load", function() {
             });
     }
 
-    document.getElementById("colours").addEventListener("click", () => {
-        getColours();
-    });
+    document.getElementById("colours").addEventListener("click", getColours);
 
     function getUsers() {
         fetch("https://reqres.in/api/users")
             .then((res) => res.json())
             .then((res) => {
                 //let usersData = res.data;
+                const deleteButton = document.querySelector("button.delete-btn");
                 localStorage.setItem("usersData", JSON.stringify(res.data));
                 let usersData = JSON.parse(localStorage.getItem("usersData"));
                 //confirm(`Are you sure you want to delete this user?`);
@@ -77,31 +74,10 @@ window.addEventListener("load", function() {
                 data.innerHTML = "";
                 mainHeading.innerText = "User Data";
 
-                let deleteButton = document.createElement("button");
-                deleteButton.innerHTML = "DELETE";
-                deleteButton.setAttribute("disabled", true);
-                //check if checkboxes are checked
-
-                let checkboxesArr = document.getElementsByClassName("delete-checkbox");
-
-                deleteButton.className = "delete-btn";
-
-                function enableDeleteBtn() {
-                    deleteButton.removeAttribute("disabled");
-                }
-                // add onClick to each check box
-                setTimeout(() => {
-                    for (let i = 0; i < checkboxesArr.length; i++) {
-                        checkboxesArr[i].addEventListener("click", () => {
-                            enableDeleteBtn();
-                        });
-                    }
-                }, 1);
-
                 let displaySpace = document.getElementById("space");
                 let displaySpaceWrapper = document.getElementById("display-wrapper");
-                displaySpace.innerHTML = "";
-                displaySpace.appendChild(deleteButton);
+                displaySpace.innerHTML =
+                    '<button class="delete-btn" type="button" disabled>Delete</button>';
 
                 if (displaySpace.children.length > 1) {
                     displaySpace.removeChild(displaySpace.lastChild);
@@ -113,12 +89,14 @@ window.addEventListener("load", function() {
                 dataTable.classList.remove("not-visible");
                 data.appendChild(dataTable);
 
+                let tableStringHTML = "";
+
                 usersData.forEach((user) => {
-                    let tr = document.createElement("tr");
-                    tr.innerHTML = `
+                    tableStringHTML += `<tr>
                     <td class="td user-checkbox"><input type="checkbox" class="delete-checkbox" id="${
                       user.id
-                    }"> <label for="delete-check"></label> </td>
+                    }" /> 
+                      <label for="delete-check"></label> </td>
                     <td class="td user-id">${user.id}</td>
                     <td class="td user-last">${user.last_name}</td>
                     <td class="td user-first">${user.first_name}</td>
@@ -126,17 +104,16 @@ window.addEventListener("load", function() {
                     <td class="td user-avatar"> ${user.avatar.substring(
                       user.avatar.lastIndexOf("r/") + 2,
                       user.avatar.lastIndexOf("/128")
-                    )}</td>
-                    `;
-                    dataTable.appendChild(tr);
-                    //on the following line I used the -1 on dataTable length because it includes the table head elements.
-                    if (dataTable.children.length - 1 > usersData.length) {
-                        dataTable.removeChild(dataTable.lastChild);
-                    }
+                    )}</td></tr>
+                  `;
                 });
+                dataTable.querySelector("tbody").innerHTML = tableStringHTML;
+
+                //check if checkboxes are checked
+                let checkboxesArr = document.getElementsByClassName("delete-checkbox");
+
+                // add onClick to each check box
             });
     }
-    document.getElementById("users").addEventListener("click", () => {
-        getUsers();
-    });
+    document.getElementById("users").addEventListener("click", getUsers);
 });
