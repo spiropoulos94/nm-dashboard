@@ -109,6 +109,7 @@ window.addEventListener("load", function() {
                 });
                 dataTable.querySelector("tbody").innerHTML = tableStringHTML;
                 let checkboxes = document.querySelectorAll("input.delete-checkbox");
+
                 checkboxes.forEach((checkbox) => {
                     checkbox.addEventListener("change", function() {
                         if (this.checked) {
