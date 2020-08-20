@@ -264,6 +264,11 @@ body {
     text-align: left;
 }
 
+.td {
+    font-size: 1.5rem;
+    color: var(--body-color);
+}
+
 .add-border {
     border: 10px solid red;
 }

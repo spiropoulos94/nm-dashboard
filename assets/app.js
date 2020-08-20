@@ -69,7 +69,8 @@ window.addEventListener("load", function() {
         fetch("https://reqres.in/api/users")
             .then((res) => res.json())
             .then((res) => {
-                const usersData = res.data;
+                let usersData = res.data;
+                //localStorage.setItem("localUserData", JSON.stringify(resData));
 
                 data.innerHTML = "";
                 mainHeading.innerText = "User Data";
@@ -79,6 +80,12 @@ window.addEventListener("load", function() {
 
                 dataTable.classList.remove("not-visible");
                 data.appendChild(dataTable);
+
+                //  localUserData = localStorage.getItem("localUserData");
+                //  //localStorage.removeItem("localUserData");
+                //
+                //  let usersData = JSON.parse(localStorage.getItem("localUserData"));
+                //
                 usersData.forEach((user) => {
                     let tr = document.createElement("tr");
                     tr.innerHTML = `
