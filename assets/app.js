@@ -94,6 +94,11 @@ window.addEventListener("load", function() {
                     )}</td>
                     `;
                     dataTable.appendChild(tr);
+                    console.log(dataTable);
+                    if (dataTable.children.length > usersData.length) {
+                        dataTable.removeChild(dataTable.lastChild);
+                        console.log(dataTable.children.length);
+                    }
                 });
             });
     }
