@@ -31,10 +31,10 @@ window.addEventListener("load", function() {
             .then((res) => res.json())
             .then((res) => {
                 colours = res.data;
-                console.log("Colours length", colours.length);
+                // console.log("Colours length", colours.length);
 
                 colours.reverse();
-                console.log("Colours sorted", colours);
+                // console.log("Colours sorted", colours);
 
                 mainHeading.innerText = "Colours";
 
@@ -80,8 +80,17 @@ window.addEventListener("load", function() {
                 let deleteButton = document.createElement("button");
                 deleteButton.innerHTML = "DELETE";
                 deleteButton.setAttribute("disabled", true);
+                //check if checkboxes are checked
+
+                let checkboxesArr = document.getElementsByClassName("delete-checkbox");
+                setTimeout(() => {
+                    console.log(checkboxesArr.length);
+                    for (let i = 0; i < checkboxesArr.length; i++) {
+                        console.log(checkboxesArr[i]["checked"]);
+                    }
+                }, 1);
+
                 deleteButton.className = "delete-btn";
-                console.log(deleteButton);
 
                 let displaySpace = document.getElementById("space");
                 let displaySpaceWrapper = document.getElementById("display-wrapper");
@@ -92,11 +101,15 @@ window.addEventListener("load", function() {
                     displaySpace.removeChild(displaySpace.lastChild);
                 }
 
-                function enableButton(e) {
-                    deleteButton.removeAttribute("disabled");
-                }
-
-                enableButton();
+                // i use a setTimeout function because if i dont the browser return a checkbox number of 0.
+                //setTimeout(function() {
+                //    console.log(checkboxesArr);
+                //    for (let i = 0; i < checkboxesArr.length; i++) {
+                //        if (checkboxesArr[i]["checked"]) {
+                //            console.log("we have checked buttons!!");
+                //        }
+                //    }
+                //}, 0);
 
                 displayLength.innerHTML = ``;
                 //Converting Data to Table
