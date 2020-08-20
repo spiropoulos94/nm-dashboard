@@ -81,20 +81,21 @@ window.addEventListener("load", function() {
                 data.appendChild(dataTable);
                 usersData.forEach((user) => {
                     let tr = document.createElement("tr");
-                    console.log(tr);
-
                     tr.innerHTML = `
-                    <td><input type="checkbox"></td>
-                    <td>${user.id}</td>
-                    <td>${user.last_name}</td>
-                    <td>${user.first_name}</td>
-                    <td>${user.email}</td>
-                    <td>${user.avatar}</td>
+                    <td class="td user-checkbox"><input type="checkbox"></td>
+                    <td class="td user-id">${user.id}</td>
+                    <td class="td user-last">${user.last_name}</td>
+                    <td class="td user-first">${user.first_name}</td>
+                    <td class="td user-email">${user.email}</td>
+                    <td class="td user-avatar"> ${user.avatar.substring(
+                      user.avatar.lastIndexOf("r/") + 2,
+                      user.avatar.lastIndexOf("/128")
+                    )}</td>
                     `;
                     dataTable.appendChild(tr);
                 });
             });
-        dataTable.innerHTML = "";
+        data.innerHTML = "";
     }
     document.getElementById("users").addEventListener("click", () => {
         getUsers();
