@@ -206,13 +206,14 @@ body {
 .color-info {
   display: flex;
   align-items: center;
-  justify-content: space-around;
+  justify-content: space-between;
   flex-direction: row-reverse;
   color: white;
   font-weight: bold;
   font-size: 20px;
-  opacity: 30%;
+  opacity: 50%;
   background: rgba(0, 151, 20, 0.226);
+  padding: 0 5%;
 }
 
 .color-info:hover {
