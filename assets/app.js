@@ -5,9 +5,10 @@ window.addEventListener("load", function() {
     let mainHeaderContainer = document.getElementsByClassName(
         "main-header-container"
     )[0];
-
     let flexibleField = document.getElementsByClassName("flexible")[0];
     let displayLength = document.getElementsByClassName("length")[0];
+    let dataTable = document.getElementsByClassName("data-table")[0];
+    console.log(dataTable);
 
     function welcomeScreen() {
         data.innerHTML = "";
@@ -67,15 +68,23 @@ window.addEventListener("load", function() {
         fetch("https://reqres.in/api/users")
             .then((res) => res.json())
             .then((res) => {
-                let users = res.data;
-                console.log("User Data", users);
-            });
-        data.innerHTML = "";
-        mainHeading.innerText = "User Data";
-        flexibleField.innerHTML = `<button class="delete-btn">Delete</button>`;
-        displayLength.innerHTML = ``;
-    }
+                const usersData = res.data;
+                console.log("User Data", usersData);
 
+                data.innerHTML = "";
+                mainHeading.innerText = "User Data";
+                flexibleField.innerHTML = `<button disabled class="delete-btn">Delete</button>`;
+                displayLength.innerHTML = ``;
+                //Converting Data to Table
+                //let table = document.createElement("table");
+                //table.innerText = "I am a table!";
+                //table.className = "table-class";
+                //data.innerHTML = "";
+                //data.appendChild(table);
+                dataTable.classList.remove("not-visible");
+                data.appendChild(dataTable);
+            });
+    }
     document.getElementById("users").addEventListener("click", () => {
         getUsers();
     });
