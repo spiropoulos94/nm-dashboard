@@ -76,14 +76,25 @@ window.addEventListener("load", function() {
                 flexibleField.innerHTML = `<button disabled class="delete-btn">Delete</button>`;
                 displayLength.innerHTML = ``;
                 //Converting Data to Table
-                //let table = document.createElement("table");
-                //table.innerText = "I am a table!";
-                //table.className = "table-class";
-                //data.innerHTML = "";
-                //data.appendChild(table);
+
                 dataTable.classList.remove("not-visible");
                 data.appendChild(dataTable);
+                usersData.forEach((user) => {
+                    let tr = document.createElement("tr");
+                    console.log(tr);
+
+                    tr.innerHTML = `
+                    <td><input type="checkbox"></td>
+                    <td>${user.id}</td>
+                    <td>${user.last_name}</td>
+                    <td>${user.first_name}</td>
+                    <td>${user.email}</td>
+                    <td>${user.avatar}</td>
+                    `;
+                    dataTable.appendChild(tr);
+                });
             });
+        dataTable.innerHTML = "";
     }
     document.getElementById("users").addEventListener("click", () => {
         getUsers();
