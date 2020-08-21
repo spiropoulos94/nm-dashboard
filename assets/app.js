@@ -16,6 +16,18 @@ window.addEventListener("load", function() {
 
     let tableHead = document.getElementsByClassName("table-head")[0];
 
+    let burgerMenu = document.getElementById("dropdown");
+    burgerMenu.onclick = function() {
+        let navBar = document.querySelector("div.nav-bar");
+        if (burgerMenu.checked) {
+            console.log("Its is checked!");
+            navBar.setAttribute("style", "display:flex;");
+        } else {
+            navBar.setAttribute("style", "display:none;");
+            navBar.className += "mobile-navbar";
+        }
+    };
+
     function welcomeScreen() {
         data.innerHTML = "";
         mainHeading.innerText = "Welcome";
