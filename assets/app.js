@@ -143,6 +143,15 @@ window.addEventListener("load", function() {
                 let checkboxes = document.querySelectorAll("input.delete-checkbox");
                 let selectedRow = null;
 
+                function deleteUser(row) {
+                    confirm("Are you sure you want to delete this user?");
+                    row.parentNode.removeChild(row);
+                }
+
+                document.querySelector(".delete-btn").addEventListener("click", () => {
+                    deleteUser(selectedRow);
+                });
+
                 checkboxes.forEach((checkbox) => {
                     checkbox.addEventListener("click", function(e) {
                         if (this.checked) {
@@ -150,17 +159,10 @@ window.addEventListener("load", function() {
                             selectedRow = this.parentNode.parentNode;
                             console.log(selectedRow);
                             // selectedRow.parentNode.removeChild(selectedRow);
-                            document
-                                .querySelector(".delete-btn")
-                                .addEventListener("click", () => {
-                                    // console.log(selectedRow);
-                                    confirm("Are you sure you want to delete this user?");
-                                    selectedRow.parentNode.removeChild(selectedRow);
-                                });
+                            // deleteUser(selectedRow);
                         }
                     });
                 });
-                console.log(selectedRow);
             });
     }
     document.getElementById("users").addEventListener("click", getUsers);
