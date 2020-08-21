@@ -17,8 +17,10 @@ window.addEventListener("load", function() {
     let tableHead = document.getElementsByClassName("table-head")[0];
 
     let burgerMenu = document.getElementById("dropdown");
+    burgerMenu.checked = true;
     burgerMenu.onclick = function() {
         let navBar = document.querySelector("div.nav-bar");
+
         if (burgerMenu.checked) {
             console.log("Its is checked!");
             navBar.setAttribute("style", "display:flex;");
