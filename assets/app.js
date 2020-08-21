@@ -24,7 +24,6 @@ window.addEventListener("load", function() {
             navBar.setAttribute("style", "display:flex;");
         } else {
             navBar.setAttribute("style", "display:none;");
-            navBar.className += "mobile-navbar";
         }
     };
 

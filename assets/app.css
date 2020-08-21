@@ -376,7 +376,7 @@ tr:nth-child(even) td {
         font-size: 6vw;
     }
     .nav-bar {
-        display: none;
+        width: 35%;
     }
     .main-screen-content {
         padding: 2% 5%;
