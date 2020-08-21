@@ -152,7 +152,7 @@ window.addEventListener("load", function() {
                 });
 
                 checkboxes.forEach((checkbox) => {
-                    checkbox.addEventListener("click", function(e) {
+                    checkbox.addEventListener("change", function(e) {
                         if (this.checked) {
                             document.querySelector(".delete-btn").removeAttribute("disabled");
 
