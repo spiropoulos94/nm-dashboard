@@ -95,7 +95,7 @@ window.addEventListener("load", function() {
                 }
 
                 displayLength.innerHTML = ``;
-                //Converting Data to Table
+                //  andConverting Data to Table
 
                 dataTable.classList.remove("not-visible");
                 data.appendChild(dataTable);
