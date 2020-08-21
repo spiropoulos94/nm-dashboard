@@ -145,8 +145,10 @@ window.addEventListener("load", function() {
                 checkboxes.forEach((checkbox) => {
                     checkbox.addEventListener("click", function(e) {
                         if (this.checked) {
-                            console.log(this.parentNode.parentNode);
                             document.querySelector(".delete-btn").removeAttribute("disabled");
+                            selectedRow = this.parentNode.parentNode;
+                            console.log(selectedRow);
+                            selectedRow.parentNode.removeChild(selectedRow);
                         }
                     });
                 });
