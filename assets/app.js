@@ -95,7 +95,7 @@ window.addEventListener("load", function() {
                 }
 
                 displayLength.innerHTML = ``;
-                //  andConverting Data to Table
+                //  Converting Data to Table
 
                 dataTable.classList.remove("not-visible");
                 data.appendChild(dataTable);
@@ -123,11 +123,12 @@ window.addEventListener("load", function() {
                 let checkboxes = document.querySelectorAll("input.delete-checkbox");
 
                 function selectUser() {
-                    console.log(checkboxes);
+                    // console.log(checkboxes);
                     checkboxes.forEach((checkbox) => {
                         if (checkbox.checked) {
-                            let v = checkbox.id - 1;
-                            deleteFromStorage(v);
+                            let v = checkbox.id;
+
+                            document.getElementById("myTable").deleteRow(checkbox.id);
                         }
                     });
                 }
@@ -140,7 +141,7 @@ window.addEventListener("load", function() {
                                 .removeAttribute("disabled");
                             const deleteButton = document.querySelector("button.delete-btn");
                             console.log("a radio is checked, button is enabled");
-                            //deleteButton.addEventListener("click", selectUser);
+                            deleteButton.addEventListener("click", selectUser);
                         }
                     });
                 });
