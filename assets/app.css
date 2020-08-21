@@ -414,7 +414,7 @@ tr:nth-child(even) td {
     }
     .nav-bar {
         width: 30%;
-        display: none;
+        /* display: none; */
     }
     .main-screen-content {
         padding: 2% 5%;
