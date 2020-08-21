@@ -31,9 +31,7 @@ window.addEventListener("load", function() {
 
     burgerMenu.onclick = function() {
         let navBar = document.querySelector("div.nav-bar");
-        console.log("button clicked");
         navBar.classList.toggle("not-visible");
-        console.log(navBar.classList);
     };
 
     function welcomeScreen() {
@@ -142,10 +140,11 @@ window.addEventListener("load", function() {
                 dataTable.querySelector("tbody").innerHTML = tableStringHTML;
                 let checkboxes = document.querySelectorAll("input.delete-checkbox");
                 let selectedRow = null;
+                let userID = null;
 
-                function deleteUser(row) {
-                    confirm("Are you sure you want to delete this user?");
-                    row.parentNode.removeChild(row);
+                function deleteUser(selectedRow, userId) {
+                    confirm(`Are you sure you want to delete user with ID ${userID} ?`);
+                    selectedRow.parentNode.removeChild(selectedRow);
                 }
 
                 document.querySelector(".delete-btn").addEventListener("click", () => {
@@ -156,10 +155,9 @@ window.addEventListener("load", function() {
                     checkbox.addEventListener("click", function(e) {
                         if (this.checked) {
                             document.querySelector(".delete-btn").removeAttribute("disabled");
+
                             selectedRow = this.parentNode.parentNode;
-                            console.log(selectedRow);
-                            // selectedRow.parentNode.removeChild(selectedRow);
-                            // deleteUser(selectedRow);
+                            userID = selectedRow.children[1].innerText;
                         }
                     });
                 });
