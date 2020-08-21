@@ -70,8 +70,6 @@ window.addEventListener("load", function() {
         fetch("https://reqres.in/api/users")
             .then((res) => res.json())
             .then((res) => {
-                //let usersData = res.data;
-
                 localStorage.setItem("usersData", JSON.stringify(res.data));
                 let usersData = JSON.parse(localStorage.getItem("usersData"));
                 //confirm(`Are you sure you want to delete this user?`);
@@ -89,7 +87,7 @@ window.addEventListener("load", function() {
                 }
 
                 displayLength.innerHTML = ``;
-                //Converting Data to Table DS
+                //Converting Data to Table
 
                 dataTable.classList.remove("not-visible");
                 data.appendChild(dataTable);
@@ -97,8 +95,10 @@ window.addEventListener("load", function() {
                 let tableStringHTML = "";
 
                 usersData.forEach((user) => {
-                    tableStringHTML += `<tr ${user.id % 2 == 0}>
-                    <td class="td user-checkbox "><input type="radio" name="radio-btn" class="delete-checkbox " id="radio-btn" /> 
+                    tableStringHTML += `<tr>
+                    <td class="td user-checkbox "><input type="radio" name="radio-btn" class="delete-checkbox " id="${
+                      user.id
+                    }" /> 
                       <label for="radio-btn"></label> </td>
                     <td class="td user-id">${user.id}</td>
                     <td class="td user-last">${user.last_name}</td>
@@ -114,6 +114,22 @@ window.addEventListener("load", function() {
                 dataTable.querySelector("tbody").innerHTML = tableStringHTML;
                 let checkboxes = document.querySelectorAll("input.delete-checkbox");
 
+                function deleteUser() {
+                    console.log(checkboxes);
+                    checkboxes.forEach((checkbox) => {
+                        if (checkbox.checked) {
+                            confirm(
+                                `Are you sure you want to delete the user with ID : ${checkbox.id}?`
+                            );
+                            console.log("user deleted");
+                            usersData.splice(checkbox.id - 1, 1);
+                            console.log(usersData);
+                        }
+                    });
+                    //confirm("Are you sure you want to delete this user?");
+                    //console.log("User Deleted");
+                }
+
                 checkboxes.forEach((checkbox) => {
                     checkbox.addEventListener("change", function() {
                         if (this.checked) {
@@ -121,10 +137,8 @@ window.addEventListener("load", function() {
                                 .querySelector("button.delete-btn")
                                 .removeAttribute("disabled");
                             const deleteButton = document.querySelector("button.delete-btn");
-                            console.log(deleteButton);
-                            deleteButton.onclick = function() {
-                                console.log("Button clicked");
-                            };
+                            console.log("a radio is checked, button is enabled");
+                            deleteButton.addEventListener("click", deleteUser);
                         }
                     });
                 });
