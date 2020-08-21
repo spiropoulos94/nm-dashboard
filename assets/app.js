@@ -2,11 +2,10 @@
 
 window.addEventListener("resize", function() {
     let navBar = document.querySelector("div.nav-bar");
-
-    if (window.innerWidth > 730) {
-        navBar.setAttribute("style", "display:flex;");
+    if (window.innerWidth < 730) {
+        navBar.className += " not-visible";
     } else {
-        navBar.setAttribute("style", "display:none;");
+        navBar.classList.remove("not-visible");
     }
 });
 
@@ -28,17 +27,14 @@ window.addEventListener("load", function() {
 
     let tableHead = document.getElementsByClassName("table-head")[0];
 
-    let burgerMenu = document.getElementById("dropdown");
+    let burgerMenu = document.querySelector("button.ham");
 
     burgerMenu.onclick = function() {
         let navBar = document.querySelector("div.nav-bar");
+        console.log("button clicked");
 
-        if (burgerMenu.checked) {
-            console.log("Its is checked!");
-            navBar.setAttribute("style", "display:flex;");
-        } else {
-            navBar.setAttribute("style", "display:none;");
-        }
+        navBar.setAttribute("style", "display:flex");
+        console.log(navBar);
     };
 
     function welcomeScreen() {

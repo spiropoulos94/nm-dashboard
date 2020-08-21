@@ -395,7 +395,7 @@ tr:nth-child(even) td {
 @media only screen and (max-width: 730px) {
     .ham {
         display: flex;
-        font-size: 50px;
+        font-size: 30px;
     }
     .header {
         padding: 0 2%;
