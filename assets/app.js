@@ -3,6 +3,8 @@ window.addEventListener("resize", function() {
 
     if (window.innerWidth > 730) {
         navBar.setAttribute("style", "display:flex;");
+    } else {
+        navBar.setAttribute("style", "display:none;");
     }
 });
 

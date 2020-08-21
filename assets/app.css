@@ -376,7 +376,7 @@ tr:nth-child(even) td {
         font-size: 6vw;
     }
     .nav-bar {
-        width: 35%;
+        width: 30%;
     }
     .main-screen-content {
         padding: 2% 5%;
@@ -389,11 +389,5 @@ tr:nth-child(even) td {
     }
     .logout-box {
         padding: 0;
-    }
-}
-
-@media only screen and (min-width: 730px) {
-    .nav-bar {
-        display: flex;
     }
 }
