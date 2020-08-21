@@ -44,6 +44,13 @@ body {
     background-color: var(--secondary);
 }
 
+.ham {
+    display: flex;
+    align-items: center;
+    display: none;
+    padding: 0 2%;
+}
+
 .logo-box {
     display: flex;
     width: 25%;
@@ -353,6 +360,10 @@ tr:nth-child(even) td {
 }
 
 @media only screen and (max-width: 730px) {
+    .ham {
+        display: flex;
+        font-size: 50px;
+    }
     .mini-wrapper {
         font-size: 4vw;
         width: 20%;
