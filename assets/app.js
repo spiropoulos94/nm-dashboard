@@ -115,7 +115,18 @@ window.addEventListener("load", function() {
                 //  Converting Data to Table
 
                 dataTable.classList.remove("not-visible");
-                data.appendChild(dataTable);
+                let bdxample = document.createElement("div");
+                bdxample.className = "bd-example";
+
+                let tableResponsive = document.createElement("div");
+                tableResponsive.className = "table-responsive";
+
+                data.appendChild(bdxample);
+                bdxample.appendChild(tableResponsive);
+                tableResponsive.appendChild(dataTable);
+
+                //data.appendChild
+                //data.appendChild(dataTable);
 
                 let tableStringHTML = "";
 

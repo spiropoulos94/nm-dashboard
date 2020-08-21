@@ -291,6 +291,7 @@ tr:nth-child(even) td {
 
 .table-head th {
     text-align: left;
+    width: 2%;
 }
 
 .table-head>th {
@@ -303,8 +304,18 @@ tr:nth-child(even) td {
     padding: 1.5vh 0;
 }
 
-.true>td {
-    background-color: red;
+.bd-example {
+    position: relative;
+    /* padding: 1rem;
+    margin: 1rem -15px 0; */
+    width: 100%;
+}
+
+.table-responsive {
+    display: block;
+    width: 100%;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
 }
 
 .loader {
@@ -354,10 +365,10 @@ tr:nth-child(even) td {
         font-size: 2.5vw;
     }
     .table-head {
-        font-size: 3vw;
+        font-size: 2rem;
     }
     td.td {
-        font-size: 2vw;
+        font-size: 1.5rem;
     }
     .main-screen-content {
         padding: 2% 0;
@@ -367,6 +378,12 @@ tr:nth-child(even) td {
     }
     .color-info p {
         font-size: 2vw;
+    }
+    .table-responsive {
+        display: block;
+        width: 150%;
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
     }
 }
 
