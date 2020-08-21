@@ -72,7 +72,15 @@ window.addEventListener("load", function() {
             .then((res) => {
                 localStorage.setItem("usersData", JSON.stringify(res.data));
                 let usersData = JSON.parse(localStorage.getItem("usersData"));
-                //confirm(`Are you sure you want to delete this user?`);
+
+                function deleteFromStorage(v) {
+                    console.log(usersData[v]);
+                    usersData.splice(v, 1);
+                    console.log("user data  inside DELETE FOM STORAGE ,", usersData);
+                    //return usersData;
+                }
+
+                console.log("user data outside is", usersData);
 
                 data.innerHTML = "";
                 mainHeading.innerText = "User Data";
@@ -94,6 +102,10 @@ window.addEventListener("load", function() {
 
                 let tableStringHTML = "";
 
+                //function updateUserData(){
+                //
+                //}
+
                 usersData.forEach((user) => {
                     tableStringHTML += `<tr>
                     <td class="td user-checkbox "><input type="radio" name="radio-btn" class="delete-checkbox " id="${
@@ -114,20 +126,14 @@ window.addEventListener("load", function() {
                 dataTable.querySelector("tbody").innerHTML = tableStringHTML;
                 let checkboxes = document.querySelectorAll("input.delete-checkbox");
 
-                function deleteUser() {
+                function selectUser() {
                     console.log(checkboxes);
                     checkboxes.forEach((checkbox) => {
                         if (checkbox.checked) {
-                            confirm(
-                                `Are you sure you want to delete the user with ID : ${checkbox.id}?`
-                            );
-                            console.log("user deleted");
-                            usersData.splice(checkbox.id - 1, 1);
-                            console.log(usersData);
+                            let v = checkbox.id - 1;
+                            deleteFromStorage(v);
                         }
                     });
-                    //confirm("Are you sure you want to delete this user?");
-                    //console.log("User Deleted");
                 }
 
                 checkboxes.forEach((checkbox) => {
@@ -138,7 +144,7 @@ window.addEventListener("load", function() {
                                 .removeAttribute("disabled");
                             const deleteButton = document.querySelector("button.delete-btn");
                             console.log("a radio is checked, button is enabled");
-                            deleteButton.addEventListener("click", deleteUser);
+                            deleteButton.addEventListener("click", selectUser);
                         }
                     });
                 });
