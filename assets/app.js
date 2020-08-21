@@ -32,9 +32,8 @@ window.addEventListener("load", function() {
     burgerMenu.onclick = function() {
         let navBar = document.querySelector("div.nav-bar");
         console.log("button clicked");
-
-        navBar.setAttribute("style", "display:flex");
-        console.log(navBar);
+        navBar.classList.toggle("not-visible");
+        console.log(navBar.classList);
     };
 
     function welcomeScreen() {

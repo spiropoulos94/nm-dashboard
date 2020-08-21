@@ -294,6 +294,7 @@ tr:nth-child(even) td {
 .table-head th {
     text-align: left;
     width: 2%;
+    /* padding-right: 10%; */
 }
 
 .table-head>th {
