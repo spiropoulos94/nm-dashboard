@@ -327,6 +327,9 @@ tr:nth-child(even) td {
     animation: spin 2s linear infinite;
 }
 
+
+/* /fasfas */
+
 @keyframes spin {
     0% {
         transform: rotate(0deg);
