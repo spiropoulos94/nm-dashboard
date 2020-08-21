@@ -142,16 +142,25 @@ window.addEventListener("load", function() {
                 dataTable.querySelector("tbody").innerHTML = tableStringHTML;
                 let checkboxes = document.querySelectorAll("input.delete-checkbox");
                 let selectedRow = null;
+
                 checkboxes.forEach((checkbox) => {
                     checkbox.addEventListener("click", function(e) {
                         if (this.checked) {
                             document.querySelector(".delete-btn").removeAttribute("disabled");
                             selectedRow = this.parentNode.parentNode;
                             console.log(selectedRow);
-                            selectedRow.parentNode.removeChild(selectedRow);
+                            // selectedRow.parentNode.removeChild(selectedRow);
+                            document
+                                .querySelector(".delete-btn")
+                                .addEventListener("click", () => {
+                                    // console.log(selectedRow);
+                                    confirm("Are you sure you want to delete this user?");
+                                    selectedRow.parentNode.removeChild(selectedRow);
+                                });
                         }
                     });
                 });
+                console.log(selectedRow);
             });
     }
     document.getElementById("users").addEventListener("click", getUsers);
