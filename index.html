@@ -13,72 +13,82 @@
     <div class="whole-page">
         <div id="whole-page-spinner" class="loader-wrapper">
             <div class="loader"></div>
-            <h2 class=loading-msg>loading...</h2>
+            <h2 class="loading-msg">loading...</h2>
         </div>
         <div class="header">
-            <input id="dropdown" class="input-box" type="checkbox">
-            <label for="dropdown" class="dropdown"><div class='ham'>&#9776;</div></label>
-            <div class="logo-box">
-                <img class="logo-img" src="logo-placeholder.png" width="50vw" height="auto" />
-                <p class="logo-txt">Logo</p>
-            </div>
-            <div class="dash">
-                <p class="title">Dashboard</p>
-                <div class="logout-box">
-                    <p class="logout-txt">Logout</p>
-                    <img class="user-icon" src="logo-placeholder.png" width="40px" />
-                </div>
-            </div>
+            <input id="dropdown" class="input-box" type="checkbox" />
+            <label for="dropdown" class="dropdown"><p class="ham">&#9776;</p></label
+        >
+        <div class="logo-box">
+          <img
+            class="logo-img"
+            src="logo-placeholder.png"
+            width="50"
+            alt="logo"
+          />
+          <p class="logo-txt">Logo</p>
         </div>
-        <div></div>
-        <div class="horizontal-container">
-            <div class="nav-bar">
-                <ul class="menu-items">
-                    <li id="colours">Colors</li>
-                    <li id="users">Users</li>
-                </ul>
-                <div class="footer">
-                    <!-- change the date to auto changing-->
-                    <p class="footer-text">Ⓒ 2020 Netmechanics</p>
-                </div>
-            </div>
-            <div class="main-screen">
-                <div class="main-screen-content">
-                    <div class="main-head-wrapper">
-                        <div class="top-text">
-                            <h1 class="main-heading">Welcome</h1>
-                            <div class="mini-wrapper">
-                                <div id="space" class="flexible"></div>
-                                <div class="length"></div>
-                            </div>
-                        </div>
-
-                        <div class="data">
-                            <table id="myTable" cell-spacing="0" cell-padding="0" class="data-table  not-visible" style="width:100%">
-                                <thead>
-                                    <tr class="table-head">
-                                        <th></th>
-                                        <th>ID</th>
-                                        <th>LAST NAME</th>
-                                        <th>FIST NAME</th>
-                                        <th>EMAIL</th>
-                                        <th>AVATAR</th>
-                                    </tr>
-                                </thead>
-                                <tbody></tbody>
-                            </table>
-                        </div>
-
-                    </div>
-
-                </div>
-            </div>
+        <div class="dash">
+          <p class="title">Dashboard</p>
+          <div class="logout-box">
+            <p class="logout-txt">Logout</p>
+            <img
+              class="user-icon"
+              src="logo-placeholder.png"
+              width="40"
+              alt="user-icon"
+            />
+          </div>
         </div>
+      </div>
+      <div></div>
+      <div class="horizontal-container">
+        <div class="nav-bar">
+          <ul class="menu-items">
+            <li id="colours">Colors</li>
+            <li id="users">Users</li>
+          </ul>
+          <div class="footer">
+            <!-- change the date to auto changing-->
+            <p class="footer-text">Ⓒ 2020 Netmechanics</p>
+          </div>
+        </div>
+        <div class="main-screen">
+          <div class="main-screen-content">
+            <div class="main-head-wrapper">
+              <div class="top-text">
+                <h1 class="main-heading">Welcome</h1>
+                <div class="mini-wrapper">
+                  <div id="space" class="flexible"></div>
+                  <div class="length"></div>
+                </div>
+              </div>
 
-    </div>
-
+              <div class="data">
+                <table
+                  id="myTable"
+                  cell-spacing="0"
+                  cell-padding="0"
+                  class="data-table not-visible"
+                >
+                  <thead>
+                    <tr class="table-head">
+                      <th></th>
+                      <th>ID</th>
+                      <th>LAST NAME</th>
+                      <th>FIST NAME</th>
+                      <th>EMAIL</th>
+                      <th>AVATAR</th>
+                    </tr>
+                  </thead>
+                  <tbody></tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
     <script src="./assets/app.js"></script>
-</body>
-
+  </body>
 </html>

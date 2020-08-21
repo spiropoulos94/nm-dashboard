@@ -261,13 +261,19 @@ body {
     display: none;
 }
 
-.overflow {
+.table-responsive {
     overflow-x: auto;
 }
 
 .data-table {
     margin: 5% 0;
     width: 100%;
+}
+
+.table-responsive {
+    display: block;
+    width: 100%;
+    overflow-x: auto;
 }
 
 .td {

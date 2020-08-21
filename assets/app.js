@@ -1,3 +1,5 @@
+// the following event listener is responsible for displaying or not the menu based on the window width
+
 window.addEventListener("resize", function() {
     let navBar = document.querySelector("div.nav-bar");
 
@@ -27,8 +29,6 @@ window.addEventListener("load", function() {
     let tableHead = document.getElementsByClassName("table-head")[0];
 
     let burgerMenu = document.getElementById("dropdown");
-
-    //burgerMenu.checked = true;
 
     burgerMenu.onclick = function() {
         let navBar = document.querySelector("div.nav-bar");
@@ -106,11 +106,12 @@ window.addEventListener("load", function() {
                 displaySpace.innerHTML =
                     '<button class="delete-btn" type="button" disabled>Delete</button>';
 
+                //TODO review
                 if (displaySpace.children.length > 1) {
                     displaySpace.removeChild(displaySpace.lastChild);
                 }
 
-                displayLength.innerHTML = ``;
+                displayLength.innerHTML = "";
                 //  Converting Data to Table
 
                 dataTable.classList.remove("not-visible");
@@ -155,8 +156,9 @@ window.addEventListener("load", function() {
                             document
                                 .querySelector("button.delete-btn")
                                 .removeAttribute("disabled");
-                            const deleteButton = document.querySelector("button.delete-btn");
                             console.log("a radio is checked, button is enabled");
+
+                            const deleteButton = document.querySelector("button.delete-btn");
                             deleteButton.addEventListener("click", selectUser);
                         }
                     });
