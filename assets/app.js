@@ -141,18 +141,12 @@ window.addEventListener("load", function() {
 
                 dataTable.querySelector("tbody").innerHTML = tableStringHTML;
                 let checkboxes = document.querySelectorAll("input.delete-checkbox");
-
+                let selectedRow = null;
                 checkboxes.forEach((checkbox) => {
-                    checkbox.addEventListener("change", function(e) {
+                    checkbox.addEventListener("click", function(e) {
                         if (this.checked) {
-                            document
-                                .querySelector("button.delete-btn")
-                                .removeAttribute("disabled");
-                            console.log("a radio is checked, button is enabled");
-                            const deleteButton = document.querySelector("button.delete-btn");
-                            deleteButton.addEventListener("click", function(e) {
-                                console.log(e.target);
-                            });
+                            console.log(this);
+                            document.querySelector(".delete-btn").removeAttribute("disabled");
                         }
                     });
                 });
