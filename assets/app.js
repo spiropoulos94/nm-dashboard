@@ -21,11 +21,11 @@ window.addEventListener("load", function() {
     let mainHeaderContainer = document.getElementsByClassName(
         "main-header-container"
     )[0];
-    let flexibleField = document.getElementsByClassName("flexible")[0];
-    let displayLength = document.getElementsByClassName("length")[0];
-    let dataTable = document.getElementsByClassName("data-table")[0];
+    let flexibleField = document.querySelector(".flexible");
+    let displayLength = document.querySelector(".length");
+    let dataTable = document.querySelector(".data-table");
 
-    let tableHead = document.getElementsByClassName("table-head")[0];
+    let tableHead = document.querySelector("table-head");
 
     let burgerMenu = document.querySelector("button.ham");
 
@@ -120,9 +120,6 @@ window.addEventListener("load", function() {
                 bdxample.appendChild(tableResponsive);
                 tableResponsive.appendChild(dataTable);
 
-                //data.appendChild
-                //data.appendChild(dataTable);
-
                 let tableStringHTML = "";
 
                 usersData.forEach((user) => {
@@ -145,27 +142,17 @@ window.addEventListener("load", function() {
                 dataTable.querySelector("tbody").innerHTML = tableStringHTML;
                 let checkboxes = document.querySelectorAll("input.delete-checkbox");
 
-                function selectUser() {
-                    // console.log(checkboxes);
-                    checkboxes.forEach((checkbox) => {
-                        if (checkbox.checked) {
-                            let v = checkbox.id;
-
-                            document.getElementById("myTable").deleteRow(checkbox.id);
-                        }
-                    });
-                }
-
                 checkboxes.forEach((checkbox) => {
-                    checkbox.addEventListener("change", function() {
+                    checkbox.addEventListener("change", function(e) {
                         if (this.checked) {
                             document
                                 .querySelector("button.delete-btn")
                                 .removeAttribute("disabled");
                             console.log("a radio is checked, button is enabled");
-
                             const deleteButton = document.querySelector("button.delete-btn");
-                            deleteButton.addEventListener("click", selectUser);
+                            deleteButton.addEventListener("click", function(e) {
+                                console.log(e.target);
+                            });
                         }
                     });
                 });
