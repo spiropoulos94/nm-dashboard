@@ -1,6 +1,16 @@
+window.addEventListener("resize", function() {
+    let navBar = document.querySelector("div.nav-bar");
+
+    if (window.innerWidth > 730) {
+        navBar.setAttribute("style", "display:flex;");
+    }
+});
+
 window.addEventListener("load", function() {
     //when page loads the spinner becomes hidden
     let spinner = document.getElementById("whole-page-spinner");
+
+    console.log(window.innerWidth);
 
     spinner.style.display = "none";
 
@@ -85,15 +95,6 @@ window.addEventListener("load", function() {
             .then((res) => {
                 localStorage.setItem("usersData", JSON.stringify(res.data));
                 let usersData = JSON.parse(localStorage.getItem("usersData"));
-
-                // function deleteFromStorage(v) {
-                //     console.log(usersData[v]);
-                //     usersData.splice(v, 1);
-                //     console.log("user data  inside DELETE FOM STORAGE ,", usersData);
-                //     return usersData;
-                // }
-
-                //console.log("user data outside is", usersData);
 
                 data.innerHTML = "";
                 mainHeading.innerText = "User Data";
