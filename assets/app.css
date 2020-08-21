@@ -42,6 +42,7 @@ body {
     display: flex;
     height: 11vh;
     background-color: var(--secondary);
+    align-items: center;
 }
 
 #dropdown {
@@ -377,6 +378,7 @@ tr:nth-child(even) td {
     }
     .nav-bar {
         width: 30%;
+        display: none;
     }
     .main-screen-content {
         padding: 2% 5%;

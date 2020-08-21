@@ -12,8 +12,6 @@ window.addEventListener("load", function() {
     //when page loads the spinner becomes hidden
     let spinner = document.getElementById("whole-page-spinner");
 
-    console.log(window.innerWidth);
-
     spinner.style.display = "none";
 
     let data = document.getElementsByClassName("data")[0];
@@ -29,7 +27,9 @@ window.addEventListener("load", function() {
     let tableHead = document.getElementsByClassName("table-head")[0];
 
     let burgerMenu = document.getElementById("dropdown");
-    burgerMenu.checked = true;
+
+    //burgerMenu.checked = true;
+
     burgerMenu.onclick = function() {
         let navBar = document.querySelector("div.nav-bar");
 
