@@ -1,7 +1,9 @@
 window.addEventListener("load", function() {
     //when page loads the spinner becomes hidden
     let spinner = document.getElementById("whole-page-spinner");
+
     spinner.style.display = "none";
+
     let data = document.getElementsByClassName("data")[0];
     let mainHeading = document.getElementsByClassName("main-heading")[0];
     let info = document.getElementById("info");
@@ -69,7 +71,7 @@ window.addEventListener("load", function() {
             .then((res) => res.json())
             .then((res) => {
                 //let usersData = res.data;
-                const deleteButton = document.querySelector("button.delete-btn");
+
                 localStorage.setItem("usersData", JSON.stringify(res.data));
                 let usersData = JSON.parse(localStorage.getItem("usersData"));
                 //confirm(`Are you sure you want to delete this user?`);
@@ -118,10 +120,11 @@ window.addEventListener("load", function() {
                             document
                                 .querySelector("button.delete-btn")
                                 .removeAttribute("disabled");
-                        } else {
-                            document
-                                .querySelector("button.delete-btn")
-                                .setAttribute("disabled", true);
+                            const deleteButton = document.querySelector("button.delete-btn");
+                            console.log(deleteButton);
+                            deleteButton.onclick = function() {
+                                console.log("Button clicked");
+                            };
                         }
                     });
                 });
