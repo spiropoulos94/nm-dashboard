@@ -142,9 +142,23 @@ window.addEventListener("load", function() {
     let selectedRow = null;
     let userID = null;
 
+    // Deleting a user/row  -----------------------------------------------------------------
+
     function deleteUser(selectedRow, userId) {
       confirm(`Are you sure you want to delete user with ID ${userID} ?`);
+
+      //remove from table
       selectedRow.parentNode.removeChild(selectedRow);
+      console.log(userID, parseInt(selectedRow.children[1].innerText));
+
+      //remove from session storage
+      let arrayJson = JSON.parse(window.sessionStorage.getItem("usersData"));
+
+      let newArr = arrayJson.filter(
+        (entry) => parseInt(entry.id) != parseInt(userID)
+      );
+      window.sessionStorage.setItem("usersData", JSON.stringify(newArr));
+      console.log("new arr is ", newArr);
     }
 
     document.querySelector(".delete-btn").addEventListener("click", () => {
