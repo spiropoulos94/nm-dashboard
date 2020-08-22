@@ -181,6 +181,7 @@ body {
   flex-direction: column;
   align-items: center;
   justify-content: space-between;
+  width: 100%;
 }
 
 .mini-wrapper {
@@ -196,7 +197,7 @@ body {
   justify-content: space-between;
   align-items: center;
   height: 3rem;
-  width: 95%;
+  width: 100%;
 }
 
 .data {
@@ -329,8 +330,6 @@ tr:nth-child(even) td {
   animation: spin 2s linear infinite;
 }
 
-/* /fasfas fasfas*/
-
 @keyframes spin {
   0% {
     transform: rotate(0deg);
@@ -368,6 +367,11 @@ tr:nth-child(even) td {
   .logout-txt {
     font-size: 2.5vw;
   }
+
+  .top-text {
+    width: 90%;
+  }
+
   .table-head {
     font-size: 2rem;
   }
@@ -385,7 +389,7 @@ tr:nth-child(even) td {
   }
   .table-responsive {
     display: block;
-    width: 150%;
+    width: 100%;
     overflow-x: auto;
     -webkit-overflow-scrolling: touch;
   }
@@ -430,3 +434,6 @@ tr:nth-child(even) td {
     padding: 0;
   }
 }
+
+/* TODO */
+/* .data and .mini-wrapper are responsible for mobile screen break problems */
