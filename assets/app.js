@@ -34,6 +34,8 @@ window.addEventListener("load", function() {
     navBar.classList.toggle("not-visible");
   };
 
+  // Welcome Screen ----------------
+
   function welcomeScreen() {
     data.innerHTML = "";
     mainHeading.innerText = "Welcome";
@@ -46,6 +48,8 @@ window.addEventListener("load", function() {
   document
     .getElementsByClassName("logo-txt")[0]
     .addEventListener("click", welcomeScreen);
+
+  // Colours Screen ----------------
 
   function getColours() {
     fetch("https://reqres.in/api/products/")
@@ -82,85 +86,88 @@ window.addEventListener("load", function() {
 
   document.getElementById("colours").addEventListener("click", getColours);
 
-  //   function hydrateUsers(data) {}
+  // Users Screen ----------------
+
+  function hydrateUsers(fetchedData) {
+    data.innerHTML = "";
+    mainHeading.innerText = "User Data";
+
+    let displaySpace = document.getElementById("space");
+    let displaySpaceWrapper = document.getElementById("display-wrapper");
+    displaySpace.innerHTML =
+      '<button class="delete-btn" type="button" disabled>Delete</button>';
+
+    //TODO review
+    if (displaySpace.children.length > 1) {
+      displaySpace.removeChild(displaySpace.lastChild);
+    }
+
+    displayLength.innerHTML = "";
+    //  Converting Data to Table
+
+    dataTable.classList.remove("not-visible");
+    let bdxample = document.createElement("div");
+    bdxample.className = "bd-example";
+
+    let tableResponsive = document.createElement("div");
+    tableResponsive.className = "table-responsive";
+
+    data.appendChild(bdxample);
+    bdxample.appendChild(tableResponsive);
+    tableResponsive.appendChild(dataTable);
+
+    let tableStringHTML = "";
+
+    fetchedData.forEach((user) => {
+      tableStringHTML += `<tr>
+              <td class="td user-checkbox "><input type="radio" name="radio-btn" class="delete-checkbox " id="${
+                user.id
+              }" />
+                <label for="radio-btn"></label> </td>
+              <td class="td user-id">${user.id}</td>
+              <td class="td user-last">${user.last_name}</td>
+              <td class="td user-first">${user.first_name}</td>
+              <td class="td user-email">${user.email}</td>
+              <td class="td user-avatar"> ${user.avatar.substring(
+                user.avatar.lastIndexOf("r/") + 2,
+                user.avatar.lastIndexOf("/128")
+              )}</td></tr>
+            `;
+    });
+
+    dataTable.querySelector("tbody").innerHTML = tableStringHTML;
+    let checkboxes = document.querySelectorAll("input.delete-checkbox");
+    let selectedRow = null;
+    let userID = null;
+
+    function deleteUser(selectedRow, userId) {
+      confirm(`Are you sure you want to delete user with ID ${userID} ?`);
+      selectedRow.parentNode.removeChild(selectedRow);
+    }
+
+    document.querySelector(".delete-btn").addEventListener("click", () => {
+      deleteUser(selectedRow);
+    });
+
+    checkboxes.forEach((checkbox) => {
+      checkbox.addEventListener("change", function(e) {
+        if (this.checked) {
+          document.querySelector(".delete-btn").removeAttribute("disabled");
+
+          selectedRow = this.parentNode.parentNode;
+          userID = selectedRow.children[1].innerText;
+        }
+      });
+    });
+  }
 
   function getUsers() {
     fetch("https://reqres.in/api/users")
       .then((res) => res.json())
       .then((res) => {
-        localStorage.setItem("usersData", JSON.stringify(res.data));
-        let usersData = JSON.parse(localStorage.getItem("usersData"));
-
-        data.innerHTML = "";
-        mainHeading.innerText = "User Data";
-
-        let displaySpace = document.getElementById("space");
-        let displaySpaceWrapper = document.getElementById("display-wrapper");
-        displaySpace.innerHTML =
-          '<button class="delete-btn" type="button" disabled>Delete</button>';
-
-        //TODO review
-        if (displaySpace.children.length > 1) {
-          displaySpace.removeChild(displaySpace.lastChild);
-        }
-
-        displayLength.innerHTML = "";
-        //  Converting Data to Table
-
-        dataTable.classList.remove("not-visible");
-        let bdxample = document.createElement("div");
-        bdxample.className = "bd-example";
-
-        let tableResponsive = document.createElement("div");
-        tableResponsive.className = "table-responsive";
-
-        data.appendChild(bdxample);
-        bdxample.appendChild(tableResponsive);
-        tableResponsive.appendChild(dataTable);
-
-        let tableStringHTML = "";
-
-        usersData.forEach((user) => {
-          tableStringHTML += `<tr>
-                    <td class="td user-checkbox "><input type="radio" name="radio-btn" class="delete-checkbox " id="${
-                      user.id
-                    }" /> 
-                      <label for="radio-btn"></label> </td>
-                    <td class="td user-id">${user.id}</td>
-                    <td class="td user-last">${user.last_name}</td>
-                    <td class="td user-first">${user.first_name}</td>
-                    <td class="td user-email">${user.email}</td>
-                    <td class="td user-avatar"> ${user.avatar.substring(
-                      user.avatar.lastIndexOf("r/") + 2,
-                      user.avatar.lastIndexOf("/128")
-                    )}</td></tr>
-                  `;
-        });
-
-        dataTable.querySelector("tbody").innerHTML = tableStringHTML;
-        let checkboxes = document.querySelectorAll("input.delete-checkbox");
-        let selectedRow = null;
-        let userID = null;
-
-        function deleteUser(selectedRow, userId) {
-          confirm(`Are you sure you want to delete user with ID ${userID} ?`);
-          selectedRow.parentNode.removeChild(selectedRow);
-        }
-
-        document.querySelector(".delete-btn").addEventListener("click", () => {
-          deleteUser(selectedRow);
-        });
-
-        checkboxes.forEach((checkbox) => {
-          checkbox.addEventListener("change", function(e) {
-            if (this.checked) {
-              document.querySelector(".delete-btn").removeAttribute("disabled");
-
-              selectedRow = this.parentNode.parentNode;
-              userID = selectedRow.children[1].innerText;
-            }
-          });
-        });
+        usersData = res.data;
+        console.log("data fetched!");
+        hydrateUsers(usersData);
       });
   }
   document.getElementById("users").addEventListener("click", getUsers);
