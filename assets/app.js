@@ -87,7 +87,9 @@ window.addEventListener("load", function() {
   document.getElementById("colours").addEventListener("click", getColours);
 
   // Users Screen ----------------
-
+  let sessionStorageData = JSON.parse(
+    window.sessionStorage.getItem("usersData")
+  );
   function hydrateUsers(fetchedData) {
     data.innerHTML = "";
     mainHeading.innerText = "User Data";
@@ -162,13 +164,21 @@ window.addEventListener("load", function() {
   }
 
   function getUsers() {
-    fetch("https://reqres.in/api/users")
-      .then((res) => res.json())
-      .then((res) => {
-        usersData = res.data;
-        console.log("data fetched!");
-        hydrateUsers(usersData);
-      });
+    if (window.sessionStorage.getItem("usersData")) {
+      let sessionStorageData = JSON.parse(
+        window.sessionStorage.getItem("usersData")
+      );
+      console.log("users hydrated from local storage");
+      hydrateUsers(sessionStorageData);
+    } else {
+      fetch("https://reqres.in/api/users")
+        .then((res) => res.json())
+        .then((res) => {
+          window.sessionStorage.setItem("usersData", JSON.stringify(res.data));
+          console.log("users hydrated by fetching data");
+          hydrateUsers(res.data);
+        });
+    }
   }
   document.getElementById("users").addEventListener("click", getUsers);
 });
