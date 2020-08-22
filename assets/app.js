@@ -1,127 +1,127 @@
 // the following event listener is responsible for displaying or not the menu based on the window width
 
 window.addEventListener("resize", function() {
-    let navBar = document.querySelector("div.nav-bar");
-    if (window.innerWidth < 730) {
-        navBar.className += " not-visible";
-    } else {
-        navBar.classList.remove("not-visible");
-    }
+  let navBar = document.querySelector("div.nav-bar");
+  if (window.innerWidth < 730) {
+    navBar.className += " not-visible";
+  } else {
+    navBar.classList.remove("not-visible");
+  }
 });
 
 window.addEventListener("load", function() {
-    //when page loads the spinner becomes hidden
-    let spinner = document.getElementById("whole-page-spinner");
+  //when page loads the spinner becomes hidden
+  let spinner = document.getElementById("whole-page-spinner");
 
-    spinner.style.display = "none";
+  spinner.style.display = "none";
 
-    let data = document.getElementsByClassName("data")[0];
-    let mainHeading = document.getElementsByClassName("main-heading")[0];
-    let info = document.getElementById("info");
-    let mainHeaderContainer = document.getElementsByClassName(
-        "main-header-container"
-    )[0];
-    let flexibleField = document.querySelector(".flexible");
-    let displayLength = document.querySelector(".length");
-    let dataTable = document.querySelector(".data-table");
+  let data = document.getElementsByClassName("data")[0];
+  let mainHeading = document.getElementsByClassName("main-heading")[0];
+  let info = document.getElementById("info");
+  let mainHeaderContainer = document.getElementsByClassName(
+    "main-header-container"
+  )[0];
+  let flexibleField = document.querySelector(".flexible");
+  let displayLength = document.querySelector(".length");
+  let dataTable = document.querySelector(".data-table");
 
-    let tableHead = document.querySelector("table-head");
+  let tableHead = document.querySelector("table-head");
 
-    let burgerMenu = document.querySelector("button.ham");
+  let burgerMenu = document.querySelector("button.ham");
 
-    burgerMenu.onclick = function() {
-        let navBar = document.querySelector("div.nav-bar");
-        navBar.classList.toggle("not-visible");
-    };
+  burgerMenu.onclick = function() {
+    let navBar = document.querySelector("div.nav-bar");
+    navBar.classList.toggle("not-visible");
+  };
 
-    function welcomeScreen() {
-        data.innerHTML = "";
-        mainHeading.innerText = "Welcome";
-        flexibleField.innerHTML = ``;
-        displayLength.innerHTML = ``;
-    }
+  function welcomeScreen() {
+    data.innerHTML = "";
+    mainHeading.innerText = "Welcome";
+    flexibleField.innerHTML = ``;
+    displayLength.innerHTML = ``;
+  }
 
-    let options = document.getElementById("data-length");
+  let options = document.getElementById("data-length");
 
-    document
-        .getElementsByClassName("logo-txt")[0]
-        .addEventListener("click", welcomeScreen);
+  document
+    .getElementsByClassName("logo-txt")[0]
+    .addEventListener("click", welcomeScreen);
 
-    function getColours() {
-        fetch("https://reqres.in/api/products/")
-            .then((res) => res.json())
-            .then((res) => {
-                colours = res.data;
-                // console.log("Colours length", colours.length);
+  function getColours() {
+    fetch("https://reqres.in/api/products/")
+      .then((res) => res.json())
+      .then((res) => {
+        colours = res.data;
 
-                colours.reverse();
-                // console.log("Colours sorted", colours);
+        colours.reverse();
 
-                mainHeading.innerText = "Colours";
+        mainHeading.innerText = "Colours";
 
-                let blurbsContainer = document.createElement("div");
-                blurbsContainer.className = "blurbs-container";
-                data.innerText = "";
+        let blurbsContainer = document.createElement("div");
+        blurbsContainer.className = "blurbs-container";
+        data.innerText = "";
 
-                flexibleField.innerHTML = `<p>items :</p>`;
-                displayLength.innerHTML = `<p>${colours.length}</p>`;
+        flexibleField.innerHTML = `<p>items :</p>`;
+        displayLength.innerHTML = `<p>${colours.length}</p>`;
 
-                colours.forEach((color) => {
-                    let imageDiv = document.createElement("div");
-                    imageDiv.className = "blurb";
-                    imageDiv.setAttribute("style", `background-color:${color.color}`);
-                    imageDiv.innerHTML = `
+        colours.forEach((color) => {
+          let imageDiv = document.createElement("div");
+          imageDiv.className = "blurb";
+          imageDiv.setAttribute("style", `background-color:${color.color}`);
+          imageDiv.innerHTML = `
                 <h3 class="color-code" style="color:${color.color}" >${color.color}</h3>
                 <div class="color-info">
                 <p class="color-year">${color.year}</p>
                 <p class="color-name">${color.name}</p>
                 </div>
                 `;
-                    data.appendChild(imageDiv);
-                });
-            });
-    }
+          data.appendChild(imageDiv);
+        });
+      });
+  }
 
-    document.getElementById("colours").addEventListener("click", getColours);
+  document.getElementById("colours").addEventListener("click", getColours);
 
-    function getUsers() {
-        fetch("https://reqres.in/api/users")
-            .then((res) => res.json())
-            .then((res) => {
-                localStorage.setItem("usersData", JSON.stringify(res.data));
-                let usersData = JSON.parse(localStorage.getItem("usersData"));
+  //   function hydrateUsers(data) {}
 
-                data.innerHTML = "";
-                mainHeading.innerText = "User Data";
+  function getUsers() {
+    fetch("https://reqres.in/api/users")
+      .then((res) => res.json())
+      .then((res) => {
+        localStorage.setItem("usersData", JSON.stringify(res.data));
+        let usersData = JSON.parse(localStorage.getItem("usersData"));
 
-                let displaySpace = document.getElementById("space");
-                let displaySpaceWrapper = document.getElementById("display-wrapper");
-                displaySpace.innerHTML =
-                    '<button class="delete-btn" type="button" disabled>Delete</button>';
+        data.innerHTML = "";
+        mainHeading.innerText = "User Data";
 
-                //TODO review
-                if (displaySpace.children.length > 1) {
-                    displaySpace.removeChild(displaySpace.lastChild);
-                }
+        let displaySpace = document.getElementById("space");
+        let displaySpaceWrapper = document.getElementById("display-wrapper");
+        displaySpace.innerHTML =
+          '<button class="delete-btn" type="button" disabled>Delete</button>';
 
-                displayLength.innerHTML = "";
-                //  Converting Data to Table
+        //TODO review
+        if (displaySpace.children.length > 1) {
+          displaySpace.removeChild(displaySpace.lastChild);
+        }
 
-                dataTable.classList.remove("not-visible");
-                let bdxample = document.createElement("div");
-                bdxample.className = "bd-example";
+        displayLength.innerHTML = "";
+        //  Converting Data to Table
 
-                let tableResponsive = document.createElement("div");
-                tableResponsive.className = "table-responsive";
+        dataTable.classList.remove("not-visible");
+        let bdxample = document.createElement("div");
+        bdxample.className = "bd-example";
 
-                data.appendChild(bdxample);
-                bdxample.appendChild(tableResponsive);
-                tableResponsive.appendChild(dataTable);
+        let tableResponsive = document.createElement("div");
+        tableResponsive.className = "table-responsive";
 
-                let tableStringHTML = "";
+        data.appendChild(bdxample);
+        bdxample.appendChild(tableResponsive);
+        tableResponsive.appendChild(dataTable);
 
-                usersData.forEach((user) => {
-                    tableStringHTML += `<tr>
+        let tableStringHTML = "";
+
+        usersData.forEach((user) => {
+          tableStringHTML += `<tr>
                     <td class="td user-checkbox "><input type="radio" name="radio-btn" class="delete-checkbox " id="${
                       user.id
                     }" /> 
@@ -135,33 +135,33 @@ window.addEventListener("load", function() {
                       user.avatar.lastIndexOf("/128")
                     )}</td></tr>
                   `;
-                });
+        });
 
-                dataTable.querySelector("tbody").innerHTML = tableStringHTML;
-                let checkboxes = document.querySelectorAll("input.delete-checkbox");
-                let selectedRow = null;
-                let userID = null;
+        dataTable.querySelector("tbody").innerHTML = tableStringHTML;
+        let checkboxes = document.querySelectorAll("input.delete-checkbox");
+        let selectedRow = null;
+        let userID = null;
 
-                function deleteUser(selectedRow, userId) {
-                    confirm(`Are you sure you want to delete user with ID ${userID} ?`);
-                    selectedRow.parentNode.removeChild(selectedRow);
-                }
+        function deleteUser(selectedRow, userId) {
+          confirm(`Are you sure you want to delete user with ID ${userID} ?`);
+          selectedRow.parentNode.removeChild(selectedRow);
+        }
 
-                document.querySelector(".delete-btn").addEventListener("click", () => {
-                    deleteUser(selectedRow);
-                });
+        document.querySelector(".delete-btn").addEventListener("click", () => {
+          deleteUser(selectedRow);
+        });
 
-                checkboxes.forEach((checkbox) => {
-                    checkbox.addEventListener("change", function(e) {
-                        if (this.checked) {
-                            document.querySelector(".delete-btn").removeAttribute("disabled");
+        checkboxes.forEach((checkbox) => {
+          checkbox.addEventListener("change", function(e) {
+            if (this.checked) {
+              document.querySelector(".delete-btn").removeAttribute("disabled");
 
-                            selectedRow = this.parentNode.parentNode;
-                            userID = selectedRow.children[1].innerText;
-                        }
-                    });
-                });
-            });
-    }
-    document.getElementById("users").addEventListener("click", getUsers);
+              selectedRow = this.parentNode.parentNode;
+              userID = selectedRow.children[1].innerText;
+            }
+          });
+        });
+      });
+  }
+  document.getElementById("users").addEventListener("click", getUsers);
 });

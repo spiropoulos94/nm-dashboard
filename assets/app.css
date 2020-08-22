@@ -368,6 +368,11 @@ tr:nth-child(even) td {
     font-size: 2.5vw;
   }
 
+  .main-screen {
+    width: 80%;
+    padding: 2%;
+  }
+
   .top-text {
     width: 90%;
   }
