@@ -1,3 +1,9 @@
+/* NOTE: A TODO comment might apply to more than one instance in your code, e.g. you might need to check all your code for duplicates. */
+
+/* TODO Remove redundant rules */
+/* TODO group similar rules */
+/* TODO Use hex color values */
+/* TODO Correct invalid values. A VS code plugin would be useful. */
 :root {
     --primary: #0075a1;
     /* applies to spinner, form elements and links */
@@ -49,6 +55,7 @@ body {
     display: none;
 }
 
+/* TODO remove duplicates */
 .ham {
     display: flex;
     align-items: center;
@@ -72,13 +79,14 @@ body {
     font-size: 3.3vw;
     margin: 0 25px;
     font-weight: bold;
-    text-transform: uppercase;
+    text-transform: uppercase; /* TODO Use inheritance */
 }
 
 .logo-txt:hover {
     cursor: pointer;
 }
 
+/* Note: Better use class name like header, header-main, header-title, account-link, user-logout &c */
 .dash {
     display: flex;
     align-items: center;
@@ -86,7 +94,7 @@ body {
     width: 100%;
 }
 
-.dash>* {
+.dash>* { /* TODO describe why global selectors are considered a bad practice */
     height: 50%;
     display: flex;
     align-items: center;
@@ -100,7 +108,7 @@ body {
     position: relative;
     left: 10%;
 }
-
+/* TODO Avoid the use of "box". Describe the element or section you are referring to i.e. header-right, header-end */
 .logout-box {
     display: flex;
     padding: 0 3rem;
@@ -112,7 +120,7 @@ body {
     font-size: 1.2vw;
 }
 
-.user-icon {
+.user-icon { /* Recommendation: What about "avatar"? */
     background-color: white;
     border-radius: 100%;
     padding: 5px;
@@ -120,12 +128,13 @@ body {
 
 .nav-bar {
     background-color: var(--nav-background-color);
-    border: 1px solid var(--nav-accent);
+    /*border: 1px solid var(--nav-accent);*/ /* TODO Something should be defined in the header, it's not a border. */
     width: 20%;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     height: 89vh;
+    padding-bottom: 1rem;
 }
 
 .menu-items {
@@ -139,15 +148,15 @@ body {
     padding: 7% 10% 3%;
 }
 
-.menu-items>li:hover {
+.menu-items>li:hover { /* Use anchors */
     cursor: pointer;
     background-color: var(--nav-accent);
 }
 
-.footer-text {
+.footer {
     text-align: center;
     color: var(--footer-color);
-    font-size: 1;
+    font-size: 1; /* TODO invalid */
 }
 
 .menu-items li {
@@ -157,7 +166,6 @@ body {
 .horizontal-container {
     display: flex;
 }
-
 
 /*Main screen starts here */
 
@@ -222,6 +230,7 @@ body {
     margin: 15px;
 }
 
+/* TODO Review rule set */
 .color-info {
     display: flex;
     align-items: center;
