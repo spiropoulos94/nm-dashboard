@@ -32,6 +32,12 @@ window.addEventListener("load", function() {
     burgerMenu.onclick = function() {
         let navBar = document.querySelector("div.nav-bar");
         navBar.classList.toggle("not-visible");
+
+        if (navBar.classList.contains("not-visible")) {
+            console.log("navbar dissappeared!");
+        } else if (!navBar.classList.contains("not-visible")) {
+            console.log("nav bar appeared!");
+        }
     };
 
     // Welcome Screen ----------------
