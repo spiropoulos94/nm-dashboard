@@ -1,81 +1,104 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
+  <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<!-- TODO favicon in project files but not in app -->
+    <!-- TODO favicon in project files but not in app -->
     <title>Dashboard App</title>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet" />
+    <link rel="icon" type="image/png" href="./favicon.ico" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
     <link rel="stylesheet" href="assets/app.css" />
-</head>
+  </head>
 
-<body>
+  <body>
     <div class="whole-page">
-        <div id="whole-page-spinner" class="loader-wrapper">
-            <div class="loader"></div>
-            <!-- TODO fix h2 preceding h1 -->
-            <h2 class="loading-msg">loading...</h2>
-        </div>
-        <div class="header">
-            <button class="ham">&#9776;</button>
-            <div class="logo-box">
-                <img class="logo-img" src="assets/img/logo-placeholder.png" width="50" alt="logo" />
-                <p class="logo-txt">Logo</p>
-            </div>
-            <div class="dash">
-                <p class="title">Dashboard</p>
-                <div class="logout-box">
-                    <p class="logout-txt">Logout</p>
-                    <img class="user-icon" src="assets/img/logo-placeholder.png" width="40" alt="user-icon" />
-                </div>
-            </div>
-        </div>
-        <div></div>
-        <div class="horizontal-container">
-            <div class="nav-bar">
-                <ul class="menu-items">
-                    <li id="colours">Colors</li>
-                    <li id="users">Users</li>
-                </ul>
-                <footer class="footer">
-                    <!-- change the date to auto changing - Out of project scope -->
-                    <!-- TODO Fix &copy; - probably character encoding issue. Is it a copy/paste issue? If so it could be useful if you remember the source. -->
-                    Ⓒ 2020 Netmechanics
-                </footer>
-            </div>
-            <div class="main-screen">
-                <div class="main-screen-content">
-                    <div class="main-head-wrapper">
-                        <div class="top-text">
-                            <h1 class="main-heading">Welcome</h1>
-                            <div class="mini-wrapper">
-                                <div id="space" class="flexible"></div>
-                                <div class="length"></div>
-                            </div>
-                        </div>
+      <div id="wholePageSpinner" class="loader-wrapper">
+        <div class="loader"></div>
 
-                        <div class="data">
-                            <!-- TODO table responsive markup should bd in your html file, not in js -->
-                            <table id="myTable" cell-spacing="0" cell-padding="0" class="data-table not-visible">
-                                <thead>
-                                    <tr class="table-head">
-                                        <th></th>
-                                        <th>ID</th>
-                                        <th>LAST NAME</th>
-                                        <th>FIST NAME</th>
-                                        <th>EMAIL</th>
-                                        <th>AVATAR</th>
-                                    </tr>
-                                </thead>
-                                <tbody></tbody>
-                            </table>
-                        </div>
-                    </div>
-                </div>
-            </div>
+        <p class="loading-msg">loading...</p>
+      </div>
+      <div class="header">
+        <button class="ham">&#9776;</button>
+        <div class="logo-box">
+          <img
+            class="logo-img"
+            src="assets/img/logo-placeholder.png"
+            width="50"
+            alt="logo"
+          />
+          <p class="logo-txt">Logo</p>
         </div>
+        <div class="dash">
+          <p class="title">Dashboard</p>
+          <div class="logout-box">
+            <p class="logout-txt">Logout</p>
+            <img
+              class="user-icon"
+              src="assets/img/logo-placeholder.png"
+              width="40"
+              alt="user-icon"
+            />
+          </div>
+        </div>
+      </div>
+      <div></div>
+      <div class="horizontal-container">
+        <div class="nav-bar">
+          <ul class="menu-items">
+            <a id="colours">Colors</a>
+            <a id="users">Users</a>
+          </ul>
+          <footer class="footer">
+            <!-- change the date to auto changing - Out of project scope -->
+            <!-- TODO Fix &copy; - probably character encoding issue. Is it a copy/paste issue? If so it could be useful if you remember the source. -->
+
+            Ⓒ 2020 Netmechanics
+          </footer>
+        </div>
+        <div class="main-screen">
+          <div class="main-screen-content">
+            <div class="main-head-wrapper">
+              <div class="top-text">
+                <h1 class="main-heading">Welcome</h1>
+                <div class="mini-wrapper">
+                  <div id="space" class="flexible"></div>
+                  <div class="length"></div>
+                </div>
+              </div>
+
+              <div class="data">
+                <!-- TODO table responsive markup should bd in your html file, not in js -->
+                <div class="bd-example">
+                  <div class="table-responsive">
+                    <table
+                      id="myTable"
+                      cell-spacing="0"
+                      cell-padding="0"
+                      class="data-table not-visible"
+                    >
+                      <thead>
+                        <tr class="table-head">
+                          <th></th>
+                          <th>ID</th>
+                          <th>LAST NAME</th>
+                          <th>FIST NAME</th>
+                          <th>EMAIL</th>
+                          <th>AVATAR</th>
+                        </tr>
+                      </thead>
+                      <tbody></tbody>
+                    </table>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
     <script src="./assets/app.js"></script>
-</body>
-
+  </body>
 </html>
