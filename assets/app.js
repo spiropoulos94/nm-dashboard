@@ -101,8 +101,10 @@ function onloadFn() {
     let displaySpace = document.getElementById("space");
     let displaySpaceWrapper = document.getElementById("display-wrapper");
     // let bdxample = document.createElement("div");
-    // let tableResponsive = document.createElement("div");
+    //let tableResponsive = document.createElement("div");
     let tableStringHTML = "";
+
+    console.log(tableStringHTML);
 
     data.innerHTML = "";
     mainHeading.innerText = "User Data";
@@ -140,11 +142,12 @@ function onloadFn() {
                 user.avatar.lastIndexOf("/128")
               )}</td></tr>
             `;
-      //   document.querySelector(".tbody").appendChild(tableStringHTML);
-      console.log(document.querySelector("tbody").parentElement);
-    });
 
-    dataTable.querySelector("tbody").innerHTML = tableStringHTML;
+      //console.log(document.querySelector("tbody").parentElement);
+    });
+    document.querySelector(".tbody").innerHTML = tableStringHTML;
+
+    // dataTable.querySelector("tbody").innerHTML = tableStringHTML;
 
     let checkboxes = document.querySelectorAll("input.delete-checkbox");
     let selectedRow = null;
@@ -159,11 +162,11 @@ function onloadFn() {
       deleteUser(selectedRow, userID);
     });
 
-    // document.querySelector("tbody").addEventListener("change", (e) => {
-    //   deleteButton.removeAttribute("disabled");
-    //   selectedRow = e.target.parentNode.parentNode;
-    //   userID = selectedRow.children[1].innerText;
-    // });
+    document.querySelector("tbody").addEventListener("change", (e) => {
+      deleteButton.removeAttribute("disabled");
+      selectedRow = e.target.parentNode.parentNode;
+      userID = selectedRow.children[1].innerText;
+    });
   }
 
   // Deleting a user/row
