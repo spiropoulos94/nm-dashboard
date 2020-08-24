@@ -140,6 +140,8 @@ function onloadFn() {
                 user.avatar.lastIndexOf("/128")
               )}</td></tr>
             `;
+      //   document.querySelector(".tbody").appendChild(tableStringHTML);
+      console.log(document.querySelector("tbody").parentElement);
     });
 
     dataTable.querySelector("tbody").innerHTML = tableStringHTML;
