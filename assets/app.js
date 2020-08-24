@@ -175,10 +175,10 @@ window.addEventListener("load", function onloadFn() {
         });
 
         document.querySelector("tbody").addEventListener("change", (e) => {
-            console.log(e.target);
+            // console.log(e.target);
             document.querySelector(".delete-btn").removeAttribute("disabled");
             selectedRow = e.target.parentNode.parentNode;
-            console.log(selectedRow);
+            // console.log(selectedRow);
             userID = selectedRow.children[1].innerText;
         });
 
