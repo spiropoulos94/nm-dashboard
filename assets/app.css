@@ -61,6 +61,7 @@ body {
     width: 15%;
     padding: 0px 30px;
     align-items: center;
+    z-index: 2;
 }
 
 .logo-img {
@@ -378,7 +379,7 @@ tr:nth-child(even) td {
         width: 90%;
     }
     .table-head {
-        font-size: 1rem;
+        font-size: 1grem;
     }
     td.td {
         font-size: 1.5rem;

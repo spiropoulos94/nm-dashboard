@@ -33,12 +33,6 @@ window.addEventListener("load", function onloadFn() {
     burgerMenu.onclick = function() {
         let navBar = document.querySelector("div.nav-bar");
         navBar.classList.toggle("not-visible");
-
-        // if (navBar.classList.contains("not-visible")) {
-        // console.log("navbar dissappeared!");
-        // } else if (!navBar.classList.contains("not-visible")) {
-        // console.log("nav bar appeared!");
-        // }
     };
 
     // Welcome Screen ----------------
@@ -107,7 +101,6 @@ window.addEventListener("load", function onloadFn() {
         displaySpace.innerHTML =
             '<button class="delete-btn" type="button" disabled>Delete</button>';
 
-        //TODO review
         if (displaySpace.children.length > 1) {
             displaySpace.removeChild(displaySpace.lastChild);
         }
@@ -166,7 +159,6 @@ window.addEventListener("load", function onloadFn() {
                 (entry) => parseInt(entry.id) != parseInt(userID)
             );
             window.sessionStorage.setItem("usersData", JSON.stringify(newArr));
-            // console.log("new arr is ", newArr);
             document.querySelector(".delete-btn").setAttribute("disabled", true);
         }
 
@@ -175,24 +167,10 @@ window.addEventListener("load", function onloadFn() {
         });
 
         document.querySelector("tbody").addEventListener("change", (e) => {
-            // console.log(e.target);
             document.querySelector(".delete-btn").removeAttribute("disabled");
             selectedRow = e.target.parentNode.parentNode;
-            // console.log(selectedRow);
             userID = selectedRow.children[1].innerText;
         });
-
-        //checkboxes.forEach((checkbox) => {
-        //    //used "change" event instaed of click t
-        //    checkbox.addEventListener("click", function(e) {
-        //        if (this.checked) {
-        //            document.querySelector(".delete-btn").removeAttribute("disabled");
-        //            //
-        //            selectedRow = this.parentNode.parentNode;
-        //            userID = selectedRow.children[1].innerText;
-        //        }
-        //    });
-        //});
     }
 
     function getUsers() {
