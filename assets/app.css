@@ -41,7 +41,7 @@ body {
   padding: 0;
   margin: 0;
   background-color: #ffffff;
-  color: #ffffff;
+  color: white;
 }
 
 .header {
@@ -94,8 +94,10 @@ body {
   width: 100%;
 }
 
-.dash > * {
+.dash > p,
+.dash > div {
   /* TODO describe why global selectors are considered a bad practice */
+  /* Because they target at all child elements which is not always what we want */
   height: 50%;
   display: flex;
   align-items: center;
@@ -110,7 +112,7 @@ body {
   left: 10%;
 }
 /* TODO Avoid the use of "box". Describe the element or section you are referring to i.e. header-right, header-end */
-.logout-box {
+.header-end {
   display: flex;
   padding: 0 3rem;
 }
@@ -451,7 +453,7 @@ tr:nth-child(even) td {
   .blurb {
     width: 50%;
   }
-  .logout-box {
+  .header-end {
     padding: 0;
   }
 }
