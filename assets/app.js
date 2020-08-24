@@ -145,7 +145,7 @@ function onloadFn() {
 
       //console.log(document.querySelector("tbody").parentElement);
     });
-    document.querySelector(".tbody").innerHTML = tableStringHTML;
+    // document.querySelector(".tbody").innerHTML = tableStringHTML;
 
     // dataTable.querySelector("tbody").innerHTML = tableStringHTML;
 
@@ -162,11 +162,13 @@ function onloadFn() {
       deleteUser(selectedRow, userID);
     });
 
-    document.querySelector("tbody").addEventListener("change", (e) => {
-      deleteButton.removeAttribute("disabled");
-      selectedRow = e.target.parentNode.parentNode;
-      userID = selectedRow.children[1].innerText;
-    });
+    // TODO  fix the issue of not appending table on .data div !!!!!
+
+    //document.querySelector("tbody").addEventListener("change", (e) => {
+    // deleteButton.removeAttribute("disabled");
+    // selectedRow = e.target.parentNode.parentNode;
+    // userID = selectedRow.children[1].innerText;
+    // });
   }
 
   // Deleting a user/row
