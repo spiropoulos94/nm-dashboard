@@ -1,15 +1,5 @@
 // the following event listener is responsible for displaying or not the menu based on the window width
 
-//the following function clones ".data" and replaces the old with the new to drop all event listeners
-//function removeListeners() {
-//    var old_element = document.querySelector(".data");
-//    var new_element = old_element.cloneNode(true);
-//    old_element.parentNode.replaceChild(new_element, old_element);
-//    data = new_element;
-//    console.log("old element", old_element);
-//    console.log("new element", new_element);
-//}
-
 window.addEventListener("resize", function() {
     let navBar = document.querySelector("div.nav-bar");
     if (window.innerWidth < 730) {
@@ -184,16 +174,25 @@ window.addEventListener("load", function onloadFn() {
             deleteUser(selectedRow, userID);
         });
 
-        checkboxes.forEach((checkbox) => {
-            checkbox.addEventListener("change", function(e) {
-                if (this.checked) {
-                    document.querySelector(".delete-btn").removeAttribute("disabled");
-
-                    selectedRow = this.parentNode.parentNode;
-                    userID = selectedRow.children[1].innerText;
-                }
-            });
+        document.querySelector("tbody").addEventListener("change", (e) => {
+            console.log(e.target);
+            document.querySelector(".delete-btn").removeAttribute("disabled");
+            selectedRow = e.target.parentNode.parentNode;
+            console.log(selectedRow);
+            userID = selectedRow.children[1].innerText;
         });
+
+        //checkboxes.forEach((checkbox) => {
+        //    //used "change" event instaed of click t
+        //    checkbox.addEventListener("click", function(e) {
+        //        if (this.checked) {
+        //            document.querySelector(".delete-btn").removeAttribute("disabled");
+        //            //
+        //            selectedRow = this.parentNode.parentNode;
+        //            userID = selectedRow.children[1].innerText;
+        //        }
+        //    });
+        //});
     }
 
     function getUsers() {
