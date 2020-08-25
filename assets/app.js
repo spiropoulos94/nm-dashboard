@@ -111,26 +111,51 @@ function onloadFn() {
     // TODO Review the following function
     function deleteUser(selectedRow, userID, deleteButton) {
         userID = selectedRow.children[1].innerText;
-        confirm(`Are you sure you want to delete user with ID ${userID} ?`);
+
         // check confirm
+        (function confirmFn() {
+            let r = confirm(`Are you sure you want to delete user ${userID} ?`);
+            if (r == true) {
+                //remove from table
+                selectedRow.parentNode.removeChild(selectedRow);
 
-        //remove from table
-        selectedRow.parentNode.removeChild(selectedRow);
+                //remove from session storage
+                let arrayJson = JSON.parse(window.sessionStorage.getItem("usersData"));
 
-        //remove from session storage
-        let arrayJson = JSON.parse(window.sessionStorage.getItem("usersData"));
+                let newArr = arrayJson.filter(
+                    (entry) => parseInt(entry.id) != parseInt(userID)
+                );
+                alert(`User ${userID} deleted!`);
 
-        let newArr = arrayJson.filter(
-            (entry) => parseInt(entry.id) != parseInt(userID)
-        );
+                // Set button to disabled
+                // TODO You might need to learn more about boolean attributes
 
-        // Set button to disabled
-        // TODO You might need to learn more about boolean attributes
+                deleteButton.setAttribute("disabled", "disabled");
+                // Update storage
+                window.sessionStorage.setItem("usersData", JSON.stringify(newArr));
+            }
 
-        deleteButton.setAttribute("disabled", "disabled");
+            deleteButton.setAttribute("disabled", "disabled");
+        })();
 
-        // Update storage
-        window.sessionStorage.setItem("usersData", JSON.stringify(newArr));
+        // //remove from table
+        // selectedRow.parentNode.removeChild(selectedRow);
+
+        // //remove from session storage
+        // let arrayJson = JSON.parse(window.sessionStorage.getItem("usersData"));
+
+        // let newArr = arrayJson.filter(
+        //     (entry) => parseInt(entry.id) != parseInt(userID)
+        // );
+        // alert(`User ${userID} deleted!`);
+
+        // // Set button to disabled
+        // // TODO You might need to learn more about boolean attributes
+
+        // deleteButton.setAttribute("disabled", "disabled");
+
+        // // Update storage
+        // window.sessionStorage.setItem("usersData", JSON.stringify(newArr));
     }
 
     function getUsers() {
