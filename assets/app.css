@@ -264,13 +264,13 @@ body {
     color: white;
     font-weight: bold;
     font-size: 20px;
-    opacity: 50%;
+    opacity: 0.5;
     background: rgba(0, 151, 20, 0.226);
     padding: 0 5%;
 }
 
 .color-info:hover {
-    opacity: 100%;
+    opacity: 1;
 }
 
 .color-code {
@@ -337,11 +337,6 @@ tr:nth-child(even) td {
     font-size: 1.5rem;
     color: var(--body-color);
     padding: 1.5vh 0;
-}
-
-.bd-example {
-    position: relative;
-    width: 100%;
 }
 
 .table-responsive {
@@ -449,6 +444,7 @@ tr:nth-child(even) td {
     .nav-bar {
         position: fixed;
         z-index: 5;
+        width: 25%;
     }
     .main-screen-content {
         padding: 2% 5%;
@@ -464,5 +460,8 @@ tr:nth-child(even) td {
     }
     .header-end {
         padding: 0;
+    }
+    .footer {
+        font-size: 0.6rem;
     }
 }

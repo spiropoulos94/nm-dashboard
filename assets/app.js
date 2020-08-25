@@ -137,25 +137,6 @@ function onloadFn() {
 
             deleteButton.setAttribute("disabled", "disabled");
         })();
-
-        // //remove from table
-        // selectedRow.parentNode.removeChild(selectedRow);
-
-        // //remove from session storage
-        // let arrayJson = JSON.parse(window.sessionStorage.getItem("usersData"));
-
-        // let newArr = arrayJson.filter(
-        //     (entry) => parseInt(entry.id) != parseInt(userID)
-        // );
-        // alert(`User ${userID} deleted!`);
-
-        // // Set button to disabled
-        // // TODO You might need to learn more about boolean attributes
-
-        // deleteButton.setAttribute("disabled", "disabled");
-
-        // // Update storage
-        // window.sessionStorage.setItem("usersData", JSON.stringify(newArr));
     }
 
     function getUsers() {
@@ -187,7 +168,7 @@ function onloadFn() {
         let displaySpaceWrapper = document.getElementById("display-wrapper");
         let tableStringHTML = "";
 
-        data.innerHTML = `<div class="bd-example">
+        data.innerHTML = `
         <div class="table-responsive">
             <table id="myTable" cell-spacing="0" cell-padding="0" class="data-table">
                 <thead>
@@ -202,7 +183,7 @@ function onloadFn() {
                 </thead>
                 <tbody class="tbody"></tbody>
             </table>
-        </div>
+        
     </div>`;
 
         mainHeading.innerText = "User Data";
