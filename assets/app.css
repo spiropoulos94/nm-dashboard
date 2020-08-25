@@ -1,11 +1,5 @@
 /* NOTE: A TODO comment might apply to more than one instance in your code, e.g. you might need to check all your code for duplicates. */
 
-
-/* TODO Correct invalid values. A VS code plugin would be useful. */
-
-
-/*  Could you suggest a plugin you use yourself ? */
-
 :root {
     --primary: #0075a1;
     /* applies to spinner, form elements and links */
@@ -61,7 +55,6 @@ body {
 /* TODO remove duplicates */
 
 .ham {
-    display: flex;
     align-items: center;
     display: none;
     padding: 0 2%;
@@ -339,9 +332,6 @@ tr:nth-child(even) td {
     /* padding-right: 10%; */
     border-bottom: 2px solid var(--border-color);
 }
-
-
-/* .table-head>th {} */
 
 .td {
     font-size: 1.5rem;
