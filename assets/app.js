@@ -76,15 +76,22 @@ function onloadFn() {
     // spinner mesa sta screens TODO
 
     function getColours() {
+        mainScreen.appendChild(spinner);
+        spinner.setAttribute("style", "display:flex;");
+        document
+            .querySelector(".main-screen-content")
+            .setAttribute("style", "display:none");
+
         fetch("https://reqres.in/api/products/")
             .then((res) => res.json())
             .then((res) => {
+                spinner.setAttribute("style", "display:none;");
+                document
+                    .querySelector(".main-screen-content")
+                    .setAttribute("style", "display:block");
                 colours = res.data;
-
                 colours.reverse();
-
                 mainHeading.innerText = "Colours";
-
                 let blurbsContainer = document.createElement("div");
                 blurbsContainer.className = "blurbs-container";
                 data.innerText = "";

@@ -97,10 +97,8 @@ body {
 
 /* use class instead */
 
-.dash>p,
-.dash>div {
-    /* TODO describe why global selectors are considered a bad practice */
-    /* Because they target at all child elements which is not always what we want */
+.dash>.title,
+.dash>.header-end {
     height: 50%;
     display: flex;
     align-items: center;
@@ -115,9 +113,6 @@ body {
     left: 10%;
 }
 
-
-/* TODO Avoid the use of "box". Describe the element or section you are referring to i.e. header-right, header-end */
-
 .header-end {
     display: flex;
     padding: 0 3rem;
@@ -129,7 +124,7 @@ body {
     font-size: 1.2vw;
 }
 
-.user-icon {
+.avatar {
     /* Recommendation: What about "avatar"? */
     background-color: #ffffff;
     border-radius: 100%;
