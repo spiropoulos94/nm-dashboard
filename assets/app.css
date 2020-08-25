@@ -87,7 +87,7 @@ body {
 
 /* Note: Better use class name like header, header-main, header-title, account-link, user-logout &c */
 
-.dash {
+.header-title {
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -97,8 +97,8 @@ body {
 
 /* use class instead */
 
-.dash>.title,
-.dash>.header-end {
+.header-title>.title,
+.header-title>.header-end {
     height: 50%;
     display: flex;
     align-items: center;
