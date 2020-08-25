@@ -127,7 +127,7 @@ function onloadFn() {
         // Set button to disabled
         // TODO You might need to learn more about boolean attributes
 
-        deleteButton.setAttribute("disabled", false);
+        deleteButton.setAttribute("disabled", "disabled");
 
         // Update storage
         window.sessionStorage.setItem("usersData", JSON.stringify(newArr));
@@ -161,8 +161,6 @@ function onloadFn() {
         let displaySpace = document.getElementById("space");
         let displaySpaceWrapper = document.getElementById("display-wrapper");
         let tableStringHTML = "";
-
-        // console.log(tableStringHTML);
 
         data.innerHTML = `<div class="bd-example">
         <div class="table-responsive">
@@ -226,14 +224,14 @@ function onloadFn() {
             deleteButton.addEventListener("click", () => {
                 deleteUser(selectedRow, userID, deleteButton);
             });
-    }
 
-    document.querySelector("tbody") &&
-        document.querySelector("tbody").addEventListener("change", (e) => {
-            deleteButton.removeAttribute("disabled");
-            selectedRow = e.target.parentNode.parentNode;
-            userID = selectedRow.children[1].innerText;
-        });
+        document.querySelector("tbody") &&
+            document.querySelector("tbody").addEventListener("change", (e) => {
+                deleteButton.removeAttribute("disabled");
+                selectedRow = e.target.parentNode.parentNode;
+                userID = selectedRow.children[1].innerText;
+            });
+    }
 
     // Views eventListeners
     document.getElementById("colours").addEventListener("click", getColours);
