@@ -183,11 +183,12 @@ function onloadFn() {
             });
     }
 
-    document.querySelector("tbody").addEventListener("change", (e) => {
-        deleteButton.removeAttribute("disabled");
-        selectedRow = e.target.parentNode.parentNode;
-        userID = selectedRow.children[1].innerText;
-    });
+    document.querySelector("tbody") &&
+        document.querySelector("tbody").addEventListener("change", (e) => {
+            deleteButton.removeAttribute("disabled");
+            selectedRow = e.target.parentNode.parentNode;
+            userID = selectedRow.children[1].innerText;
+        });
 }
 
 // Deleting a user/row
