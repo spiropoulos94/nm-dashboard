@@ -71,6 +71,7 @@ function onloadFn() {
         .addEventListener("click", welcomeScreen);
 
     // Colours Screen ------------------
+    // spinner mesa sta screens TODO
 
     function getColours() {
         fetch("https://reqres.in/api/products/")
@@ -114,8 +115,6 @@ function onloadFn() {
     function hydrateUsers(fetchedData) {
         let displaySpace = document.getElementById("space");
         let displaySpaceWrapper = document.getElementById("display-wrapper");
-        // let bdxample = document.createElement("div");
-        //let tableResponsive = document.createElement("div");
         let tableStringHTML = "";
 
         // console.log(tableStringHTML);
@@ -151,11 +150,6 @@ function onloadFn() {
         displayLength.innerHTML = "";
 
         //  Converting Data to Table
-        // dataTable.classList.remove("not-visible");
-
-        //data.appendChild(bdxample);
-        // bdxample.appendChild(tableResponsive);
-        // tableResponsive.appendChild(dataTable);
 
         fetchedData.forEach((user) => {
             tableStringHTML += `<tr>
@@ -183,67 +177,66 @@ function onloadFn() {
         tableResponsive = document.querySelector(".table-responsive");
 
         // Note if any selector you are trying to immediately use is not in the DOM then you'll have an error
-        if (deleteButton) {
+        deleteButton &&
             deleteButton.addEventListener("click", () => {
                 deleteUser(selectedRow, userID, deleteButton);
             });
-        }
-
-        document.querySelector("tbody").addEventListener("change", (e) => {
-            deleteButton.removeAttribute("disabled");
-            selectedRow = e.target.parentNode.parentNode;
-            userID = selectedRow.children[1].innerText;
-        });
     }
 
-    // Deleting a user/row
-    // TODO Review the following function
-    function deleteUser(selectedRow, userID, deleteButton) {
+    document.querySelector("tbody").addEventListener("change", (e) => {
+        deleteButton.removeAttribute("disabled");
+        selectedRow = e.target.parentNode.parentNode;
         userID = selectedRow.children[1].innerText;
-        confirm(`Are you sure you want to delete user with ID ${userID} ?`);
-
-        //remove from table
-        selectedRow.parentNode.removeChild(selectedRow);
-        // console.log(userID, parseInt(selectedRow.children[1].innerText));
-
-        //remove from session storage
-        let arrayJson = JSON.parse(window.sessionStorage.getItem("usersData"));
-
-        let newArr = arrayJson.filter(
-            (entry) => parseInt(entry.id) != parseInt(userID)
-        );
-
-        // Set button to disabled
-        // TODO You might need to learn more about boolean attributes
-
-        deleteButton.setAttribute("disabled", false);
-
-        // Update storage
-        window.sessionStorage.setItem("usersData", JSON.stringify(newArr));
-    }
-
-    function getUsers() {
-        if (window.sessionStorage.getItem("usersData")) {
-            let sessionStorageData = JSON.parse(
-                window.sessionStorage.getItem("usersData")
-            );
-            console.log("users hydrated from local storage");
-            hydrateUsers(sessionStorageData);
-        } else {
-            fetch("https://reqres.in/api/users")
-                .then((res) => res.json())
-                .then((res) => {
-                    console.log("users hydrated by fetching data");
-                    hydrateUsers(res.data);
-
-                    window.sessionStorage.setItem("usersData", JSON.stringify(res.data));
-                });
-        }
-    }
-
-    // Views eventListeners
-    document.getElementById("colours").addEventListener("click", getColours);
-    document.getElementById("users").addEventListener("click", getUsers);
-
-    window.removeEventListener("load", onloadFn);
+    });
 }
+
+// Deleting a user/row
+// TODO Review the following function
+function deleteUser(selectedRow, userID, deleteButton) {
+    userID = selectedRow.children[1].innerText;
+    confirm(`Are you sure you want to delete user with ID ${userID} ?`);
+    // check confirm
+
+    //remove from table
+    selectedRow.parentNode.removeChild(selectedRow);
+
+    //remove from session storage
+    let arrayJson = JSON.parse(window.sessionStorage.getItem("usersData"));
+
+    let newArr = arrayJson.filter(
+        (entry) => parseInt(entry.id) != parseInt(userID)
+    );
+
+    // Set button to disabled
+    // TODO You might need to learn more about boolean attributes
+
+    deleteButton.setAttribute("disabled", false);
+
+    // Update storage
+    window.sessionStorage.setItem("usersData", JSON.stringify(newArr));
+}
+
+function getUsers() {
+    if (window.sessionStorage.getItem("usersData")) {
+        let sessionStorageData = JSON.parse(
+            window.sessionStorage.getItem("usersData")
+        );
+        console.log("users hydrated from local storage");
+        hydrateUsers(sessionStorageData);
+    } else {
+        fetch("https://reqres.in/api/users")
+            .then((res) => res.json())
+            .then((res) => {
+                console.log("users hydrated by fetching data");
+                hydrateUsers(res.data);
+
+                window.sessionStorage.setItem("usersData", JSON.stringify(res.data));
+            });
+    }
+}
+
+// Views eventListeners
+document.getElementById("colours").addEventListener("click", getColours);
+document.getElementById("users").addEventListener("click", getUsers);
+// reposition similar fns
+window.removeEventListener("load", onloadFn);

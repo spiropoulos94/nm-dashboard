@@ -101,6 +101,9 @@ body {
     width: 100%;
 }
 
+
+/* use class instead */
+
 .dash>p,
 .dash>div {
     /* TODO describe why global selectors are considered a bad practice */
@@ -144,6 +147,7 @@ body {
     background-color: var(--nav-background-color);
     /*border: 1px solid var(--nav-accent);*/
     /* TODO Something should be defined in the header, it's not a border. */
+    /* add shadow not border */
     width: 20%;
     display: flex;
     flex-direction: column;
