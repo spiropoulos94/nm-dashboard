@@ -15,6 +15,7 @@ function KeyPress(e) {
     var evtobj = window.event ? event : e;
     if (evtobj.keyCode == 90 && evtobj.ctrlKey) {
         sessionStorage.clear();
+        window.location.reload();
         console.log("Session storage cleared");
     }
 }
