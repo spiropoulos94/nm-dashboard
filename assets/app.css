@@ -45,14 +45,12 @@ body {
     height: 11vh;
     background-color: var(--secondary);
     align-items: center;
+    box-shadow: 0 4px 2px -2px gray;
 }
 
 #dropdown {
     display: none;
 }
-
-
-/* TODO remove duplicates */
 
 .ham {
     align-items: center;
@@ -66,6 +64,9 @@ body {
     padding: 0px 30px;
     align-items: center;
     z-index: 2;
+    font-size: 3.3vw;
+    font-weight: bold;
+    text-transform: uppercase;
 }
 
 .logo-img {
@@ -73,10 +74,7 @@ body {
 }
 
 .logo-txt {
-    font-size: 3.3vw;
     margin: 0 25px;
-    font-weight: bold;
-    text-transform: uppercase;
     /* TODO Use inheritance */
 }
 
@@ -133,7 +131,6 @@ body {
 
 .nav-bar {
     background-color: var(--nav-background-color);
-    /*border: 1px solid var(--nav-accent);*/
     /* TODO Something should be defined in the header, it's not a border. */
     /* add shadow not border */
     width: 20%;
@@ -166,22 +163,11 @@ body {
     background-color: var(--nav-accent);
 }
 
-
-/* .menu-items>a:active {
-    cursor: pointer;
-    background-color: var(--nav-accent);
-} */
-
 .footer {
     text-align: center;
     color: var(--footer-color);
     font-size: 1rem;
 }
-
-
-/* .menu-items li {
-    list-style-type: none;
-} */
 
 .horizontal-container {
     display: flex;
@@ -324,7 +310,6 @@ tr:nth-child(even) td {
 .table-head th {
     text-align: left;
     width: 2%;
-    /* padding-right: 10%; */
     border-bottom: 2px solid var(--border-color);
 }
 

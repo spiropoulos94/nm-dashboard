@@ -158,13 +158,11 @@ function onloadFn() {
             let sessionStorageData = JSON.parse(
                 window.sessionStorage.getItem("usersData")
             );
-            // console.log("users hydrated from local storage");
             hydrateUsers(sessionStorageData);
         } else {
             fetch("https://reqres.in/api/users")
                 .then((res) => res.json())
                 .then((res) => {
-                    // console.log("users hydrated by fetching data");
                     hydrateUsers(res.data);
 
                     window.sessionStorage.setItem("usersData", JSON.stringify(res.data));
