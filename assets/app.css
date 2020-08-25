@@ -1,12 +1,6 @@
 /* NOTE: A TODO comment might apply to more than one instance in your code, e.g. you might need to check all your code for duplicates. */
 
 
-/* TODO Remove redundant rules */
-
-
-/* TODO group similar rules */
-
-
 /* TODO Correct invalid values. A VS code plugin would be useful. */
 
 :root {
@@ -298,10 +292,6 @@ body {
     display: none;
 }
 
-.table-responsive {
-    overflow-x: auto;
-}
-
 .data-table {
     margin: 5% 0;
     width: 100%;
@@ -330,11 +320,11 @@ tr:nth-child(even) td {
     text-align: left;
     width: 2%;
     /* padding-right: 10%; */
-}
-
-.table-head>th {
     border-bottom: 2px solid var(--border-color);
 }
+
+
+/* .table-head>th {} */
 
 .td {
     font-size: 1.5rem;
@@ -344,8 +334,6 @@ tr:nth-child(even) td {
 
 .bd-example {
     position: relative;
-    /* padding: 1rem;
-    margin: 1rem -15px 0; */
     width: 100%;
 }
 
@@ -388,9 +376,6 @@ tr:nth-child(even) td {
     justify-content: center;
     align-items: center;
 }
-
-
-/* https://www.youtube.com/watch?v=xMTs8tAapnQ */
 
 @media only screen and (max-width: 1100px) {
     .menu-items li {
@@ -455,8 +440,6 @@ tr:nth-child(even) td {
         left: 30%;
     }
     .nav-bar {
-        /* width: 30%; */
-        /* display: none; */
         position: fixed;
         z-index: 5;
     }
@@ -476,9 +459,3 @@ tr:nth-child(even) td {
         padding: 0;
     }
 }
-
-
-/* TODO */
-
-
-/* .data and .mini-wrapper are responsible for mobile screen break problems */
