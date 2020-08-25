@@ -225,7 +225,6 @@ function onloadFn() {
         bdexample = document.querySelector(".bd-example");
         tableResponsive = document.querySelector(".table-responsive");
 
-        // Note if any selector you are trying to immediately use is not in the DOM then you'll have an error
         deleteButton &&
             deleteButton.addEventListener("click", () => {
                 deleteUser(selectedRow, userID, deleteButton);
@@ -240,9 +239,19 @@ function onloadFn() {
     }
 
     // Views eventListeners
-    document.getElementById("colours").addEventListener("click", getColours);
+    document.getElementById("colours").addEventListener("click", () => {
+        getColours();
+        document.getElementById("colours").className += " active-link";
+        document.getElementById("users").classList.remove("active-link");
+    });
+
     document.getElementById("users").addEventListener("click", getUsers);
+
+    document.getElementById("users").addEventListener("click", () => {
+        getUsers();
+        document.getElementById("users").className += " active-link";
+        document.getElementById("colours").classList.remove("active-link");
+    });
 }
 
-// reposition similar fns
 window.removeEventListener("load", onloadFn);
