@@ -10,6 +10,17 @@ window.addEventListener("resize", function() {
     }
 });
 
+// The following function was added for development purposes.
+function KeyPress(e) {
+    var evtobj = window.event ? event : e;
+    if (evtobj.keyCode == 90 && evtobj.ctrlKey) {
+        sessionStorage.clear();
+        console.log("Session storage cleared");
+    }
+}
+
+document.onkeydown = KeyPress;
+
 function onloadFn() {
     //when page loads the spinner becomes hidden
 
@@ -173,7 +184,7 @@ function onloadFn() {
         // Note if any selector you are trying to immediately use is not in the DOM then you'll have an error
         if (deleteButton) {
             deleteButton.addEventListener("click", () => {
-                deleteUser(selectedRow, userID);
+                deleteUser(selectedRow, userID, deleteButton);
             });
         }
 
@@ -204,11 +215,7 @@ function onloadFn() {
         // Set button to disabled
         // TODO You might need to learn more about boolean attributes
 
-        // deleteButton.setAttribute("disabled", false);
-        if (deleteButton) {
-            console.log(deleteButton);
-            // deleteButton.setAttribute("disabled", false);
-        }
+        deleteButton.setAttribute("disabled", false);
 
         // Update storage
         window.sessionStorage.setItem("usersData", JSON.stringify(newArr));
