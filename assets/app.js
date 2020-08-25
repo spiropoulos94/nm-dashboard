@@ -107,6 +107,51 @@ function onloadFn() {
             });
     }
 
+    // Deleting a user/row
+    // TODO Review the following function
+    function deleteUser(selectedRow, userID, deleteButton) {
+        userID = selectedRow.children[1].innerText;
+        confirm(`Are you sure you want to delete user with ID ${userID} ?`);
+        // check confirm
+
+        //remove from table
+        selectedRow.parentNode.removeChild(selectedRow);
+
+        //remove from session storage
+        let arrayJson = JSON.parse(window.sessionStorage.getItem("usersData"));
+
+        let newArr = arrayJson.filter(
+            (entry) => parseInt(entry.id) != parseInt(userID)
+        );
+
+        // Set button to disabled
+        // TODO You might need to learn more about boolean attributes
+
+        deleteButton.setAttribute("disabled", false);
+
+        // Update storage
+        window.sessionStorage.setItem("usersData", JSON.stringify(newArr));
+    }
+
+    function getUsers() {
+        if (window.sessionStorage.getItem("usersData")) {
+            let sessionStorageData = JSON.parse(
+                window.sessionStorage.getItem("usersData")
+            );
+            console.log("users hydrated from local storage");
+            hydrateUsers(sessionStorageData);
+        } else {
+            fetch("https://reqres.in/api/users")
+                .then((res) => res.json())
+                .then((res) => {
+                    console.log("users hydrated by fetching data");
+                    hydrateUsers(res.data);
+
+                    window.sessionStorage.setItem("usersData", JSON.stringify(res.data));
+                });
+        }
+    }
+
     // Users Screen ----------------
     let sessionStorageData = JSON.parse(
         window.sessionStorage.getItem("usersData")
@@ -189,55 +234,11 @@ function onloadFn() {
             selectedRow = e.target.parentNode.parentNode;
             userID = selectedRow.children[1].innerText;
         });
+
+    // Views eventListeners
+    document.getElementById("colours").addEventListener("click", getColours);
+    document.getElementById("users").addEventListener("click", getUsers);
 }
 
-// Deleting a user/row
-// TODO Review the following function
-function deleteUser(selectedRow, userID, deleteButton) {
-    userID = selectedRow.children[1].innerText;
-    confirm(`Are you sure you want to delete user with ID ${userID} ?`);
-    // check confirm
-
-    //remove from table
-    selectedRow.parentNode.removeChild(selectedRow);
-
-    //remove from session storage
-    let arrayJson = JSON.parse(window.sessionStorage.getItem("usersData"));
-
-    let newArr = arrayJson.filter(
-        (entry) => parseInt(entry.id) != parseInt(userID)
-    );
-
-    // Set button to disabled
-    // TODO You might need to learn more about boolean attributes
-
-    deleteButton.setAttribute("disabled", false);
-
-    // Update storage
-    window.sessionStorage.setItem("usersData", JSON.stringify(newArr));
-}
-
-function getUsers() {
-    if (window.sessionStorage.getItem("usersData")) {
-        let sessionStorageData = JSON.parse(
-            window.sessionStorage.getItem("usersData")
-        );
-        console.log("users hydrated from local storage");
-        hydrateUsers(sessionStorageData);
-    } else {
-        fetch("https://reqres.in/api/users")
-            .then((res) => res.json())
-            .then((res) => {
-                console.log("users hydrated by fetching data");
-                hydrateUsers(res.data);
-
-                window.sessionStorage.setItem("usersData", JSON.stringify(res.data));
-            });
-    }
-}
-
-// Views eventListeners
-document.getElementById("colours").addEventListener("click", getColours);
-document.getElementById("users").addEventListener("click", getUsers);
 // reposition similar fns
 window.removeEventListener("load", onloadFn);
