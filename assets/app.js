@@ -149,6 +149,11 @@ function onloadFn() {
     }
 
     function getUsers() {
+        mainScreen.appendChild(spinner);
+        spinner.setAttribute("style", "display:flex;");
+        document
+            .querySelector(".main-screen-content")
+            .setAttribute("style", "display:none");
         if (window.sessionStorage.getItem("usersData")) {
             let sessionStorageData = JSON.parse(
                 window.sessionStorage.getItem("usersData")
@@ -173,6 +178,11 @@ function onloadFn() {
     );
 
     function hydrateUsers(fetchedData) {
+        spinner.setAttribute("style", "display:flex;");
+        document
+            .querySelector(".main-screen-content")
+            .setAttribute("style", "display:block");
+
         let displaySpace = document.getElementById("space");
         let displaySpaceWrapper = document.getElementById("display-wrapper");
         let tableStringHTML = "";
