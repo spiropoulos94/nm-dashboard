@@ -288,6 +288,7 @@ spinner.innerHTML = `<div id="wholePageSpinner" class="loader-wrapper">
   }
 
   // TODO review
+  // i would like to know why the following needs a review
   document.addEventListener("DOMContentLoaded", onloadFn);
   window.removeEventListener("load", onloadFn);
 
