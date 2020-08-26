@@ -1,8 +1,18 @@
 "use strict";
 // 'use strict'; TODO enable strict mode and correct your code DONE
+let spinner = document.createElement("div");
+spinner.innerHTML = `<div id="wholePageSpinner" class="loader-wrapper">
+<div class="loader"></div>
 
+<p class="loading-msg">loading...</p>
+</div> `;
 (function () {
   let navBar = document.querySelector("div.nav-bar");
+  document.body.appendChild(spinner);
+  document.querySelector(".whole-page").setAttribute("style", "display:none");
+  document
+    .querySelector(".loader-wrapper")
+    .setAttribute("style", "height:100vh");
 
   // The following function was added for development purposes.
   function clearStorageShortcut(e) {
@@ -17,6 +27,11 @@
   document.onkeydown = clearStorageShortcut;
 
   function onloadFn() {
+    document.body.removeChild(spinner);
+    document
+      .querySelector(".whole-page")
+      .setAttribute("style", "display:block");
+
     let mainScreen = document.querySelector(".main-screen");
     let data = document.querySelector(".data");
     let mainHeading = document.querySelector(".main-heading");
@@ -31,12 +46,12 @@
 
     document.querySelector(".data").innerHTML = ""; // TODO
 
-    let spinner = document.createElement("div");
-    spinner.innerHTML = `<div id="wholePageSpinner" class="loader-wrapper">
-    <div class="loader"></div>
+    //     let spinner = document.createElement("div");
+    //     spinner.innerHTML = `<div id="wholePageSpinner" class="loader-wrapper">
+    //     <div class="loader"></div>
 
-    <p class="loading-msg">loading...</p>
-  </div> `;
+    //     <p class="loading-msg">loading...</p>
+    //   </div> `;
 
     function showSpinner() {
       data.innerHTML = spinner.innerHTML;
