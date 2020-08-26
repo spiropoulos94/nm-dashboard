@@ -32,12 +32,18 @@
     document.querySelector(".data").innerHTML = ""; // TODO
 
     let spinner = document.createElement("div");
-
     spinner.innerHTML = `<div id="wholePageSpinner" class="loader-wrapper">
     <div class="loader"></div>
 
     <p class="loading-msg">loading...</p>
   </div> `;
+
+    function showSpinner() {
+      data.innerHTML = spinner.innerHTML;
+      document
+        .querySelector(".main-head-top-text")
+        .setAttribute("style", "display:none");
+    }
 
     // Welcome Screen ----------------
 
@@ -56,10 +62,7 @@
     // Colours Screen ------------------
 
     function getColours() {
-      data.innerHTML = spinner.innerHTML;
-      document
-        .querySelector(".main-head-top-text")
-        .setAttribute("style", "display:none");
+      showSpinner();
       // TODO Q: In the feature if we have 2 new views will we have to write the next 5 lines of code in the functions that will render those views?
       //   mainScreen.appendChild(spinner); // TODO Review
       //   spinner.setAttribute("style", "display:flex;");
@@ -151,10 +154,7 @@
     }
 
     function getUsers() {
-      data.innerHTML = spinner.innerHTML;
-      document
-        .querySelector(".main-head-top-text")
-        .setAttribute("style", "display:none");
+      showSpinner();
 
       if (window.sessionStorage.getItem("usersData")) {
         let sessionStorageData = JSON.parse(
