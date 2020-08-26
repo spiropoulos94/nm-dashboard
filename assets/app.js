@@ -122,34 +122,26 @@
     function deleteUser(selectedRow, userID, deleteButton) {
       userID = selectedRow.children[1].innerText;
 
-      // check confirm
-      // TODO Review. Why use an IIFE?
-      (function confirmFn() {
-        let r = confirm(`Are you sure you want to delete user ${userID} ?`);
-        if (r == true) {
-          //remove from table
-          selectedRow.parentNode.removeChild(selectedRow);
+      if (confirm(`Are you sure you want to delete user ${userID} ?`)) {
+        //remove from table
+        selectedRow.parentNode.removeChild(selectedRow);
 
-          //remove from session storage
-          let arrayJson = JSON.parse(
-            window.sessionStorage.getItem("usersData")
-          );
+        //remove from session storage
+        let arrayJson = JSON.parse(window.sessionStorage.getItem("usersData"));
 
-          let newArr = arrayJson.filter(
-            (entry) => parseInt(entry.id) != parseInt(userID) // TODO equality strict
-          );
+        let newArr = arrayJson.filter(
+          (entry) => parseInt(entry.id) != parseInt(userID) // TODO equality strict
+        );
 
-          // Set button to disabled
-          deleteButton.setAttribute("disabled", "disabled");
+        // Set button to disabled
+        deleteButton.setAttribute("disabled", "disabled");
 
-          // Update storage
-          window.sessionStorage.setItem("usersData", JSON.stringify(newArr));
+        // Update storage
+        window.sessionStorage.setItem("usersData", JSON.stringify(newArr));
 
-          alert(`User ${userID} deleted!`);
-        }
-
+        alert(`User ${userID} deleted!`);
         deleteButton.setAttribute("disabled", ""); // TODO DONE https://developer.mozilla.org/en-US/docs/Web/API/Element/setAttribute
-      })();
+      }
     }
 
     function getUsers() {
