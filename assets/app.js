@@ -17,7 +17,7 @@
   document.onkeydown = clearStorageShortcut;
 
   function onloadFn() {
-    let spinner = document.getElementById("wholePageSpinner");
+    // let spinner = document.getElementById("wholePageSpinner");
     let mainScreen = document.querySelector(".main-screen");
     let data = document.querySelector(".data");
     let mainHeading = document.querySelector(".main-heading");
@@ -38,7 +38,14 @@
     document.querySelector(".data").innerHTML = ""; // TODO
 
     // Hide spinner
-    spinner.style.display = "none";
+
+    let spinner = document.createElement("div");
+    spinner.className = "loader-wrapper";
+    spinner.innerHTML = `<div class="loader"></div>
+    <p class="loading-msg">loading...</p>`;
+
+    console.log(spinner);
+    // spinner.style.display = "none";
 
     // Welcome Screen ----------------
 
@@ -57,12 +64,16 @@
     // spinner mesa sta screens TODO
 
     function getColours() {
-      // TODO Q: In the feature if we have 2 new views will we have to write the next 5 lines of code in the functions that will render those views?
-      mainScreen.appendChild(spinner); // TODO Review
-      spinner.setAttribute("style", "display:flex;");
+      data.innerHTML = spinner.innerHTML;
       document
-        .querySelector(".main-screen-content")
+        .querySelector(".main-head-top-text")
         .setAttribute("style", "display:none");
+      // TODO Q: In the feature if we have 2 new views will we have to write the next 5 lines of code in the functions that will render those views?
+      //   mainScreen.appendChild(spinner); // TODO Review
+      //   spinner.setAttribute("style", "display:flex;");
+      //   document
+      // .querySelector(".main-screen-content")
+      // .setAttribute("style", "display:none");
       // END
 
       fetch("https://reqres.in/api/products/")
@@ -71,6 +82,9 @@
           document
             .querySelector(".main-screen-content")
             .setAttribute("style", "display:block");
+          document
+            .querySelector(".main-head-top-text")
+            .setAttribute("style", "display:flex");
 
           let colours = res.data; // TODO DONE
 
@@ -111,7 +125,7 @@
                     `;
             data.appendChild(imageDiv);
 
-            spinner.setAttribute("style", "display:none;");
+            // spinner.setAttribute("style", "display:none;");
           });
         });
     }
@@ -144,11 +158,11 @@
     }
 
     function getUsers() {
-      mainScreen.appendChild(spinner);
-      spinner.setAttribute("style", "display:flex;");
-      document
-        .querySelector(".main-screen-content")
-        .setAttribute("style", "display:none");
+      //   mainScreen.appendChild(spinner);
+      //   spinner.setAttribute("style", "display:flex;");
+      //   document
+      // .querySelector(".main-screen-content")
+      // .setAttribute("style", "display:none");
 
       if (window.sessionStorage.getItem("usersData")) {
         let sessionStorageData = JSON.parse(
@@ -175,7 +189,7 @@
     );
 
     function hydrateUsers(fetchedData) {
-      spinner.setAttribute("style", "display:flex;");
+      //   spinner.setAttribute("style", "display:flex;");
       document
         .querySelector(".main-screen-content")
         .setAttribute("style", "display:block");
