@@ -118,7 +118,7 @@
     }
 
     // Deleting a user/row
-    // TODO Review the following function
+    // TODO Review the following function  DONE https://developer.mozilla.org/en-US/docs/Web/API/Window/confirm
     function deleteUser(selectedRow, userID, deleteButton) {
       userID = selectedRow.children[1].innerText;
 
