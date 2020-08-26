@@ -166,6 +166,10 @@
     }
 
     function getUsers() {
+      data.innerHTML = spinner.innerHTML;
+      document
+        .querySelector(".main-head-top-text")
+        .setAttribute("style", "display:none");
       //   mainScreen.appendChild(spinner);
       //   spinner.setAttribute("style", "display:flex;");
       //   document
