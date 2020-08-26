@@ -44,7 +44,7 @@ spinner.innerHTML = `<div id="wholePageSpinner" class="loader-wrapper">
 
     let burgerMenu = document.querySelector(".burger");
 
-    document.querySelector(".data").innerHTML = ""; // TODO
+    data.innerHTML = ""; // TODO DONE
 
     function showSpinner() {
       data.innerHTML = spinner.innerHTML;
@@ -64,21 +64,13 @@ spinner.innerHTML = `<div id="wholePageSpinner" class="loader-wrapper">
     }
 
     document
-      .getElementsByClassName("logo-txt")[0] // TODO
+      .querySelector(".logo-txt") // TODO DONE
       .addEventListener("click", welcomeScreen);
 
     // Colours Screen ------------------
 
     function getColours() {
       showSpinner();
-
-      // TODO Q: In the feature if we have 2 new views will we have to write the next 5 lines of code in the functions that will render those views?
-      //   mainScreen.appendChild(spinner); // TODO Review
-      //   spinner.setAttribute("style", "display:flex;");
-      //   document
-      // .querySelector(".main-screen-content")
-      // .setAttribute("style", "display:none");
-      // END
 
       fetch("https://reqres.in/api/products/")
         .then((res) => res.json())
