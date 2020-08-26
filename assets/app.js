@@ -84,7 +84,7 @@
             if (keyA > keyB) return -1;
             return 0;
           });
-          console.log(colours);
+          //console.log(colours);
           // TODO Use sort DONE
           mainHeading.innerText = "Colours";
 
