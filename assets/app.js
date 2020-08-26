@@ -37,6 +37,7 @@ spinner.innerHTML = `<div id="wholePageSpinner" class="loader-wrapper">
     let mainHeading = document.querySelector(".main-heading");
     let info = document.getElementById("info");
     let mainHeader = document.querySelector(".main-head-top-text");
+    let tableBody = document.querySelector("tbody");
 
     // NOTE: Selectors should be more specific
     let flexibleField = document.querySelector(".flexible");
@@ -257,8 +258,8 @@ spinner.innerHTML = `<div id="wholePageSpinner" class="loader-wrapper">
           deleteUser(selectedRow, userID, deleteButton);
         });
 
-      document.querySelector("tbody") &&
-        document.querySelector("tbody").addEventListener("change", (e) => {
+      tableBody &&
+        tableBody.addEventListener("change", (e) => {
           deleteButton.removeAttribute("disabled");
           selectedRow = e.target.parentNode.parentNode;
           userID = selectedRow.children[1].innerText;
