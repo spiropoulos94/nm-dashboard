@@ -1,8 +1,7 @@
 "use strict";
+// 'use strict'; TODO enable strict mode and correct your code DONE
 
 (function () {
-  // 'use strict'; TODO enable strict mode and correct your code DONE
-
   let navBar = document.querySelector("div.nav-bar");
 
   // The following function was added for development purposes.
