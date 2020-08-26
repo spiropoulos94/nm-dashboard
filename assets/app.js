@@ -46,13 +46,6 @@ spinner.innerHTML = `<div id="wholePageSpinner" class="loader-wrapper">
 
     document.querySelector(".data").innerHTML = ""; // TODO
 
-    //     let spinner = document.createElement("div");
-    //     spinner.innerHTML = `<div id="wholePageSpinner" class="loader-wrapper">
-    //     <div class="loader"></div>
-
-    //     <p class="loading-msg">loading...</p>
-    //   </div> `;
-
     function showSpinner() {
       data.innerHTML = spinner.innerHTML;
       document
@@ -110,7 +103,7 @@ spinner.innerHTML = `<div id="wholePageSpinner" class="loader-wrapper">
             if (keyA > keyB) return -1;
             return 0;
           });
-          //console.log(colours);
+
           // TODO Use sort DONE
           mainHeading.innerText = "Colours";
 
@@ -149,28 +142,23 @@ spinner.innerHTML = `<div id="wholePageSpinner" class="loader-wrapper">
       if (confirm(`Are you sure you want to delete user ${userID} ?`)) {
         //remove from table
         selectedRow.parentNode.removeChild(selectedRow);
-
         //remove from session storage
         let arrayJson = JSON.parse(window.sessionStorage.getItem("usersData"));
-
         let newArr = arrayJson.filter(
           (entry) => parseInt(entry.id) != parseInt(userID) // TODO equality strict
         );
-
         // Set button to disabled
         deleteButton.setAttribute("disabled", "disabled");
-
         // Update storage
         window.sessionStorage.setItem("usersData", JSON.stringify(newArr));
-
         alert(`User ${userID} deleted!`);
-        deleteButton.setAttribute("disabled", ""); // TODO DONE https://developer.mozilla.org/en-US/docs/Web/API/Element/setAttribute
+        deleteButton.setAttribute("disabled", "");
+        // TODO DONE https://developer.mozilla.org/en-US/docs/Web/API/Element/setAttribute
       }
     }
 
     function getUsers() {
       showSpinner();
-
       if (window.sessionStorage.getItem("usersData")) {
         let sessionStorageData = JSON.parse(
           window.sessionStorage.getItem("usersData")
@@ -189,14 +177,11 @@ spinner.innerHTML = `<div id="wholePageSpinner" class="loader-wrapper">
           });
       }
     }
-
     // Users Screen ----------------
     let sessionStorageData = JSON.parse(
       window.sessionStorage.getItem("usersData")
     );
-
     function hydrateUsers(fetchedData) {
-      //   spinner.setAttribute("style", "display:flex;");
       document
         .querySelector(".main-screen-content")
         .setAttribute("style", "display:block");
