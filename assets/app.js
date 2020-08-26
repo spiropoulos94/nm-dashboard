@@ -163,11 +163,22 @@ spinner.innerHTML = `<div id="wholePageSpinner" class="loader-wrapper">
         let sessionStorageData = JSON.parse(
           window.sessionStorage.getItem("usersData")
         );
+
         hydrateUsers(sessionStorageData);
       } else {
         fetch("https://reqres.in/api/users")
           .then((res) => res.json())
           .then((res) => {
+            //res.data.map((user) => (user.id = Math.random())); tried to give users random id values to test the following sorting FN
+            res.data.sort(function (a, b) {
+              var keyA = a.id,
+                keyB = b.id;
+              // Compare the 2 dates
+              if (keyA < keyB) return -1;
+              if (keyA > keyB) return +1;
+              return 0;
+            });
+            console.log(res.data);
             hydrateUsers(res.data);
 
             window.sessionStorage.setItem(
