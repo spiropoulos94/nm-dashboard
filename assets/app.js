@@ -98,6 +98,7 @@
           colours.map((color) => {
             // TODO use map DONE
             // map seems to be slighly faster according to https://www.measurethat.net/Benchmarks/Show/2090/0/array-loop-vs-foreach-vs-map#latest_results_block
+            // and it also returns a new arr so it can be possibly chained to other methods https://codeburst.io/javascript-map-vs-foreach-f38111822c0f
             let imageDiv = document.createElement("div");
             imageDiv.className = "blurb";
             imageDiv.setAttribute("style", `background-color:${color.color}`);
