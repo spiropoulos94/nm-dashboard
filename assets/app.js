@@ -140,8 +140,7 @@ spinner.innerHTML = `<div id="wholePageSpinner" class="loader-wrapper">
         let newArr = arrayJson.filter(
           (entry) => parseInt(entry.id) != parseInt(userID) // TODO equality strict
         );
-        // Set button to disabled
-        deleteButton.setAttribute("disabled", "disabled");
+
         // Update storage
         window.sessionStorage.setItem("usersData", JSON.stringify(newArr));
         alert(`User ${userID} deleted!`);
