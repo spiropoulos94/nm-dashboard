@@ -22,6 +22,7 @@
     let data = document.querySelector(".data");
     let mainHeading = document.querySelector(".main-heading");
     let info = document.getElementById("info");
+    let mainHeader = document.querySelector(".main-head-top-text");
     // let mainHeaderContainer = document.getElementsByClassName(
     //   "main-header-container"
     // )[0]; // TODO
@@ -40,16 +41,20 @@
     // Hide spinner
 
     let spinner = document.createElement("div");
-    spinner.className = "loader-wrapper";
-    spinner.innerHTML = `<div class="loader"></div>
-    <p class="loading-msg">loading...</p>`;
 
-    console.log(spinner);
+    spinner.innerHTML = `<div id="wholePageSpinner" class="loader-wrapper">
+    <div class="loader"></div>
+
+    <p class="loading-msg">loading...</p>
+  </div> `;
+
+    // console.log(spinner);
     // spinner.style.display = "none";
 
     // Welcome Screen ----------------
 
     function welcomeScreen() {
+      mainHeader.setAttribute("style", "display:block;");
       data.innerHTML = "";
       mainHeading.innerText = "Welcome";
       flexibleField.innerHTML = ``;
@@ -85,6 +90,9 @@
           document
             .querySelector(".main-head-top-text")
             .setAttribute("style", "display:flex");
+          document
+            .querySelector(".data")
+            .setAttribute("style", "height:initial");
 
           let colours = res.data; // TODO DONE
 
@@ -117,12 +125,12 @@
             imageDiv.setAttribute("style", `background-color:${color.color}`);
 
             imageDiv.innerHTML = `
-                    <p class="color-code" style="color:${color.color}" >${color.color}</p>
-                    <div class="color-info">
-                    <p class="color-year">${color.year}</p>
-                    <p class="color-name">${color.name}</p>
-                    </div>
-                    `;
+                        <p class="color-code" style="color:${color.color}" >${color.color}</p>
+                        <div class="color-info">
+                        <p class="color-year">${color.year}</p>
+                        <p class="color-name">${color.name}</p>
+                        </div>
+                        `;
             data.appendChild(imageDiv);
 
             // spinner.setAttribute("style", "display:none;");
@@ -193,6 +201,7 @@
       document
         .querySelector(".main-screen-content")
         .setAttribute("style", "display:block");
+      mainHeader.setAttribute("style", "display:flex;");
 
       let displaySpace = document.getElementById("space");
       let displaySpaceWrapper = document.getElementById("display-wrapper");

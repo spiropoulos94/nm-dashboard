@@ -194,8 +194,9 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: space-between;
+  justify-content: start;
   width: 100%;
+  height: 100%;
 }
 
 .main-head-mini-wrapper {
@@ -220,8 +221,9 @@ body {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  align-items: center;
+  align-items: start;
   width: 100%;
+  height: 100%;
   overflow-x: auto;
 }
 
@@ -346,7 +348,6 @@ tr:nth-child(even) td {
 }
 
 .loader-wrapper {
-  background-color: var(--table-accent);
   width: 100%;
   height: 100%;
   display: flex;
