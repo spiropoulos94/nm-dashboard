@@ -37,7 +37,7 @@ spinner.innerHTML = `<div id="wholePageSpinner" class="loader-wrapper">
     let mainHeading = document.querySelector(".main-heading");
     let info = document.getElementById("info");
     let mainHeader = document.querySelector(".main-head-top-text");
-    let tableBody = document.querySelector("tbody");
+    let tableBody = document.querySelector(".tbody");
 
     // NOTE: Selectors should be more specific
     let flexibleField = document.querySelector(".flexible");
@@ -258,12 +258,11 @@ spinner.innerHTML = `<div id="wholePageSpinner" class="loader-wrapper">
           deleteUser(selectedRow, userID, deleteButton);
         });
 
-      tableBody &&
-        tableBody.addEventListener("change", (e) => {
-          deleteButton.removeAttribute("disabled");
-          selectedRow = e.target.parentNode.parentNode;
-          userID = selectedRow.children[1].innerText;
-        });
+      document.querySelector(".tbody").addEventListener("change", (e) => {
+        deleteButton.removeAttribute("disabled");
+        selectedRow = e.target.parentNode.parentNode;
+        userID = selectedRow.children[1].innerText;
+      });
     }
 
     function toggleNavbar() {
