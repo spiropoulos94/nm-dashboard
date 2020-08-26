@@ -52,7 +52,7 @@ body {
   display: none;
 }
 
-.ham {
+.burger {
   align-items: center;
   display: none;
   padding: 0 2%;
@@ -400,7 +400,7 @@ tr:nth-child(even) td {
 }
 
 @media only screen and (max-width: 730px) {
-  .ham {
+  .burger {
     display: flex;
     font-size: 30px;
   }
