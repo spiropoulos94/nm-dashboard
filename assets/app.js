@@ -17,28 +17,19 @@
   document.onkeydown = clearStorageShortcut;
 
   function onloadFn() {
-    // let spinner = document.getElementById("wholePageSpinner");
     let mainScreen = document.querySelector(".main-screen");
     let data = document.querySelector(".data");
     let mainHeading = document.querySelector(".main-heading");
     let info = document.getElementById("info");
     let mainHeader = document.querySelector(".main-head-top-text");
-    // let mainHeaderContainer = document.getElementsByClassName(
-    //   "main-header-container"
-    // )[0]; // TODO
 
     // NOTE: Selectors should be more specific
     let flexibleField = document.querySelector(".flexible");
     let displayLength = document.querySelector(".length");
 
-    let dataTable = document.querySelector(".data-table");
-    // let tableHead = document.querySelector(".table-head"); // TODO
     let burgerMenu = document.querySelector("button.ham");
-    // let options = document.getElementById("data-length"); // TODO
-    // Reset main section data
-    document.querySelector(".data").innerHTML = ""; // TODO
 
-    // Hide spinner
+    document.querySelector(".data").innerHTML = ""; // TODO
 
     let spinner = document.createElement("div");
 
@@ -47,9 +38,6 @@
 
     <p class="loading-msg">loading...</p>
   </div> `;
-
-    // console.log(spinner);
-    // spinner.style.display = "none";
 
     // Welcome Screen ----------------
 
@@ -66,7 +54,6 @@
       .addEventListener("click", welcomeScreen);
 
     // Colours Screen ------------------
-    // spinner mesa sta screens TODO
 
     function getColours() {
       data.innerHTML = spinner.innerHTML;
@@ -132,8 +119,6 @@
                         </div>
                         `;
             data.appendChild(imageDiv);
-
-            // spinner.setAttribute("style", "display:none;");
           });
         });
     }
@@ -170,11 +155,6 @@
       document
         .querySelector(".main-head-top-text")
         .setAttribute("style", "display:none");
-      //   mainScreen.appendChild(spinner);
-      //   spinner.setAttribute("style", "display:flex;");
-      //   document
-      // .querySelector(".main-screen-content")
-      // .setAttribute("style", "display:none");
 
       if (window.sessionStorage.getItem("usersData")) {
         let sessionStorageData = JSON.parse(
