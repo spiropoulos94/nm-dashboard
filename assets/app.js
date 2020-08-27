@@ -166,7 +166,7 @@ spinner.innerHTML = `<div id="wholePageSpinner" class="loader-wrapper">
 
     function getUsers() {
       showSpinner();
-      console.log(data);
+
       if (document.querySelector(".colours-data")) {
         data.removeChild(document.querySelector(".colours-data"));
       }
@@ -211,7 +211,7 @@ spinner.innerHTML = `<div id="wholePageSpinner" class="loader-wrapper">
         .setAttribute("style", "display:block");
 
       let blurbs = document.getElementsByClassName("blurb") || "";
-      console.log(blurbs);
+
       document
         .querySelector(".main-screen-content")
         .setAttribute("style", "display:block");
