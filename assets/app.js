@@ -246,12 +246,12 @@ spinner.innerHTML = `<div id="wholePageSpinner" class="loader-wrapper">
       });
       document.querySelector(".tbody").innerHTML = tableStringHTML;
 
-      let checkboxes = document.querySelectorAll("input.delete-checkbox");
+      // let checkboxes = document.querySelectorAll("input.delete-checkbox");
       let selectedRow = null;
       let userID = null;
 
-      let bdexample = document.querySelector(".bd-example");
-      let tableResponsive = document.querySelector(".table-responsive");
+      // let bdexample = document.querySelector(".bd-example");
+      // let tableResponsive = document.querySelector(".table-responsive");
 
       deleteButton &&
         deleteButton.addEventListener("click", () => {
