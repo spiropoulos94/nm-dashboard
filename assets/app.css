@@ -224,7 +224,16 @@ body {
   align-items: start;
   width: 100%;
   height: 100%;
-  overflow-x: auto;
+  /* overflow-x: auto; */
+}
+
+.colours-data {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: start;
 }
 
 .blurb {
@@ -287,7 +296,7 @@ body {
 }
 
 .table-responsive {
-  display: block;
+  display: none;
   width: 100%;
   overflow-x: auto;
 }
@@ -318,7 +327,7 @@ tr:nth-child(even) td {
 }
 
 .table-responsive {
-  display: block;
+  /* display: block; */
   width: 100%;
   overflow-x: auto;
   -webkit-overflow-scrolling: touch;
@@ -392,7 +401,7 @@ tr:nth-child(even) td {
     font-size: 2vw;
   }
   .table-responsive {
-    display: block;
+    /* display: block; */
     width: 100%;
     overflow-x: auto;
     -webkit-overflow-scrolling: touch;

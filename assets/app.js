@@ -45,10 +45,10 @@ spinner.innerHTML = `<div id="wholePageSpinner" class="loader-wrapper">
 
     let burgerMenu = document.querySelector(".burger");
 
-    data.innerHTML = ""; // TODO DONE
+    // data.innerHTML = ""; // TODO DONE
 
     function showSpinner() {
-      data.innerHTML = spinner.innerHTML;
+      data.appendChild(spinner);
       document
         .querySelector(".main-head-top-text")
         .setAttribute("style", "display:none");
@@ -58,7 +58,8 @@ spinner.innerHTML = `<div id="wholePageSpinner" class="loader-wrapper">
 
     function welcomeScreen() {
       mainHeader.setAttribute("style", "display:block;");
-      data.innerHTML = "";
+      // data.innerHTML = "";
+      document.querySelector(".data").setAttribute("style", "display:none");
       mainHeading.innerText = "Welcome";
       flexibleField.innerHTML = ``;
       displayLength.innerHTML = ``;
@@ -72,10 +73,15 @@ spinner.innerHTML = `<div id="wholePageSpinner" class="loader-wrapper">
 
     function getColours() {
       showSpinner();
-
+      document
+        .querySelector(".table-responsive")
+        .setAttribute("style", "displaY:none");
       fetch("https://reqres.in/api/products/")
         .then((res) => res.json())
         .then((res) => {
+          document
+            .querySelector(".loader-wrapper")
+            .setAttribute("style", "display:none");
           document
             .querySelector(".main-screen-content")
             .setAttribute("style", "display:block");
@@ -85,6 +91,13 @@ spinner.innerHTML = `<div id="wholePageSpinner" class="loader-wrapper">
           document
             .querySelector(".data")
             .setAttribute("style", "height:initial");
+
+          let coloursDataDiv = document.createElement("div");
+          coloursDataDiv.className = "colours-data";
+
+          if (data.children.length < 3) {
+            data.appendChild(coloursDataDiv);
+          }
 
           let colours = res.data; // TODO DONE
 
@@ -103,28 +116,29 @@ spinner.innerHTML = `<div id="wholePageSpinner" class="loader-wrapper">
 
           let blurbsContainer = document.createElement("div");
           blurbsContainer.className = "blurbs-container";
-          data.innerText = "";
 
           flexibleField.innerHTML = `<p>items :</p>`;
           displayLength.innerHTML = `<p>${colours.length}</p>`;
+          if (data.getElementsByClassName("blurb").length < colours.length) {
+            colours.map((color) => {
+              // TODO use map DONE
+              // map seems to be slighly faster according to https://www.measurethat.net/Benchmarks/Show/2090/0/array-loop-vs-foreach-vs-map#latest_results_block
+              // and it also returns a new arr so it can be possibly chained to other methods https://codeburst.io/javascript-map-vs-foreach-f38111822c0f
+              let imageDiv = document.createElement("div");
+              imageDiv.className = "blurb";
+              imageDiv.setAttribute("style", `background-color:${color.color}`);
 
-          colours.map((color) => {
-            // TODO use map DONE
-            // map seems to be slighly faster according to https://www.measurethat.net/Benchmarks/Show/2090/0/array-loop-vs-foreach-vs-map#latest_results_block
-            // and it also returns a new arr so it can be possibly chained to other methods https://codeburst.io/javascript-map-vs-foreach-f38111822c0f
-            let imageDiv = document.createElement("div");
-            imageDiv.className = "blurb";
-            imageDiv.setAttribute("style", `background-color:${color.color}`);
+              imageDiv.innerHTML = `
+                          <p class="color-code" style="color:${color.color}" >${color.color}</p>
+                          <div class="color-info">
+                          <p class="color-year">${color.year}</p>
+                          <p class="color-name">${color.name}</p>
+                          </div>
+                          `;
 
-            imageDiv.innerHTML = `
-                        <p class="color-code" style="color:${color.color}" >${color.color}</p>
-                        <div class="color-info">
-                        <p class="color-year">${color.year}</p>
-                        <p class="color-name">${color.name}</p>
-                        </div>
-                        `;
-            data.appendChild(imageDiv);
-          });
+              coloursDataDiv.appendChild(imageDiv);
+            });
+          }
         });
     }
 
@@ -152,6 +166,10 @@ spinner.innerHTML = `<div id="wholePageSpinner" class="loader-wrapper">
 
     function getUsers() {
       showSpinner();
+      console.log(data);
+      if (document.querySelector(".colours-data")) {
+        data.removeChild(document.querySelector(".colours-data"));
+      }
 
       if (window.sessionStorage.getItem("usersData")) {
         let sessionStorageData = JSON.parse(
@@ -172,7 +190,7 @@ spinner.innerHTML = `<div id="wholePageSpinner" class="loader-wrapper">
               if (keyA > keyB) return +1;
               return 0;
             });
-            console.log(res.data);
+            // console.log(res.data);
             hydrateUsers(res.data);
 
             window.sessionStorage.setItem(
@@ -187,6 +205,13 @@ spinner.innerHTML = `<div id="wholePageSpinner" class="loader-wrapper">
       window.sessionStorage.getItem("usersData")
     );
     function hydrateUsers(fetchedData) {
+      // spinner.setAttribute("style", "display:none");
+      document
+        .querySelector(".table-responsive")
+        .setAttribute("style", "display:block");
+
+      let blurbs = document.getElementsByClassName("blurb") || "";
+      console.log(blurbs);
       document
         .querySelector(".main-screen-content")
         .setAttribute("style", "display:block");
@@ -196,23 +221,23 @@ spinner.innerHTML = `<div id="wholePageSpinner" class="loader-wrapper">
       let displaySpaceWrapper = document.getElementById("display-wrapper");
       let tableStringHTML = "";
 
-      data.innerHTML = `
-            <div class="table-responsive">
-                <table id="myTable" cell-spacing="0" cell-padding="0" class="data-table">
-                    <thead>
-                        <tr class="table-head">
-                            <th></th>
-                            <th>ID</th>
-                            <th>LAST NAME</th>
-                            <th>FIST NAME</th>
-                            <th>EMAIL</th>
-                            <th>AVATAR</th>
-                        </tr>
-                    </thead>
-                    <tbody class="tbody"></tbody>
-                </table>
-            
-        </div>`;
+      // data.innerHTML = `
+      //       <div class="table-responsive">
+      //           <table id="myTable" cell-spacing="0" cell-padding="0" class="data-table">
+      //               <thead>
+      //                   <tr class="table-head">
+      //                       <th></th>
+      //                       <th>ID</th>
+      //                       <th>LAST NAME</th>
+      //                       <th>FIST NAME</th>
+      //                       <th>EMAIL</th>
+      //                       <th>AVATAR</th>
+      //                   </tr>
+      //               </thead>
+      //               <tbody class="tbody"></tbody>
+      //           </table>
+
+      //   </div>`;
 
       mainHeading.innerText = "User Data";
       displaySpace.innerHTML =
