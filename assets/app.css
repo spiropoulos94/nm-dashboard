@@ -71,6 +71,7 @@ body {
 
 .logo-img {
   background-color: #ffffff;
+  width: 4rem;
 }
 
 .logo-txt {
@@ -412,6 +413,11 @@ tr:nth-child(even) td {
   .burger {
     display: inline-block;
     font-size: 0.9rem;
+  }
+
+  .logo-img {
+    background-color: #ffffff;
+    width: 2rem;
   }
   .header {
     padding: 0 2%;
