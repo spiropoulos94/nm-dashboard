@@ -410,8 +410,8 @@ tr:nth-child(even) td {
 
 @media only screen and (max-width: 730px) {
   .burger {
-    display: flex;
-    font-size: 0.95rem;
+    display: inline-block;
+    font-size: 0.9rem;
   }
   .header {
     padding: 0 2%;
