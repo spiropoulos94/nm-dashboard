@@ -433,6 +433,10 @@ tr:nth-child(even) td {
     padding: 0;
     left: 30%;
   }
+  .delete-btn {
+    font-size: 0.9rem;
+    padding: 5px 10px;
+  }
   .nav-bar {
     position: fixed;
     z-index: 5;
