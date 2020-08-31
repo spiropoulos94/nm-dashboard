@@ -55,7 +55,9 @@ body {
 .burger {
   align-items: center;
   display: none;
-  padding: 0 2%;
+  /* padding: 2%; */
+  width: 40px;
+  height: 40px;
 }
 
 .header-start {
@@ -81,6 +83,10 @@ body {
 
 .logo-txt:hover {
   cursor: pointer;
+}
+
+.btn-icon {
+  margin: auto;
 }
 
 /* Note: Better use class name like header, header-main, header-title, account-link, user-logout &c */
@@ -412,8 +418,8 @@ tr:nth-child(even) td {
 
 @media only screen and (max-width: 730px) {
   .burger {
-    display: inline-block;
-    font-size: 0.9rem;
+    display: block;
+    font-size: 1rem;
   }
 
   .logo-img {
@@ -423,6 +429,11 @@ tr:nth-child(even) td {
   .header {
     padding: 0 2%;
   }
+
+  .menu-items a {
+    font-size: 1rem;
+  }
+
   .main-head-mini-wrapper {
     font-size: 3vw;
     width: 18%;
