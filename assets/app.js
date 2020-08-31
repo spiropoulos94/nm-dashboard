@@ -45,8 +45,6 @@ spinner.innerHTML = `<div id="wholePageSpinner" class="loader-wrapper">
 
     let burgerMenu = document.querySelector(".burger");
 
-    // data.innerHTML = ""; // TODO DONE
-
     function showSpinner() {
       data.appendChild(spinner);
       document
@@ -58,7 +56,7 @@ spinner.innerHTML = `<div id="wholePageSpinner" class="loader-wrapper">
 
     function welcomeScreen() {
       mainHeader.setAttribute("style", "display:block;");
-      // data.innerHTML = "";
+
       document.querySelector(".data").setAttribute("style", "display:none");
       mainHeading.innerText = "Welcome";
       flexibleField.innerHTML = ``;
@@ -205,7 +203,6 @@ spinner.innerHTML = `<div id="wholePageSpinner" class="loader-wrapper">
       window.sessionStorage.getItem("usersData")
     );
     function hydrateUsers(fetchedData) {
-      // spinner.setAttribute("style", "display:none");
       document
         .querySelector(".table-responsive")
         .setAttribute("style", "display:block");
@@ -220,24 +217,6 @@ spinner.innerHTML = `<div id="wholePageSpinner" class="loader-wrapper">
       let displaySpace = document.getElementById("space");
       let displaySpaceWrapper = document.getElementById("display-wrapper");
       let tableStringHTML = "";
-
-      // data.innerHTML = `
-      //       <div class="table-responsive">
-      //           <table id="myTable" cell-spacing="0" cell-padding="0" class="data-table">
-      //               <thead>
-      //                   <tr class="table-head">
-      //                       <th></th>
-      //                       <th>ID</th>
-      //                       <th>LAST NAME</th>
-      //                       <th>FIST NAME</th>
-      //                       <th>EMAIL</th>
-      //                       <th>AVATAR</th>
-      //                   </tr>
-      //               </thead>
-      //               <tbody class="tbody"></tbody>
-      //           </table>
-
-      //   </div>`;
 
       mainHeading.innerText = "User Data";
       displaySpace.innerHTML =
@@ -271,12 +250,8 @@ spinner.innerHTML = `<div id="wholePageSpinner" class="loader-wrapper">
       });
       document.querySelector(".tbody").innerHTML = tableStringHTML;
 
-      // let checkboxes = document.querySelectorAll("input.delete-checkbox");
       let selectedRow = null;
       let userID = null;
-
-      // let bdexample = document.querySelector(".bd-example");
-      // let tableResponsive = document.querySelector(".table-responsive");
 
       deleteButton &&
         deleteButton.addEventListener("click", () => {

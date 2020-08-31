@@ -491,3 +491,9 @@ tr:nth-child(even) td {
     font-size: 0.6rem;
   }
 }
+
+@media only screen and (max-width: 570px) {
+  .burger {
+    height:30px;
+    width:30px;
+  }
