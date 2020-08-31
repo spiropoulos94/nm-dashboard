@@ -291,9 +291,10 @@ spinner.innerHTML = `<div id="wholePageSpinner" class="loader-wrapper">
     }
 
     function toggleNavbar() {
-      navBar.classList.toggle("not-visible");
+      navBar.classList.toggle("nav-bar-open");
     }
 
+    // burgerMenu && burgerMenu.addEventListener("click", toggleNavbar);
     burgerMenu && burgerMenu.addEventListener("click", toggleNavbar);
 
     // Views eventListeners
@@ -319,9 +320,9 @@ spinner.innerHTML = `<div id="wholePageSpinner" class="loader-wrapper">
 
   window.addEventListener("resize", function () {
     if (window.innerWidth < 730) {
-      navBar.className += " not-visible";
+      navBar.className += " nav-bar-open";
     } else {
-      navBar.classList.remove("not-visible");
+      navBar.classList.remove("nav-bar-open");
     }
   });
 })();

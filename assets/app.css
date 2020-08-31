@@ -138,6 +138,7 @@ body {
   justify-content: space-between;
   height: 89vh;
   padding-bottom: 1rem;
+  /* transform: translateX(calc(-16vh)); */
 }
 
 .menu-items {
@@ -441,7 +442,25 @@ tr:nth-child(even) td {
     position: fixed;
     z-index: 5;
     width: 25%;
+    /* transform: translateX(calc(-100vh)); */
+    transform: translate3d(-100vw, 0, 0);
+    transition: transform 0.25s ease-in;
+    transition-property: transform;
+    transition-duration: 0.55s;
+    transition-timing-function: ease-in;
+    transition-delay: 0s;
   }
+
+  .nav-bar-open {
+    transform: translateX(calc(0vh));
+    transform: translate3d(0vw, 0, 0);
+    transition: transform 0.55s ease-in;
+    /* transition-property: transform;
+    transition-duration: 0.25s;
+    transition-timing-function: ease-in;
+    transition-delay: 0s; */
+  }
+
   .main-screen-content {
     padding: 2% 5%;
   }
