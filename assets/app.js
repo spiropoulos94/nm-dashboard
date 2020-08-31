@@ -203,6 +203,7 @@ spinner.innerHTML = `<div id="wholePageSpinner" class="loader-wrapper">
       window.sessionStorage.getItem("usersData")
     );
     function hydrateUsers(fetchedData) {
+      spinner.setAttribute("style", "display:none");
       document
         .querySelector(".table-responsive")
         .setAttribute("style", "display:block");

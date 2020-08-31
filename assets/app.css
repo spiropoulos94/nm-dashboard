@@ -55,7 +55,6 @@ body {
 .burger {
   align-items: center;
   display: none;
-  /* padding: 2%; */
   width: 40px;
   height: 40px;
 }
@@ -335,7 +334,6 @@ tr:nth-child(even) td {
 }
 
 .table-responsive {
-  /* display: block; */
   width: 100%;
   overflow-x: auto;
   -webkit-overflow-scrolling: touch;
