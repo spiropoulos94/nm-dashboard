@@ -294,7 +294,6 @@ spinner.innerHTML = `<div id="wholePageSpinner" class="loader-wrapper">
       navBar.classList.toggle("nav-bar-open");
     }
 
-    // burgerMenu && burgerMenu.addEventListener("click", toggleNavbar);
     burgerMenu && burgerMenu.addEventListener("click", toggleNavbar);
 
     // Views eventListeners
@@ -318,11 +317,11 @@ spinner.innerHTML = `<div id="wholePageSpinner" class="loader-wrapper">
   document.addEventListener("DOMContentLoaded", onloadFn);
   window.removeEventListener("load", onloadFn);
 
-  window.addEventListener("resize", function () {
-    if (window.innerWidth < 730) {
-      navBar.className += " nav-bar-open";
-    } else {
-      navBar.classList.remove("nav-bar-open");
-    }
-  });
+  // window.addEventListener("resize", function () {
+  //   if (window.innerWidth < 730) {
+  //     navBar.className += " nav-bar-open";
+  //   } else {
+  //     navBar.classList.remove("nav-bar-open");
+  //   }
+  // });
 })();
