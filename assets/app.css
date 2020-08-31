@@ -48,8 +48,6 @@ body {
   box-shadow: 0 4px 2px -2px gray;
 }
 
-
-
 #dropdown {
   display: none;
 }
@@ -300,7 +298,7 @@ body {
 }
 
 .data-table {
-  margin: 5% 0;
+  /* margin: 5% 0; */
   width: 100%;
 }
 
@@ -494,6 +492,10 @@ tr:nth-child(even) td {
 
 @media only screen and (max-width: 570px) {
   .burger {
-    height:30px;
-    width:30px;
+    height: 30px;
+    width: 30px;
   }
+  .delete-btn {
+    font-size: 0.6rem;
+  }
+}
