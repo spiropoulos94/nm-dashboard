@@ -208,6 +208,8 @@ spinner.innerHTML = `<div id="wholePageSpinner" class="loader-wrapper">
         .querySelector(".table-responsive")
         .setAttribute("style", "display:block");
 
+      data.style.display = "block";
+
       let blurbs = document.getElementsByClassName("blurb") || "";
 
       document
