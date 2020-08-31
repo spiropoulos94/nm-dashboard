@@ -304,8 +304,11 @@ body {
 
 .table-responsive {
   display: none;
-  width: 100%;
+
   overflow-x: auto;
+  width: 100%;
+
+  -webkit-overflow-scrolling: touch;
 }
 
 .td {
@@ -331,12 +334,6 @@ tr:nth-child(even) td {
   font-size: 1.5rem;
   color: var(--body-color);
   padding: 1.5vh 0;
-}
-
-.table-responsive {
-  width: 100%;
-  overflow-x: auto;
-  -webkit-overflow-scrolling: touch;
 }
 
 .loader {
@@ -408,7 +405,7 @@ tr:nth-child(even) td {
   }
   .table-responsive {
     /* display: block; */
-    width: 100%;
+    width: 90%;
     overflow-x: auto;
     -webkit-overflow-scrolling: touch;
   }
