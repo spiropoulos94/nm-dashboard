@@ -7,11 +7,10 @@
 
 (function () {
   ("use strict");
-  //DEFINING GLOBAL VARIABLES
+
   let responsiveTable = document.querySelector(".table-responsive");
   let wholePage = document.querySelector(".whole-page");
   let coloursLink = document.getElementById("colours");
-
   let spinner = document.createElement("div");
   responsiveTable.className += " not-visible";
   // TODO Why use string interpolation? What is the difference between "", '', and ``?
