@@ -1,4 +1,7 @@
 /* NOTE: A TODO comment might apply to more than one instance in your code, e.g. you might need to check all your code for duplicates. */
+/* TODO Remove redundant rules */
+/* TODO group similar rules, you can just group selectors or even better experiment with the atomic CSS */
+/* TODO Use inheritance */
 
 :root {
   --primary: #0075a1;
@@ -9,8 +12,8 @@
   --nav-accent: #1a6a8d;
   /* applies to navigation borders and navigation item hover, focus and active state */
   --footer-color: #8aa9b7;
-  --body-color: #333333;
-  --border-color: #cccccc;
+  --body-color: #333;
+  --border-color: #ccc;
   --table-accent: #f5f5f5;
   /* applies to table row zebra-striping style */
 }
@@ -36,7 +39,7 @@ body {
   min-width: 100vw;
   padding: 0;
   margin: 0;
-  background-color: #ffffff;
+  background-color: #fff;
   color: white;
 }
 
@@ -71,7 +74,7 @@ body {
 }
 
 .logo-img {
-  background-color: #ffffff;
+  background-color: #fff;
   width: 2rem;
 }
 
@@ -132,15 +135,13 @@ body {
 
 .avatar {
   /* Recommendation: What about "avatar"? */
-  background-color: #ffffff;
+  background-color: #fff;
   border-radius: 100%;
   padding: 5px;
 }
 
 .nav-bar {
   background-color: var(--nav-background-color);
-  /* TODO Something should be defined in the header, it's not a border. */
-  /* add shadow not border */
   width: 20%;
   display: flex;
   flex-direction: column;
@@ -156,13 +157,14 @@ body {
   flex-direction: column;
 }
 
+/* Note: .menu-link is be better than a */
 .menu-items a {
   font-size: 1.5rem;
   border-bottom: 1px solid var(--border-color);
   width: 100%;
   padding: 7% 10% 3%;
 }
-
+/* TODO focus state */
 .menu-items > a:hover {
   cursor: pointer;
   background-color: var(--nav-accent);
@@ -405,7 +407,7 @@ tr:nth-child(even) td {
     font-size: 1rem;
   }
   .color-info p {
-    font-size: 2vw;
+    font-size: 2vw; /* TODO */
   }
   .table-responsive {
     /* display: block; */
@@ -457,6 +459,7 @@ tr:nth-child(even) td {
     width: 70%;
     /* transform: translateX(calc(-100vh)); */
     transform: translate3d(-80vw, 0, 0);
+    /* TODO */
     transition: transform 0.25s ease-in;
     transition-property: transform;
     transition-duration: 0.35s;
