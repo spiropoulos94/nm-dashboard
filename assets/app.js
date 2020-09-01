@@ -40,12 +40,9 @@
 
     wholePage.classList.remove("not-visible");
 
-    // let mainScreen = document.querySelector(".main-screen");
     let data = document.querySelector(".data");
     let mainHeading = document.querySelector(".main-heading");
-    // let info = document.getElementById("info");
     let mainHeader = document.querySelector(".main-head-top-text");
-    // let tableBody = document.querySelector(".tbody");
 
     let flexibleField = document.querySelector(".flexible");
     let displayColorsLength = document.querySelector(".length");
@@ -54,15 +51,12 @@
     function showSpinner() {
       data.appendChild(spinner);
       mainHeader.style.display = "none";
-      // .setAttribute("style", "display:none");
     }
 
     // Welcome Screen ----------------
 
     function welcomeScreen() {
-      // if (responsiveTable) {
       responsiveTable.className += " not-visible";
-      // }
 
       if (!mainHeader.classList.contains("block")) {
         mainHeader.className += " block";
@@ -229,9 +223,7 @@
 
     function hydrateUsers(fetchedData) {
       spinner.setAttribute("style", "display:none");
-      document
-        .querySelector(".table-responsive")
-        .classList.remove("not-visible");
+      responsiveTable.classList.remove("not-visible");
 
       data.style.display = "block";
       // let blurbs = document.getElementsByClassName("blurb") || "";
@@ -291,7 +283,7 @@
     coloursLink.addEventListener("click", () => {
       getColours();
     });
-    document.getElementById("users").addEventListener("click", getUsers);
+    // document.getElementById("users").addEventListener("click", getUsers);
     document.getElementById("users").addEventListener("click", () => {
       getUsers();
       document.getElementById("users").className += " active-link";
