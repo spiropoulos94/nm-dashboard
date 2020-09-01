@@ -17,6 +17,10 @@
   /* applies to table row zebra-striping style */
 }
 
+.dflex {
+  display: flex;
+}
+
 body,
 html {
   margin: 0;
@@ -51,7 +55,7 @@ a {
 }
 
 .header {
-  display: flex;
+  /* display: flex; */
   height: 11vh;
   background-color: var(--secondary);
   align-items: center;
@@ -74,7 +78,7 @@ a {
 }
 
 .header-start {
-  display: flex;
+  /* display: flex; */
   width: 20%;
   padding: 0px 30px;
   align-items: center;
@@ -110,7 +114,7 @@ a {
 }
 
 .header-title {
-  display: flex;
+  /* display: flex; */
   align-items: center;
   justify-content: space-between;
   width: 100%;
@@ -131,7 +135,7 @@ a {
 }
 
 .header-end {
-  display: flex;
+  /* display: flex; */
   padding: 0 3rem;
 }
 
@@ -150,7 +154,7 @@ a {
 .nav-bar {
   background-color: var(--nav-background-color);
   width: 20%;
-  display: flex;
+  /* display: flex; */
   flex-direction: column;
   justify-content: space-between;
   height: 89vh;
@@ -159,7 +163,7 @@ a {
 
 .menu-items {
   padding: 0;
-  display: flex;
+  /* display: flex; */
   flex-direction: column;
 }
 
@@ -186,9 +190,9 @@ a {
   font-size: 1rem;
 }
 
-.horizontal-container {
+/* .horizontal-container {
   display: flex;
-}
+} */
 
 /*Main screen starts here */
 
