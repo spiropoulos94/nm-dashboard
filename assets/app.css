@@ -84,7 +84,6 @@ body {
 
 .logo-txt {
   margin: 0 25px;
-  /* TODO Use inheritance */
 }
 
 .logo-txt:hover {
@@ -95,16 +94,12 @@ body {
   margin: auto;
 }
 
-/* Note: Better use class name like header, header-main, header-title, account-link, user-logout &c */
-
 .header-title {
   display: flex;
   align-items: center;
   justify-content: space-between;
   width: 100%;
 }
-
-/* use class instead */
 
 .header-title > .title,
 .header-title > .header-end {
@@ -115,11 +110,9 @@ body {
 
 .title {
   padding: 10px;
-  /* margin: 0 20px; */
   text-transform: uppercase;
   font-size: 1.2vw;
   position: relative;
-  /* left: 10%; */
 }
 
 .header-end {
@@ -134,7 +127,6 @@ body {
 }
 
 .avatar {
-  /* Recommendation: What about "avatar"? */
   background-color: #fff;
   border-radius: 100%;
   padding: 5px;
@@ -148,7 +140,6 @@ body {
   justify-content: space-between;
   height: 89vh;
   padding-bottom: 1rem;
-  /* transform: translateX(calc(-16vh)); */
 }
 
 .menu-items {
@@ -158,7 +149,7 @@ body {
 }
 
 /* Note: .menu-link is be better than a */
-.menu-items a {
+.menu-link {
   font-size: 1.5rem;
   border-bottom: 1px solid var(--border-color);
   width: 100%;
