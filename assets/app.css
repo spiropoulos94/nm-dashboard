@@ -192,13 +192,16 @@ a {
 
 /*Main screen starts here */
 
-.main-screen {
+.main-screen,
+.main-screen-content,
+.main-heading {
   color: black;
   width: 100%;
   margin: 0;
+  padding: 2% 2%;
 }
 
-.main-screen-content {
+/* .main-screen-content {
   height: 100%;
   padding: 2% 8%;
 }
@@ -207,7 +210,7 @@ a {
   display: flex;
   justify-content: space-between;
   margin: 0;
-}
+} */
 
 .main-head-wrapper {
   display: flex;
