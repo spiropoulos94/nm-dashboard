@@ -176,7 +176,8 @@
         );
         // Update storage
         window.sessionStorage.setItem("usersData", JSON.stringify(newArr));
-        deleteButton.setAttribute("disabled", "disabled"); // Tip: we usually set the name of attribute as the value for our code to be more clear and descriptive
+        deleteButton.setAttribute("disabled", "disabled");
+        // Tip: we usually set the name of attribute as the value for our code to be more clear and descriptive
         // https://developer.mozilla.org/en-US/docs/Web/API/Element/setAttribute
       }
     }
