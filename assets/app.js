@@ -8,7 +8,8 @@
   "use strict";
 
   let spinner = document.createElement("div");
-// TODO Why use string interpolation? What is the difference between "", '', and ``?
+  // TODO Why use string interpolation? What is the difference between "", '', and ``?
+  // ANSWER  Inside the `` quotes we can use variables using the ${} syntax
   spinner.innerHTML = `<div id="wholePageSpinner" class="loader-wrapper"><div class="loader"></div><p class="loading-msg">loading...</p></div> `;
 
   let navBar = document.querySelector("div.nav-bar");
@@ -43,9 +44,8 @@
     let mainHeader = document.querySelector(".main-head-top-text");
     let tableBody = document.querySelector(".tbody");
 
-    // NOTE: Selectors should be more specific
     let flexibleField = document.querySelector(".flexible");
-    let displayLength = document.querySelector(".length");
+    let displayColorsLength = document.querySelector(".length");
 
     let burgerMenu = document.querySelector(".burger");
 
@@ -64,16 +64,11 @@
       document.querySelector(".data").setAttribute("style", "display:none");
       mainHeading.innerText = "Welcome";
       flexibleField.innerHTML = ``;
-      displayLength.innerHTML = ``;
+      displayColorsLength.innerHTML = ``;
     }
 
-    // TODO assign the click to the parent element
     document
-      .querySelector(".logo-img")
-      .addEventListener("click", welcomeScreen);
-
-    document
-      .querySelector(".logo-txt") // TODO DONE
+      .querySelector(".header-start")
       .addEventListener("click", welcomeScreen);
 
     // Colours Screen ------------------
@@ -82,7 +77,7 @@
       showSpinner();
       document
         .querySelector(".table-responsive")
-        .setAttribute("style", "displaY:none"); // displaY?
+        .setAttribute("style", "display:none");
       fetch("https://reqres.in/api/products/")
         .then((res) => res.json())
         .then((res) => {
@@ -125,13 +120,15 @@
           let blurbsContainer = document.createElement("div");
           blurbsContainer.className = "blurbs-container";
 
-          flexibleField.innerHTML ='<p>items :</p>';
-          displayLength.innerHTML = `<p>${colours.length}</p>`;
+          flexibleField.innerHTML = "<p>items :</p>";
+          displayColorsLength.innerHTML = `<p>${colours.length}</p>`;
           if (data.getElementsByClassName("blurb").length < colours.length) {
             colours.map((color) => {
               // TODO use map DONE
-              // map seems to be slightly faster according to https://www.measurethat.net/Benchmarks/Show/2090/0/array-loop-vs-foreach-vs-map#latest_results_block
-              // and it also returns a new arr so it can be possibly chained to other methods https://codeburst.io/javascript-map-vs-foreach-f38111822c0f
+              // map seems to be slightly faster according to
+              // https://www.measurethat.net/Benchmarks/Show/2090/0/array-loop-vs-foreach-vs-map#latest_results_block
+              // and it also returns a new arr so it can be possibly chained to other methods
+              // https://codeburst.io/javascript-map-vs-foreach-f38111822c0f
               let imageDiv = document.createElement("div");
               imageDiv.className = "blurb";
               imageDiv.setAttribute("style", `background-color:${color.color}`);
@@ -181,7 +178,9 @@
       }
 
       if (window.sessionStorage.getItem("usersData")) {
-        let sessionStorageData = JSON.parse(window.sessionStorage.getItem("usersData"));
+        let sessionStorageData = JSON.parse(
+          window.sessionStorage.getItem("usersData")
+        );
 
         sessionStorageData && hydrateUsers(sessionStorageData);
       } else {
@@ -200,12 +199,17 @@
             // console.log(res.data);
             hydrateUsers(res.data);
 
-            window.sessionStorage.setItem("usersData", JSON.stringify(res.data));
+            window.sessionStorage.setItem(
+              "usersData",
+              JSON.stringify(res.data)
+            );
           });
       }
     }
     // Users Screen ----------------
-    let sessionStorageData = JSON.parse(window.sessionStorage.getItem("usersData")); // TODO review
+    let sessionStorageData = JSON.parse(
+      window.sessionStorage.getItem("usersData")
+    ); // TODO review
     function hydrateUsers(fetchedData) {
       spinner.setAttribute("style", "display:none");
       document
@@ -235,7 +239,7 @@
         displaySpace.removeChild(displaySpace.lastChild);
       }
 
-      displayLength.innerHTML = "";
+      displayColorsLength.innerHTML = "";
 
       //  Converting Data to Table
 

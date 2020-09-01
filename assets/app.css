@@ -73,6 +73,10 @@ body {
   text-transform: uppercase;
 }
 
+.header-start:hover {
+  cursor: pointer;
+}
+
 .logo-img {
   background-color: #fff;
   width: 2rem;
