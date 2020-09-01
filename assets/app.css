@@ -318,10 +318,10 @@ a {
 .not-visible {
   display: none;
 }
-
+/* 
 .data-table {
   width: 100%;
-}
+} */
 
 .table-responsive {
   /* display: none; */
