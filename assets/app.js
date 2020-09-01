@@ -246,10 +246,10 @@
       let selectedRow = null;
       let userID = null;
       // TODO review
-      deleteButton &&
-        deleteButton.addEventListener("click", () => {
-          deleteUser(selectedRow, userID, deleteButton);
-        });
+      // deleteButton &&
+      deleteButton.addEventListener("click", () => {
+        deleteUser(selectedRow, userID, deleteButton);
+      });
 
       document.querySelector(".tbody").addEventListener("change", (e) => {
         deleteButton.removeAttribute("disabled");
