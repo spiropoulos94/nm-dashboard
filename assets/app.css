@@ -467,12 +467,27 @@ tr:nth-child(even) td {
     transition-delay: 0s; */
   }
 
+    padding: 2%;
+    margin: 0;
+  }
+
   .main-screen-content {
     padding: 2% 5%;
   }
+
+  .table-responsive {
+    width: 100%;
+    margin: auto;
+  }
+
   table th {
     font-size: 13px;
   }
+
+  td.td {
+    font-size: 1rem;
+  }
+
   .footer-text {
     font-size: 1.8vw;
   }
@@ -494,5 +509,10 @@ tr:nth-child(even) td {
   }
   .delete-btn {
     font-size: 0.6rem;
+  }
+
+  .delete-btn {
+    font-size: 0.9rem;
+    padding: 5px 10px;
   }
 }
