@@ -89,6 +89,7 @@ spinner.innerHTML = `<div id="wholePageSpinner" class="loader-wrapper">
           document
             .querySelector(".data")
             .setAttribute("style", "height:initial");
+          data.style.width = "105%";
 
           let coloursDataDiv = document.createElement("div");
           coloursDataDiv.className = "colours-data";
@@ -164,6 +165,7 @@ spinner.innerHTML = `<div id="wholePageSpinner" class="loader-wrapper">
 
     function getUsers() {
       showSpinner();
+      data.style.width = "100%";
 
       if (document.querySelector(".colours-data")) {
         data.removeChild(document.querySelector(".colours-data"));
