@@ -162,12 +162,27 @@
     // Deleting a user/row
     // TODO Review the following function
     // https://developer.mozilla.org/en-US/docs/Web/API/Window/confirm
-    function deleteUser(e) {
+    
+    function deleteUser() {
       //  TODO get delete button element not from variable
-      let deleteButton = document.querySelector(".delete-btn");
-      //pws ma exw access sto button mesa ston event handler!(delete user)
+      // let deleteButton = document.querySelector(".delete-btn");
 
-      userID = selectedRow.children[1].innerText;
+
+      //ANTI NA PERASEIS THN SELECTED ROW KAI TO USERID VRES TA APO TO GLOBAL SCOPE KAI KALESE TA MESA STO FUNCTION
+
+
+      //pws ma exw access sto button mesa ston event handler!(delete user)
+      //vres selectedRow kai userID
+      let allTr = document.getElementsByTagName("tr")
+      let allTrArray = Array.from(allTr)
+      allTrArray.shift()
+      console.log(allTrArray)
+      allTrArray.forEach(i => {
+        
+        console.log(i.querySelector('.user-checkbox').value)
+      })
+      
+      
 
       if (confirm(`Are you sure you want to delete user ${userID} ?`)) {
         //remove from table
@@ -187,6 +202,7 @@
 
     function getUsers() {
       showSpinner();
+      
       data.style.width = "100%";
       if (document.querySelector(".colours-data")) {
         data.removeChild(document.querySelector(".colours-data"));
@@ -238,7 +254,7 @@
       let displaySpace = document.getElementById("space");
       // let displaySpaceWrapper = document.getElementById("display-wrapper");
       let tableStringHTML = "";
-      let deleteButton = document.querySelector(".delete-btn");
+      // let deleteButton = document.querySelector(".delete-btn");
       let selectedRow = null;
       let userID = null;
 
@@ -268,13 +284,15 @@
                 `;
       });
       document.querySelector(".tbody").innerHTML = tableStringHTML;
-
-      deleteButton && deleteButton.addEventListener("click", deleteUser);
+      let deleteButton = document.querySelector(".delete-btn")
+     
 
       document.querySelector(".tbody").addEventListener("change", (e) => {
+        console.log(deleteButton)
         deleteButton.removeAttribute("disabled");
         selectedRow = e.target.parentNode.parentNode;
         userID = selectedRow.children[1].innerText;
+        deleteButton && deleteButton.addEventListener("click", deleteUser());
       });
     }
 
