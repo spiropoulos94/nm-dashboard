@@ -1,24 +1,24 @@
 // Format code
 // TODO keep styling in your CSS file
-// TODO remove unused variables
+
+// "workbench.colorCustomizations": {
+//   "editorUnnecessaryCode.border": "#dd7aab"
+// },  ==> added this to setting folder to auto-find the unused ones.
 // TODO remove redundant code
 // What if your requests fail?
 
 (function () {
   "use strict";
-
   let spinner = document.createElement("div");
   // TODO Why use string interpolation? What is the difference between "", '', and ``?
   // ANSWER  Inside the `` quotes we can use variables using the ${} syntax
   spinner.innerHTML = `<div id="wholePageSpinner" class="loader-wrapper"><div class="loader"></div><p class="loading-msg">loading...</p></div> `;
-
   let navBar = document.querySelector("div.nav-bar");
   document.body.appendChild(spinner);
   document.querySelector(".whole-page").setAttribute("style", "display:none");
   document
     .querySelector(".loader-wrapper")
     .setAttribute("style", "height:100vh");
-
   // The following function was added for development purposes.
   function clearStorageShortcut(e) {
     var evtobj = window.event ? event : e;
@@ -28,7 +28,6 @@
       console.log("Session storage cleared");
     }
   }
-
   document.onkeydown = clearStorageShortcut;
 
   function onloadFn() {
@@ -36,17 +35,15 @@
     document
       .querySelector(".whole-page")
       .setAttribute("style", "display:block");
-
-    let mainScreen = document.querySelector(".main-screen");
+    // let mainScreen = document.querySelector(".main-screen");
     let data = document.querySelector(".data");
     let mainHeading = document.querySelector(".main-heading");
-    let info = document.getElementById("info");
+    // let info = document.getElementById("info");
     let mainHeader = document.querySelector(".main-head-top-text");
-    let tableBody = document.querySelector(".tbody");
+    // let tableBody = document.querySelector(".tbody");
 
     let flexibleField = document.querySelector(".flexible");
     let displayColorsLength = document.querySelector(".length");
-
     let burgerMenu = document.querySelector(".burger");
 
     function showSpinner() {
@@ -60,7 +57,6 @@
 
     function welcomeScreen() {
       mainHeader.setAttribute("style", "display:block;");
-
       document.querySelector(".data").setAttribute("style", "display:none");
       mainHeading.innerText = "Welcome";
       flexibleField.innerHTML = ``;
@@ -104,7 +100,7 @@
             data.appendChild(coloursDataDiv);
           }
 
-          let colours = res.data; // TODO DONE
+          let colours = res.data;
 
           // Sorted with code from https://stackoverflow.com/questions/8837454/sort-array-of-objects-by-single-key-with-date-value
           colours.sort(function (a, b) {
@@ -154,7 +150,6 @@
     // https://developer.mozilla.org/en-US/docs/Web/API/Window/confirm
     function deleteUser(selectedRow, userID, deleteButton) {
       userID = selectedRow.children[1].innerText;
-
       if (confirm(`Are you sure you want to delete user ${userID} ?`)) {
         //remove from table
         selectedRow.parentNode.removeChild(selectedRow);
@@ -163,7 +158,6 @@
         let newArr = arrayJson.filter(
           (entry) => parseInt(entry.id) != parseInt(userID) // TODO equality strict
         );
-
         // Update storage
         window.sessionStorage.setItem("usersData", JSON.stringify(newArr));
         deleteButton.setAttribute("disabled", ""); // Tip: we usually set the name of attribute as the value for our code to be more clear and descriptive
@@ -174,16 +168,13 @@
     function getUsers() {
       showSpinner();
       data.style.width = "100%";
-
       if (document.querySelector(".colours-data")) {
         data.removeChild(document.querySelector(".colours-data"));
       }
-
       if (window.sessionStorage.getItem("usersData")) {
         let sessionStorageData = JSON.parse(
           window.sessionStorage.getItem("usersData")
         );
-
         sessionStorageData && hydrateUsers(sessionStorageData);
       } else {
         fetch("https://reqres.in/api/users")
@@ -199,7 +190,6 @@
               return 0;
             });
             hydrateUsers(res.data);
-
             window.sessionStorage.setItem(
               "usersData",
               JSON.stringify(res.data)
@@ -208,42 +198,33 @@
       }
     }
     // Users Screen ----------------
-    let sessionStorageData = JSON.parse(
-      window.sessionStorage.getItem("usersData")
-    ); // TODO review
+    // let sessionStorageData = JSON.parse(
+    //   window.sessionStorage.getItem("usersData")
+    // ); // TODO review
+
     function hydrateUsers(fetchedData) {
       spinner.setAttribute("style", "display:none");
       document
         .querySelector(".table-responsive")
         .setAttribute("style", "display:block");
-
       data.style.display = "block";
-
-      let blurbs = document.getElementsByClassName("blurb") || "";
-
+      // let blurbs = document.getElementsByClassName("blurb") || "";
       document
         .querySelector(".main-screen-content")
         .setAttribute("style", "display:block");
       mainHeader.setAttribute("style", "display:flex;");
-
       let displaySpace = document.getElementById("space");
-      let displaySpaceWrapper = document.getElementById("display-wrapper");
+      // let displaySpaceWrapper = document.getElementById("display-wrapper");
       let tableStringHTML = "";
-
       mainHeading.innerText = "User Data";
       displaySpace.innerHTML =
         '<button class="delete-btn" type="button" disabled>Delete</button>';
-
       let deleteButton = document.querySelector(".delete-btn");
-
       if (displaySpace.children.length > 1) {
         displaySpace.removeChild(displaySpace.lastChild);
       }
-
       displayColorsLength.innerHTML = "";
-
       //  Converting Data to Table
-
       fetchedData.forEach((user) => {
         tableStringHTML += `<tr>
                   <td class="td user-checkbox "><input type="radio" name="radio-btn" class="delete-checkbox " id="${
@@ -280,23 +261,18 @@
     function toggleNavbar() {
       navBar.classList.toggle("nav-bar-open");
     }
-
     burgerMenu && burgerMenu.addEventListener("click", toggleNavbar);
-
     // Views eventListeners
     document.getElementById("colours").addEventListener("click", () => {
       getColours();
     });
-
     document.getElementById("users").addEventListener("click", getUsers);
-
     document.getElementById("users").addEventListener("click", () => {
       getUsers();
       document.getElementById("users").className += " active-link";
       document.getElementById("colours").classList.remove("active-link");
     });
   }
-
   // TODO review
   // i would like to know why the following needs a review
   document.addEventListener("DOMContentLoaded", onloadFn);
