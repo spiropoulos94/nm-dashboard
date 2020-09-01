@@ -410,11 +410,9 @@ tr:nth-child(even) td {
   .main-screen-content {
     padding: 2% 0;
   }
-  .color-code {
+  .color-code,
+  .color-info {
     font-size: 1rem;
-  }
-  .color-info p {
-    font-size: 2vw; /* TODO */
   }
   .table-responsive {
     overflow-x: auto;
