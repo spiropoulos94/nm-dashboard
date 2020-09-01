@@ -1,6 +1,5 @@
 // Format code
 // TODO keep styling in your CSS file
-
 // "workbench.colorCustomizations": {
 //   "editorUnnecessaryCode.border": "#dd7aab"
 // },  ==> added this to setting folder to auto-find the unused ones.
@@ -60,9 +59,15 @@
 
     function welcomeScreen() {
       // mainHeader.setAttribute("style", "display:block;");
-      mainHeader.className += " block";
+      if (!mainHeader.classList.contains("block")) {
+        mainHeader.className += " block";
+      }
+
       // document.querySelector(".data").setAttribute("style", "display:none");
-      document.querySelector(".data").className += " not-visible";
+      if (!document.querySelector(".data").classList.contains("not-visible")) {
+        document.querySelector(".data").className += " not-visible";
+      }
+
       mainHeading.innerText = "Welcome";
       flexibleField.innerHTML = ``;
       displayColorsLength.innerHTML = ``;
