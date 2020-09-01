@@ -319,7 +319,7 @@ a {
 }
 
 .table-responsive {
-  display: none;
+  /* display: none; */
   overflow-x: auto;
   width: 100%;
   -webkit-overflow-scrolling: touch;

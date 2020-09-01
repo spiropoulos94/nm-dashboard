@@ -8,6 +8,7 @@
 (function () {
   "use strict";
   let spinner = document.createElement("div");
+  document.querySelector(".table-responsive").className += " not-visible";
   // TODO Why use string interpolation? What is the difference between "", '', and ``?
   // ANSWER  Inside the `` quotes we can use variables using the ${} syntax
   spinner.innerHTML = `<div id="wholePageSpinner" class="loader-wrapper"><div class="loader"></div><p class="loading-msg">loading...</p></div> `;
@@ -15,9 +16,10 @@
   document.body.appendChild(spinner);
   // document.querySelector(".whole-page").setAttribute("style", "display:none");
   document.querySelector(".whole-page").className += " not-visible";
-  document
-    .querySelector(".loader-wrapper")
-    .setAttribute("style", "height:100vh");
+  // document
+  //   .querySelector(".loader-wrapper")
+  //   .setAttribute("style", "height:100vh");
+  document.querySelector(".loader-wrapper").display = "block";
   // The following function was added for development purposes.
   function clearStorageShortcut(e) {
     var evtobj = window.event ? event : e;
@@ -50,20 +52,21 @@
 
     function showSpinner() {
       data.appendChild(spinner);
-      document
-        .querySelector(".main-head-top-text")
-        .setAttribute("style", "display:none");
+      document.querySelector(".main-head-top-text").style.display = "none";
+      // .setAttribute("style", "display:none");
     }
 
     // Welcome Screen ----------------
 
     function welcomeScreen() {
-      // mainHeader.setAttribute("style", "display:block;");
+      // if (document.querySelector(".table-responsive")) {
+      document.querySelector(".table-responsive").className += " not-visible";
+      // }
+
       if (!mainHeader.classList.contains("block")) {
         mainHeader.className += " block";
       }
 
-      // document.querySelector(".data").setAttribute("style", "display:none");
       if (!document.querySelector(".data").classList.contains("not-visible")) {
         document.querySelector(".data").className += " not-visible";
       }
@@ -84,9 +87,12 @@
       document.querySelector(".data").classList.remove("not-visible");
       document.getElementById("colours").className += " active-link";
       document.getElementById("users").classList.remove("active-link");
-      document
-        .querySelector(".table-responsive")
-        .setAttribute("style", "display:none");
+      // document
+      //   .querySelector(".table-responsive")
+      //   .setAttribute("style", "display:none");
+      if (document.querySelector(".table-responsive")) {
+        document.querySelector(".table-responsive").className += " not-visible";
+      }
 
       fetch("https://reqres.in/api/products/")
         .then((res) => res.json())
@@ -222,7 +228,8 @@
       spinner.setAttribute("style", "display:none");
       document
         .querySelector(".table-responsive")
-        .setAttribute("style", "display:block");
+        .classList.remove("not-visible");
+
       data.style.display = "block";
       // let blurbs = document.getElementsByClassName("blurb") || "";
       document
