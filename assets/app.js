@@ -169,7 +169,7 @@
         );
         // Update storage
         window.sessionStorage.setItem("usersData", JSON.stringify(newArr));
-        deleteButton.setAttribute("disabled", ""); // Tip: we usually set the name of attribute as the value for our code to be more clear and descriptive
+        deleteButton.setAttribute("disabled", "disabled"); // Tip: we usually set the name of attribute as the value for our code to be more clear and descriptive
         // https://developer.mozilla.org/en-US/docs/Web/API/Element/setAttribute
       }
     }
@@ -210,10 +210,6 @@
           });
       }
     }
-    // Users Screen ----------------
-    // let sessionStorageData = JSON.parse(
-    //   window.sessionStorage.getItem("usersData")
-    // ); // TODO review
 
     function hydrateUsers(fetchedData) {
       spinner.setAttribute("style", "display:none");
@@ -258,8 +254,7 @@
 
       let selectedRow = null;
       let userID = null;
-      // TODO review
-      // deleteButton &&
+
       deleteButton.addEventListener("click", () => {
         deleteUser(selectedRow, userID, deleteButton);
       });

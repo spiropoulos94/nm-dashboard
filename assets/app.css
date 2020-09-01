@@ -320,10 +320,8 @@ a {
 
 .table-responsive {
   display: none;
-
   overflow-x: auto;
   width: 100%;
-
   -webkit-overflow-scrolling: touch;
 }
 
