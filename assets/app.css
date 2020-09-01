@@ -237,7 +237,8 @@ a {
   width: 100%;
 }
 
-.data {
+.data,
+.colours-data {
   color: white;
   color: black;
   display: flex;
@@ -248,14 +249,14 @@ a {
   height: 100%;
 }
 
-.colours-data {
+/* .colours-data {
   height: 100%;
   width: 100%;
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
   align-items: start;
-}
+} */
 
 .blurb {
   width: 30%;
