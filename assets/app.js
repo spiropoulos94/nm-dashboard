@@ -1,12 +1,16 @@
-"use strict";
-// 'use strict'; TODO enable strict mode and correct your code DONE
-let spinner = document.createElement("div");
-spinner.innerHTML = `<div id="wholePageSpinner" class="loader-wrapper">
-<div class="loader"></div>
+// Format code
+// TODO keep styling in your CSS file
+// TODO remove unused variables
+// TODO remove redundant code
+// What if your requests fail?
 
-<p class="loading-msg">loading...</p>
-</div> `;
 (function () {
+  "use strict";
+
+  let spinner = document.createElement("div");
+// TODO Why use string interpolation? What is the difference between "", '', and ``?
+  spinner.innerHTML = `<div id="wholePageSpinner" class="loader-wrapper"><div class="loader"></div><p class="loading-msg">loading...</p></div> `;
+
   let navBar = document.querySelector("div.nav-bar");
   document.body.appendChild(spinner);
   document.querySelector(".whole-page").setAttribute("style", "display:none");
@@ -63,6 +67,7 @@ spinner.innerHTML = `<div id="wholePageSpinner" class="loader-wrapper">
       displayLength.innerHTML = ``;
     }
 
+    // TODO assign the click to the parent element
     document
       .querySelector(".logo-img")
       .addEventListener("click", welcomeScreen);
@@ -77,7 +82,7 @@ spinner.innerHTML = `<div id="wholePageSpinner" class="loader-wrapper">
       showSpinner();
       document
         .querySelector(".table-responsive")
-        .setAttribute("style", "displaY:none");
+        .setAttribute("style", "displaY:none"); // displaY?
       fetch("https://reqres.in/api/products/")
         .then((res) => res.json())
         .then((res) => {
@@ -120,12 +125,12 @@ spinner.innerHTML = `<div id="wholePageSpinner" class="loader-wrapper">
           let blurbsContainer = document.createElement("div");
           blurbsContainer.className = "blurbs-container";
 
-          flexibleField.innerHTML = `<p>items :</p>`;
+          flexibleField.innerHTML ='<p>items :</p>';
           displayLength.innerHTML = `<p>${colours.length}</p>`;
           if (data.getElementsByClassName("blurb").length < colours.length) {
             colours.map((color) => {
               // TODO use map DONE
-              // map seems to be slighly faster according to https://www.measurethat.net/Benchmarks/Show/2090/0/array-loop-vs-foreach-vs-map#latest_results_block
+              // map seems to be slightly faster according to https://www.measurethat.net/Benchmarks/Show/2090/0/array-loop-vs-foreach-vs-map#latest_results_block
               // and it also returns a new arr so it can be possibly chained to other methods https://codeburst.io/javascript-map-vs-foreach-f38111822c0f
               let imageDiv = document.createElement("div");
               imageDiv.className = "blurb";
@@ -146,7 +151,8 @@ spinner.innerHTML = `<div id="wholePageSpinner" class="loader-wrapper">
     }
 
     // Deleting a user/row
-    // TODO Review the following function  DONE https://developer.mozilla.org/en-US/docs/Web/API/Window/confirm
+    // TODO Review the following function
+    // https://developer.mozilla.org/en-US/docs/Web/API/Window/confirm
     function deleteUser(selectedRow, userID, deleteButton) {
       userID = selectedRow.children[1].innerText;
 
@@ -161,9 +167,8 @@ spinner.innerHTML = `<div id="wholePageSpinner" class="loader-wrapper">
 
         // Update storage
         window.sessionStorage.setItem("usersData", JSON.stringify(newArr));
-        alert(`User ${userID} deleted!`);
-        deleteButton.setAttribute("disabled", "");
-        // TODO DONE https://developer.mozilla.org/en-US/docs/Web/API/Element/setAttribute
+        deleteButton.setAttribute("disabled", ""); // Tip: we usually set the name of attribute as the value for our code to be more clear and descriptive
+        // https://developer.mozilla.org/en-US/docs/Web/API/Element/setAttribute
       }
     }
 
@@ -176,11 +181,9 @@ spinner.innerHTML = `<div id="wholePageSpinner" class="loader-wrapper">
       }
 
       if (window.sessionStorage.getItem("usersData")) {
-        let sessionStorageData = JSON.parse(
-          window.sessionStorage.getItem("usersData")
-        );
+        let sessionStorageData = JSON.parse(window.sessionStorage.getItem("usersData"));
 
-        hydrateUsers(sessionStorageData);
+        sessionStorageData && hydrateUsers(sessionStorageData);
       } else {
         fetch("https://reqres.in/api/users")
           .then((res) => res.json())
@@ -197,17 +200,12 @@ spinner.innerHTML = `<div id="wholePageSpinner" class="loader-wrapper">
             // console.log(res.data);
             hydrateUsers(res.data);
 
-            window.sessionStorage.setItem(
-              "usersData",
-              JSON.stringify(res.data)
-            );
+            window.sessionStorage.setItem("usersData", JSON.stringify(res.data));
           });
       }
     }
     // Users Screen ----------------
-    let sessionStorageData = JSON.parse(
-      window.sessionStorage.getItem("usersData")
-    );
+    let sessionStorageData = JSON.parse(window.sessionStorage.getItem("usersData")); // TODO review
     function hydrateUsers(fetchedData) {
       spinner.setAttribute("style", "display:none");
       document
@@ -261,7 +259,7 @@ spinner.innerHTML = `<div id="wholePageSpinner" class="loader-wrapper">
 
       let selectedRow = null;
       let userID = null;
-
+      // TODO review
       deleteButton &&
         deleteButton.addEventListener("click", () => {
           deleteUser(selectedRow, userID, deleteButton);
@@ -283,6 +281,7 @@ spinner.innerHTML = `<div id="wholePageSpinner" class="loader-wrapper">
     // Views eventListeners
     document.getElementById("colours").addEventListener("click", () => {
       getColours();
+      // The following lines should be in getColours
       document.getElementById("colours").className += " active-link";
       document.getElementById("users").classList.remove("active-link");
     });
