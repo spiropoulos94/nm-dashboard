@@ -48,6 +48,10 @@ a {
   color: white;
 }
 
+#wholePageSpinner {
+  height: 70vh;
+}
+
 .header {
   display: flex;
   height: 11vh;

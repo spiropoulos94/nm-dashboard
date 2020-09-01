@@ -142,6 +142,10 @@
               coloursDataDiv.appendChild(imageDiv);
             });
           }
+        })
+        .catch((err) => {
+          console.log(err);
+          alert(`Request failed. Please try again later. Error ${err}`);
         });
     }
 
@@ -194,6 +198,10 @@
               "usersData",
               JSON.stringify(res.data)
             );
+          })
+          .catch((err) => {
+            console.log(err);
+            alert(`Request failed. Please try again later. Error ${err}`);
           });
       }
     }
