@@ -212,8 +212,14 @@ a {
   margin: 0;
 } */
 
-.main-head-wrapper {
+.main-head-wrapper,
+.main-head-mini-wrapper,
+.main-head-top-text {
   display: flex;
+}
+
+.main-head-wrapper {
+  /* display: flex; */
   flex-direction: column;
   align-items: center;
   justify-content: start;
@@ -222,14 +228,14 @@ a {
 }
 
 .main-head-mini-wrapper {
-  display: flex;
+  /* display: flex; */
   font-size: 1.5rem;
   justify-content: space-between;
   width: 6rem;
 }
 
 .main-head-top-text {
-  display: flex;
+  /* display: flex; */
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
