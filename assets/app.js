@@ -5,7 +5,6 @@
 //   "editorUnnecessaryCode.border": "#dd7aab"
 // },  ==> added this to setting folder to auto-find the unused ones.
 // TODO remove redundant code
-// What if your requests fail?
 
 (function () {
   "use strict";
@@ -60,7 +59,8 @@
     // Welcome Screen ----------------
 
     function welcomeScreen() {
-      mainHeader.setAttribute("style", "display:block;");
+      // mainHeader.setAttribute("style", "display:block;");
+      mainHeader.className += " block";
       // document.querySelector(".data").setAttribute("style", "display:none");
       document.querySelector(".data").className += " not-visible";
       mainHeading.innerText = "Welcome";
@@ -76,11 +76,13 @@
 
     function getColours() {
       showSpinner();
+      document.querySelector(".data").classList.remove("not-visible");
       document.getElementById("colours").className += " active-link";
       document.getElementById("users").classList.remove("active-link");
       document
         .querySelector(".table-responsive")
         .setAttribute("style", "display:none");
+
       fetch("https://reqres.in/api/products/")
         .then((res) => res.json())
         .then((res) => {
