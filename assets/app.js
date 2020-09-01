@@ -82,9 +82,6 @@
       data.classList.remove("not-visible");
       coloursLink.className += " active-link";
       document.getElementById("users").classList.remove("active-link");
-      // document
-      //   .querySelector(".table-responsive")
-      //   .setAttribute("style", "display:none");
       if (responsiveTable) {
         responsiveTable.className += " not-visible";
       }
@@ -283,7 +280,6 @@
     coloursLink.addEventListener("click", () => {
       getColours();
     });
-    // document.getElementById("users").addEventListener("click", getUsers);
     document.getElementById("users").addEventListener("click", () => {
       getUsers();
       document.getElementById("users").className += " active-link";
