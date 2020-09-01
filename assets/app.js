@@ -10,6 +10,7 @@
   //DEFINING GLOBAL VARIABLES
   let responsiveTable = document.querySelector(".table-responsive");
   let wholePage = document.querySelector(".whole-page");
+  let coloursLink = document.getElementById("colours");
 
   let spinner = document.createElement("div");
   responsiveTable.className += " not-visible";
@@ -18,11 +19,9 @@
   spinner.innerHTML = `<div id="wholePageSpinner" class="loader-wrapper"><div class="loader"></div><p class="loading-msg">loading...</p></div> `;
   let navBar = document.querySelector("div.nav-bar");
   document.body.appendChild(spinner);
-  // wholePage.setAttribute("style", "display:none");
+
   wholePage.className += " not-visible";
-  // document
-  //   .querySelector(".loader-wrapper")
-  //   .setAttribute("style", "height:100vh");
+
   document.querySelector(".loader-wrapper").display = "block";
   // The following function was added for development purposes.
   function clearStorageShortcut(e) {
@@ -56,7 +55,7 @@
 
     function showSpinner() {
       data.appendChild(spinner);
-      document.querySelector(".main-head-top-text").style.display = "none";
+      mainHeader.style.display = "none";
       // .setAttribute("style", "display:none");
     }
 
@@ -71,8 +70,8 @@
         mainHeader.className += " block";
       }
 
-      if (!document.querySelector(".data").classList.contains("not-visible")) {
-        document.querySelector(".data").className += " not-visible";
+      if (!data.classList.contains("not-visible")) {
+        data.className += " not-visible";
       }
 
       mainHeading.innerText = "Welcome";
@@ -88,8 +87,8 @@
 
     function getColours() {
       showSpinner();
-      document.querySelector(".data").classList.remove("not-visible");
-      document.getElementById("colours").className += " active-link";
+      data.classList.remove("not-visible");
+      coloursLink.className += " active-link";
       document.getElementById("users").classList.remove("active-link");
       // document
       //   .querySelector(".table-responsive")
@@ -289,14 +288,14 @@
     }
     burgerMenu && burgerMenu.addEventListener("click", toggleNavbar);
     // Views eventListeners
-    document.getElementById("colours").addEventListener("click", () => {
+    coloursLink.addEventListener("click", () => {
       getColours();
     });
     document.getElementById("users").addEventListener("click", getUsers);
     document.getElementById("users").addEventListener("click", () => {
       getUsers();
       document.getElementById("users").className += " active-link";
-      document.getElementById("colours").classList.remove("active-link");
+      coloursLink.classList.remove("active-link");
     });
   }
   // TODO review
