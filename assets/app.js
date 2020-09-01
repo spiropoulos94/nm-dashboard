@@ -123,7 +123,6 @@
             return 0;
           });
 
-          // TODO Use sort DONE
           mainHeading.innerText = "Colours";
 
           let blurbsContainer = document.createElement("div");
@@ -163,8 +162,13 @@
     // Deleting a user/row
     // TODO Review the following function
     // https://developer.mozilla.org/en-US/docs/Web/API/Window/confirm
-    function deleteUser(selectedRow, userID, deleteButton) {
+    function deleteUser(e) {
+      //  TODO get delete button element not from variable
+      let deleteButton = document.querySelector(".delete-btn");
+      //pws ma exw access sto button mesa ston event handler!(delete user)
+
       userID = selectedRow.children[1].innerText;
+
       if (confirm(`Are you sure you want to delete user ${userID} ?`)) {
         //remove from table
         selectedRow.parentNode.removeChild(selectedRow);
@@ -219,6 +223,7 @@
     }
 
     function hydrateUsers(fetchedData) {
+      // declare vars
       spinner.setAttribute("style", "display:none");
       responsiveTable.classList.remove("not-visible");
 
@@ -227,14 +232,20 @@
       document
         .querySelector(".main-screen-content")
         .setAttribute("style", "display:block");
+
       mainHeader.setAttribute("style", "display:flex;");
+      
       let displaySpace = document.getElementById("space");
       // let displaySpaceWrapper = document.getElementById("display-wrapper");
       let tableStringHTML = "";
+      let deleteButton = document.querySelector(".delete-btn");
+      let selectedRow = null;
+      let userID = null;
+
       mainHeading.innerText = "User Data";
       displaySpace.innerHTML =
         '<button class="delete-btn" type="button" disabled>Delete</button>';
-      let deleteButton = document.querySelector(".delete-btn");
+
       if (displaySpace.children.length > 1) {
         displaySpace.removeChild(displaySpace.lastChild);
       }
@@ -258,12 +269,7 @@
       });
       document.querySelector(".tbody").innerHTML = tableStringHTML;
 
-      let selectedRow = null;
-      let userID = null;
-
-      deleteButton.addEventListener("click", () => {
-        deleteUser(selectedRow, userID, deleteButton);
-      });
+      deleteButton && deleteButton.addEventListener("click", deleteUser);
 
       document.querySelector(".tbody").addEventListener("change", (e) => {
         deleteButton.removeAttribute("disabled");
@@ -276,18 +282,17 @@
       navBar.classList.toggle("nav-bar-open");
     }
     burgerMenu && burgerMenu.addEventListener("click", toggleNavbar);
+
     // Views eventListeners
-    coloursLink.addEventListener("click", () => {
-      getColours();
-    });
+    coloursLink.addEventListener("click", getColours);
+    //move inside getUsers
     document.getElementById("users").addEventListener("click", () => {
       getUsers();
       document.getElementById("users").className += " active-link";
       coloursLink.classList.remove("active-link");
     });
   }
-  // TODO review
-  // i would like to know why the following needs a review
+
   document.addEventListener("DOMContentLoaded", onloadFn);
-  window.removeEventListener("load", onloadFn);
+  // window.removeEventListener("load", onloadFn);
 })();
