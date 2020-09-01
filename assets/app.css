@@ -364,9 +364,9 @@ tr:nth-child(even) td {
 }
 
 @media only screen and (max-width: 1100px) {
-  .menu-items li {
-    font-size: 6vw;
-    padding: 30px 0;
+  .menu-link {
+    font-size: 2rem;
+    padding: 30px 10%;
   }
   .main-heading {
     font-size: 4vw;
@@ -419,8 +419,8 @@ tr:nth-child(even) td {
     padding: 0 2%;
   }
 
-  .menu-items a {
-    font-size: 1rem;
+  .menu-link {
+    font-size: 1.5rem;
   }
 
   .main-head-mini-wrapper {
@@ -444,10 +444,9 @@ tr:nth-child(even) td {
     position: fixed;
     z-index: 5;
     width: 70%;
-    /* transform: translateX(calc(-100vh)); */
     transform: translate3d(-80vw, 0, 0);
     /* TODO */
-    transition: transform 0.25s ease-in;
+    /* transition: transform 0.25s ease-in; */
     transition-property: transform;
     transition-duration: 0.35s;
     transition-timing-function: ease-in;
@@ -458,10 +457,6 @@ tr:nth-child(even) td {
     transform: translateX(calc(0vh));
     transform: translate3d(0vw, 0, 0);
     transition: transform 0.35s ease-in;
-    /* transition-property: transform;
-    transition-duration: 0.25s;
-    transition-timing-function: ease-in;
-    transition-delay: 0s; */
   }
 
   .main-screen-content {
