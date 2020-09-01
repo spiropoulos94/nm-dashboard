@@ -447,9 +447,9 @@ tr:nth-child(even) td {
   .nav-bar {
     position: fixed;
     z-index: 5;
-    width: 25%;
+    width: 70%;
     /* transform: translateX(calc(-100vh)); */
-    transform: translate3d(-40vw, 0, 0);
+    transform: translate3d(-80vw, 0, 0);
     transition: transform 0.25s ease-in;
     transition-property: transform;
     transition-duration: 0.35s;
