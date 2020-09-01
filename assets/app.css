@@ -148,15 +148,15 @@ body {
   flex-direction: column;
 }
 
-/* Note: .menu-link is be better than a */
 .menu-link {
   font-size: 1.5rem;
   border-bottom: 1px solid var(--border-color);
   width: 100%;
   padding: 7% 10% 3%;
 }
-/* TODO focus state */
-.menu-items > a:hover {
+
+.menu-items > .menu-link:hover,
+.menu-items > .menu-link:focus {
   cursor: pointer;
   background-color: var(--nav-accent);
 }
@@ -228,7 +228,6 @@ body {
   align-items: start;
   width: 100%;
   height: 100%;
-  /* overflow-x: auto; */
 }
 
 .colours-data {
@@ -255,7 +254,7 @@ body {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  flex-direction: row-reverse;
+  /* flex-direction: row-reverse; */
   color: white;
   font-weight: bold;
   font-size: 20px;
@@ -295,7 +294,6 @@ body {
 }
 
 .data-table {
-  /* margin: 5% 0; */
   width: 100%;
 }
 
@@ -401,8 +399,6 @@ tr:nth-child(even) td {
     font-size: 2vw; /* TODO */
   }
   .table-responsive {
-    /* display: block; */
-    /* width: 90%; */
     overflow-x: auto;
     -webkit-overflow-scrolling: touch;
   }
