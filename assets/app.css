@@ -62,6 +62,10 @@ body {
   height: 40px;
 }
 
+.burger:hover {
+  cursor: pointer;
+}
+
 .header-start {
   display: flex;
   width: 20%;

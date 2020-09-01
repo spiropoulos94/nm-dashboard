@@ -75,6 +75,8 @@
 
     function getColours() {
       showSpinner();
+      document.getElementById("colours").className += " active-link";
+      document.getElementById("users").classList.remove("active-link");
       document
         .querySelector(".table-responsive")
         .setAttribute("style", "display:none");
@@ -187,7 +189,7 @@
         fetch("https://reqres.in/api/users")
           .then((res) => res.json())
           .then((res) => {
-            //res.data.map((user) => (user.id = Math.random())); tried to give users random id values to test the following sorting FN
+            //res.data.map((user) => (user.id = Math.random())); tried to give users random id values to test the following sorting function
             res.data.sort(function (a, b) {
               var keyA = a.id,
                 keyB = b.id;
@@ -196,7 +198,6 @@
               if (keyA > keyB) return +1;
               return 0;
             });
-            // console.log(res.data);
             hydrateUsers(res.data);
 
             window.sessionStorage.setItem(
@@ -285,9 +286,6 @@
     // Views eventListeners
     document.getElementById("colours").addEventListener("click", () => {
       getColours();
-      // The following lines should be in getColours
-      document.getElementById("colours").className += " active-link";
-      document.getElementById("users").classList.remove("active-link");
     });
 
     document.getElementById("users").addEventListener("click", getUsers);
@@ -303,12 +301,4 @@
   // i would like to know why the following needs a review
   document.addEventListener("DOMContentLoaded", onloadFn);
   window.removeEventListener("load", onloadFn);
-
-  // window.addEventListener("resize", function () {
-  //   if (window.innerWidth < 730) {
-  //     navBar.className += " nav-bar-open";
-  //   } else {
-  //     navBar.classList.remove("nav-bar-open");
-  //   }
-  // });
 })();
