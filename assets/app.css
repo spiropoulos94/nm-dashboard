@@ -386,13 +386,13 @@ tr:nth-child(even) td {
     margin: 0 auto;
   }
   .main-head-top-text {
-    width: 90%;
+    width: 100%;
   }
   .table-head {
     font-size: 1rem;
   }
   td.td {
-    font-size: 1.5rem;
+    font-size: 0.8rem;
   }
   .main-screen-content {
     padding: 2% 0;
@@ -405,7 +405,7 @@ tr:nth-child(even) td {
   }
   .table-responsive {
     /* display: block; */
-    width: 90%;
+    /* width: 90%; */
     overflow-x: auto;
     -webkit-overflow-scrolling: touch;
   }
@@ -467,17 +467,16 @@ tr:nth-child(even) td {
     transition-delay: 0s; */
   }
 
-    padding: 2%;
-    margin: 0;
-  }
-
   .main-screen-content {
     padding: 2% 5%;
+  }
+  .main-screen {
+    width: 100%;
+    margin: auto;
   }
 
   .table-responsive {
     width: 100%;
-    margin: auto;
   }
 
   table th {
