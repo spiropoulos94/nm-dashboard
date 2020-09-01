@@ -64,6 +64,10 @@ spinner.innerHTML = `<div id="wholePageSpinner" class="loader-wrapper">
     }
 
     document
+      .querySelector(".logo-img")
+      .addEventListener("click", welcomeScreen);
+
+    document
       .querySelector(".logo-txt") // TODO DONE
       .addEventListener("click", welcomeScreen);
 

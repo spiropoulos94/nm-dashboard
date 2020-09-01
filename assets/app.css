@@ -75,6 +75,10 @@ body {
   width: 2rem;
 }
 
+.logo-img:hover {
+  cursor: pointer;
+}
+
 .logo-txt {
   margin: 0 25px;
   /* TODO Use inheritance */
@@ -417,10 +421,11 @@ tr:nth-child(even) td {
     font-size: 1rem;
   }
 
-  /* .logo-img {
-    background-color: #ffffff;
-    width: 2rem;
-  } */
+  .logo-txt,
+  .logout-txt {
+    display: none;
+  }
+
   .header {
     padding: 0 2%;
   }
@@ -439,7 +444,9 @@ tr:nth-child(even) td {
   .title {
     padding: 0;
     left: 30%;
+    font-size: 4.5vw;
   }
+
   .delete-btn {
     font-size: 0.9rem;
     padding: 5px 10px;
@@ -512,6 +519,6 @@ tr:nth-child(even) td {
 
   .delete-btn {
     font-size: 0.9rem;
-    padding: 5px 10px;
+    padding: 5px 5px;
   }
 }
