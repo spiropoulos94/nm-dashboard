@@ -6,16 +6,20 @@
 // TODO remove redundant code
 
 (function () {
-  "use strict";
+  ("use strict");
+  //DEFINING GLOBAL VARIABLES
+  let responsiveTable = document.querySelector(".table-responsive");
+  let wholePage = document.querySelector(".whole-page");
+
   let spinner = document.createElement("div");
-  document.querySelector(".table-responsive").className += " not-visible";
+  responsiveTable.className += " not-visible";
   // TODO Why use string interpolation? What is the difference between "", '', and ``?
   // ANSWER  Inside the `` quotes we can use variables using the ${} syntax
   spinner.innerHTML = `<div id="wholePageSpinner" class="loader-wrapper"><div class="loader"></div><p class="loading-msg">loading...</p></div> `;
   let navBar = document.querySelector("div.nav-bar");
   document.body.appendChild(spinner);
-  // document.querySelector(".whole-page").setAttribute("style", "display:none");
-  document.querySelector(".whole-page").className += " not-visible";
+  // wholePage.setAttribute("style", "display:none");
+  wholePage.className += " not-visible";
   // document
   //   .querySelector(".loader-wrapper")
   //   .setAttribute("style", "height:100vh");
@@ -37,7 +41,7 @@
     //   .querySelector(".whole-page")
     //   .setAttribute("style", "display:block");
 
-    document.querySelector(".whole-page").classList.remove("not-visible");
+    wholePage.classList.remove("not-visible");
 
     // let mainScreen = document.querySelector(".main-screen");
     let data = document.querySelector(".data");
@@ -59,8 +63,8 @@
     // Welcome Screen ----------------
 
     function welcomeScreen() {
-      // if (document.querySelector(".table-responsive")) {
-      document.querySelector(".table-responsive").className += " not-visible";
+      // if (responsiveTable) {
+      responsiveTable.className += " not-visible";
       // }
 
       if (!mainHeader.classList.contains("block")) {
@@ -90,8 +94,8 @@
       // document
       //   .querySelector(".table-responsive")
       //   .setAttribute("style", "display:none");
-      if (document.querySelector(".table-responsive")) {
-        document.querySelector(".table-responsive").className += " not-visible";
+      if (responsiveTable) {
+        responsiveTable.className += " not-visible";
       }
 
       fetch("https://reqres.in/api/products/")
