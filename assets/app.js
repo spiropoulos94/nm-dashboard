@@ -23,6 +23,7 @@
   wholePage.className += " not-visible";
 
   document.querySelector(".loader-wrapper").display = "block";
+
   // The following function was added for development purposes.
   function clearStorageShortcut(e) {
     var evtobj = window.event ? event : e;
@@ -36,9 +37,6 @@
 
   function onloadFn() {
     document.body.removeChild(spinner);
-    // document
-    //   .querySelector(".whole-page")
-    //   .setAttribute("style", "display:block");
 
     wholePage.classList.remove("not-visible");
 
@@ -103,15 +101,17 @@
           document
             .querySelector(".loader-wrapper")
             .setAttribute("style", "display:none");
-          document
-            .querySelector(".main-screen-content")
-            .setAttribute("style", "display:block");
+          let mainScreenContent = document.querySelector(
+            ".main-screen-content"
+          );
+
+          mainScreenContent.setAttribute("style", "display:block");
+
           document
             .querySelector(".main-head-top-text")
             .setAttribute("style", "display:flex");
-          document
-            .querySelector(".data")
-            .setAttribute("style", "height:initial");
+
+          data.setAttribute("style", "height:initial");
           data.style.width = "105%";
 
           let coloursDataDiv = document.createElement("div");
