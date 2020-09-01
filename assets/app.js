@@ -15,7 +15,8 @@
   spinner.innerHTML = `<div id="wholePageSpinner" class="loader-wrapper"><div class="loader"></div><p class="loading-msg">loading...</p></div> `;
   let navBar = document.querySelector("div.nav-bar");
   document.body.appendChild(spinner);
-  document.querySelector(".whole-page").setAttribute("style", "display:none");
+  // document.querySelector(".whole-page").setAttribute("style", "display:none");
+  document.querySelector(".whole-page").className += " not-visible";
   document
     .querySelector(".loader-wrapper")
     .setAttribute("style", "height:100vh");
@@ -32,9 +33,12 @@
 
   function onloadFn() {
     document.body.removeChild(spinner);
-    document
-      .querySelector(".whole-page")
-      .setAttribute("style", "display:block");
+    // document
+    //   .querySelector(".whole-page")
+    //   .setAttribute("style", "display:block");
+
+    document.querySelector(".whole-page").classList.remove("not-visible");
+
     // let mainScreen = document.querySelector(".main-screen");
     let data = document.querySelector(".data");
     let mainHeading = document.querySelector(".main-heading");
@@ -57,7 +61,8 @@
 
     function welcomeScreen() {
       mainHeader.setAttribute("style", "display:block;");
-      document.querySelector(".data").setAttribute("style", "display:none");
+      // document.querySelector(".data").setAttribute("style", "display:none");
+      document.querySelector(".data").className += " not-visible";
       mainHeading.innerText = "Welcome";
       flexibleField.innerHTML = ``;
       displayColorsLength.innerHTML = ``;
@@ -145,7 +150,7 @@
         })
         .catch((err) => {
           console.log(err);
-          alert(`Request failed. Please try again later. Error ${err}`);
+          alert(`Request failed. Please try again later. Error:${err}`);
         });
     }
 
@@ -201,7 +206,7 @@
           })
           .catch((err) => {
             console.log(err);
-            alert(`Request failed. Please try again later. Error ${err}`);
+            alert(`Request failed. Please try again later. Error: ${err}`);
           });
       }
     }

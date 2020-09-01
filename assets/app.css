@@ -306,6 +306,10 @@ a {
   cursor: pointer;
 }
 
+.block {
+  display: block;
+}
+
 .not-visible {
   display: none;
 }
