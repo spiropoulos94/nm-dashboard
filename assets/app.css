@@ -182,8 +182,6 @@ a {
   font-size: 1rem;
 }
 
-
-
 /*Main screen starts here */
 
 .main-screen,
@@ -224,7 +222,7 @@ a {
 }
 
 .color-info {
-  color: white;
+  
   font-weight: bold;
   font-size: 20px;
   opacity: 0.5;
@@ -425,8 +423,6 @@ tr:nth-child(even) td {
     margin: auto;
   }
 
-  
-
   .main-screen-content {
     padding: 2% 0%;
 }
@@ -458,10 +454,7 @@ tr:nth-child(even) td {
     height: 30px;
     width: 30px;
   }
-  .delete-btn {
-    font-size: 0.6rem;
-  }
-
+  
   .delete-btn {
     font-size: 0.9rem;
     padding: 5px 5px;
