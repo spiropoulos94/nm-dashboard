@@ -8,6 +8,7 @@
 
 
 (function () {
+  //MOVE THE FOLLOWING DOM ELEMENTS INSIDE THE ONLOAD FUNCTION SO THE RUN *AFTER* THE DOCUMENT IS LOADED 
   let responsiveTable = document.querySelector(".table-responsive");
   let wholePage = document.querySelector(".whole-page");
   let coloursLink = document.getElementById("colours");
