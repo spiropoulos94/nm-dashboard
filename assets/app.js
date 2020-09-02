@@ -169,16 +169,8 @@
 
 
       //ANTI NA PERASEIS THN SELECTED ROW KAI TO USERID VRES TA APO TO GLOBAL SCOPE KAI KALESE TA MESA STO FUNCTION
-      //otan kanei klik vale to na vrei pio row einai selected kai meta na to svisei
-
-      //pws ma exw access sto button mesa ston event handler!(delete user)
-      //vres selectedRow kai userID
-      
-      
-      let userCheckboxes = document.querySelectorAll(".delete-checkbox")
-      
-
-      let userCheckboxesArray = Array.from(userCheckboxes)
+     let userCheckboxes = document.querySelectorAll(".delete-checkbox")  
+     let userCheckboxesArray = Array.from(userCheckboxes)
       console.log(userCheckboxesArray)
 
       for(let i=0; i<userCheckboxesArray.length; i++){
@@ -188,7 +180,6 @@
           
         }
       }
-
       // console.log(selectedRow)
       // console.log(userID)
 
