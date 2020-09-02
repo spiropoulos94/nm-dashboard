@@ -28,6 +28,11 @@
   align-items: center;
 }
 
+.flex-align-center {
+  display: flex;
+  align-items: center;
+}
+
 .flex-direction-col {
   flex-direction: column;
 }

@@ -58,15 +58,7 @@
     let flexibleField = document.querySelector(".flexible");
     let displayColorsLength = document.querySelector(".length");
     let burgerMenu = document.querySelector(".burger");
-
-    function enableLink(domEltoEnable){
-      domEltoEnable.className += " active-link"
-    }
-    function disableLink(domEltoDisable){
-      domEltoDisable.classList.remove("active-link")
-    }
-    
-    
+      
 
     // Views eventListeners
 
@@ -75,16 +67,29 @@
     .addEventListener("click", welcomeScreen);
 
     coloursLink.addEventListener("click", getColours);
-
-    
     document.getElementById("users").addEventListener("click", () => {
       getUsers();
       enableLink( document.getElementById("users"))
       coloursLink.classList.remove("active-link");
       
     });
+
+
+    function fetchUrl(url){
+      fetch(url)
+      .then(res => res.json)
+      .then(data => console.log(data))
+      .catch(err=> console.log(err))
+
+    }
     
 
+    function enableLink(domEltoEnable){
+      domEltoEnable.className += " active-link"
+    }
+    function disableLink(domEltoDisable){
+      domEltoDisable.classList.remove("active-link")
+    }   
     function showSpinner() {
       data.appendChild(spinner);
       hideElement(mainHeader)
@@ -102,9 +107,7 @@
       flexibleField.innerHTML = "";
       displayColorsLength.innerHTML = "";
     }
-
     
-
     // Colours Screen ------------------
 
     function getColours() {
@@ -124,10 +127,8 @@
       fetch("https://reqres.in/api/products/")
         .then((res) => res.json())
         .then((res) => {
-          
             hideElement(document.querySelector(".loader-wrapper"))
-
-          coloursDataDiv.className = "colours-data dflex";
+            coloursDataDiv.className = "colours-data dflex";
 
           if (data.children.length < 3) {
             data.appendChild(coloursDataDiv);
@@ -137,7 +138,7 @@
 
           // Sorted with code from https://stackoverflow.com/questions/8837454/sort-array-of-objects-by-single-key-with-date-value
           colours.sort(function (a, b) {
-            var keyA = a.year,
+            let keyA = a.year,
               keyB = b.year;
             // Compare the 2 dates
             if (keyA < keyB) return 1;
@@ -177,6 +178,7 @@
         })
         .catch((err) => {
           console.log(err);
+
           
         });
     }
