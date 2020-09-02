@@ -14,7 +14,7 @@
   let spinner = document.createElement("div");
   responsiveTable.className += " not-visible";
   
-  spinner.innerHTML = '<div id="wholePageSpinner" class="loader-wrapper"><div class="loader"></div><p class="loading-msg">loading...</p></div>'
+  spinner.innerHTML = '<div id="wholePageSpinner" class="loader-wrapper dflex align-center flex-direction-col"><div class="loader"></div><p class="loading-msg">loading...</p></div>'
   let navBar = document.querySelector("div.nav-bar");
   document.body.appendChild(spinner);
 
@@ -146,7 +146,7 @@
               // and it also returns a new arr so it can be possibly chained to other methods
               // https://codeburst.io/javascript-map-vs-foreach-f38111822c0f
               let imageDiv = document.createElement("div");
-              imageDiv.className = "blurb";
+              imageDiv.className = "blurb flex-direction-col";
               imageDiv.setAttribute("style", `background-color:${color.color}`);
 
               imageDiv.innerHTML = `
