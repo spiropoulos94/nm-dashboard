@@ -41,7 +41,8 @@ html {
 }
 
 body {
-  color: var(--body-color);
+  /* color: var(--body-color); */
+  color:white;
 }
 
 * {
@@ -59,8 +60,8 @@ a {
   height: 100vh;
   padding: 0;
   margin: 0;
-  background-color: #fff;
-  color: white;
+  /* background-color: #fff; */
+  
 }
 
 #wholePageSpinner {
@@ -229,8 +230,7 @@ a {
 
 .data,
 .colours-data {
-  color: white;
-  color: black;
+  
   flex-wrap: wrap;
   justify-content: center;
   align-items: start;
@@ -366,6 +366,12 @@ tr:nth-child(even) td {
     padding: 2%;
     margin: 0 auto;
   }
+
+  .main-head-mini-wrapper {
+    font-size: 1.2rem;
+    
+  }
+
   .main-head-top-text {
     width: 100%;
   }

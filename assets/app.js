@@ -14,13 +14,27 @@
   let wholePage = document.querySelector(".whole-page");
   let coloursLink = document.getElementById("colours");
   let spinner = document.createElement("div");
-  responsiveTable.className += " not-visible";
+
+  function hideElement(el){
+    if(!el.classList.contains("not-visible")){
+      el.className+= " not-visible"
+    }
+  }
+
+  function showElement(el){
+    if (el.classList.contains("not-visible")){
+      el.classList.remove("not-visible")
+    }
+  }
+
+  hideElement(responsiveTable)
   
   spinner.innerHTML = '<div id="wholePageSpinner" class="loader-wrapper dflex align-center flex-direction-col"><div class="loader"></div><p class="loading-msg">loading...</p></div>'
   let navBar = document.querySelector("div.nav-bar");
   document.body.appendChild(spinner);
 
-  wholePage.className += " not-visible";
+  hideElement(wholePage)
+   
 
   document.querySelector(".loader-wrapper").display = "block";
 
@@ -38,7 +52,7 @@
   function onloadFn() {
     document.body.removeChild(spinner);
 
-    wholePage.classList.remove("not-visible");
+    showElement(wholePage)
 
     let data = document.querySelector(".data");
     let mainHeading = document.querySelector(".main-heading");
@@ -48,13 +62,23 @@
     let displayColorsLength = document.querySelector(".length");
     let burgerMenu = document.querySelector(".burger");
 
+    function enableLink(domEltoEnable){
+      domEltoEnable.className += " active-link"
+    }
+    function disableLink(domEltoDisable){
+      domEltoDisable.classList.remove("active-link")
+    }
+    
+    
+
     // Views eventListeners
     coloursLink.addEventListener("click", getColours);
     
     document.getElementById("users").addEventListener("click", () => {
       getUsers();
-      document.getElementById("users").className += " active-link";
+      enableLink( document.getElementById("users"))
       coloursLink.classList.remove("active-link");
+      
     });
 
     function showSpinner() {
@@ -65,15 +89,19 @@
     // Welcome Screen ----------------
 
     function welcomeScreen() {
-      responsiveTable.className += " not-visible";
+      hideElement(responsiveTable)
+     
+
+      
+      disableLink(document.getElementById("colours"))
+      disableLink(document.getElementById("users"))
+
 
       if (!mainHeader.classList.contains("block")) {
         mainHeader.className += " block";
       }
 
-      if (!data.classList.contains("not-visible")) {
-        data.className += " not-visible";
-      }
+      hideElement(data)
 
       mainHeading.innerText = "Welcome";
       flexibleField.innerHTML = "";
@@ -88,11 +116,12 @@
 
     function getColours() {
       showSpinner();
-      data.classList.remove("not-visible");
+      showElement(data)
       coloursLink.className += " active-link";
       document.getElementById("users").classList.remove("active-link");
       if (responsiveTable) {
-        responsiveTable.className += " not-visible";
+        
+        hideElement(responsiveTable)
       }
 
       fetch("https://reqres.in/api/products/")
@@ -257,10 +286,9 @@
     function hydrateUsers(fetchedData) {
       // declare vars
       spinner.setAttribute("style", "display:none");
-      responsiveTable.classList.remove("not-visible");
+      showElement(responsiveTable)
 
       data.style.display = "block";
-      // let blurbs = document.getElementsByClassName("blurb") || "";
       document
         .querySelector(".main-screen-content")
         .setAttribute("style", "display:block");
@@ -268,7 +296,6 @@
       mainHeader.setAttribute("style", "display:flex;");
       
       let displaySpace = document.getElementById("space");
-      // let displaySpaceWrapper = document.getElementById("display-wrapper");
       let tableStringHTML = "";
       
 
@@ -301,8 +328,7 @@
       let deleteButton = document.querySelector(".delete-btn")
       document.querySelector(".tbody").addEventListener("change", (e) => {
         deleteButton.removeAttribute("disabled");
-        //selectedRow = e.target.parentNode.parentNode;
-        //userID = selectedRow.children[1].innerText;
+        
         deleteButton && deleteButton.addEventListener("click", deleteUser);
       });
     }
