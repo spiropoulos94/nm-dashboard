@@ -14,7 +14,7 @@
   let navBar = document.querySelector("div.nav-bar");
   let spinner = document.createElement("div");
   
-  spinner.innerHTML = '<div id="wholePageSpinner" class="loader-wrapper dflex align-center flex-direction-col"><div class="loader"></div><p class="loading-msg">loading...</p></div>'
+  spinner.innerHTML = '<div id="wholePageSpinner" class="loader-wrapper dflex align-center flex-direction-col w100"><div class="loader"></div><p class="loading-msg">loading...</p></div>'
   document.body.appendChild(spinner);
 
   function hideElement(el){
@@ -137,7 +137,7 @@
 
       function renderColours(responseData){
         hideElement(document.querySelector(".loader-wrapper"))
-            coloursDataDiv.className = "colours-data dflex";
+            coloursDataDiv.className = "colours-data dflex w100";
 
           if (data.children.length < 3) {
             data.appendChild(coloursDataDiv);
