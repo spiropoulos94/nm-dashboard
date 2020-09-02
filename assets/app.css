@@ -422,7 +422,7 @@ tr:nth-child(even) td {
   }
   .color-code,
   .color-info {
-    font-size: 1rem;
+    font-size: 0.8rem;
   }
   .table-responsive {
     overflow-x: auto;
