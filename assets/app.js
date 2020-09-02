@@ -165,7 +165,7 @@
     
     function deleteUser() {
       //  TODO get delete button element not from variable
-      // let deleteButton = document.querySelector(".delete-btn");
+       let deleteButton = document.querySelector(".delete-btn");
 
 
       //ANTI NA PERASEIS THN SELECTED ROW KAI TO USERID VRES TA APO TO GLOBAL SCOPE KAI KALESE TA MESA STO FUNCTION
@@ -173,8 +173,6 @@
 
       //pws ma exw access sto button mesa ston event handler!(delete user)
       //vres selectedRow kai userID
-      let selectedRow = null;
-      let userID = null;
       
       
       let userCheckboxes = document.querySelectorAll(".delete-checkbox")
@@ -185,32 +183,35 @@
 
       for(let i=0; i<userCheckboxesArray.length; i++){
         if(userCheckboxesArray[i].checked){
-          console.log(userCheckboxesArray[i].id)
-          userID = i + 1
-          console.log(userID)
+          userID = userCheckboxesArray[i].id
+          selectedRow = userCheckboxesArray[i].parentElement.parentElement
+          
         }
       }
+
+      // console.log(selectedRow)
+      // console.log(userID)
 
      
       
       
       
       
-      //after specifying UserID and selectedRow proceed with the following  confirmation
-    //  if (confirm(`Are you sure you want to delete user ${userID} ?`)) {
-    //    //remove from table
-    //    selectedRow.parentNode.removeChild(selectedRow);
-    //    //remove from session storage
-    //    let arrayJson = JSON.parse(window.sessionStorage.getItem("usersData"));
-    //    let newArr = arrayJson.filter(
-    //      (entry) => parseInt(entry.id) != parseInt(userID) // TODO equality strict
-    //    );
-    //    // Update storage
-    //    window.sessionStorage.setItem("usersData", JSON.stringify(newArr));
-    //    deleteButton.setAttribute("disabled", "disabled");
-    //    // Tip: we usually set the name of attribute as the value for our code to be more clear and descriptive
-    //    // https://developer.mozilla.org/en-US/docs/Web/API/Element/setAttribute
-    //  }
+    // after specifying UserID and selectedRow proceed with the following  confirmation
+      if (confirm(`Are you sure you want to delete user ${userID} ?`)) {
+        //remove from table
+        selectedRow.parentNode.removeChild(selectedRow);
+        //remove from session storage
+        let arrayJson = JSON.parse(window.sessionStorage.getItem("usersData"));
+        let newArr = arrayJson.filter(
+          (entry) => parseInt(entry.id) != parseInt(userID) // TODO equality strict
+        );
+        // Update storage
+        window.sessionStorage.setItem("usersData", JSON.stringify(newArr));
+        deleteButton.setAttribute("disabled", "disabled");
+        // Tip: we usually set the name of attribute as the value for our code to be more clear and descriptive
+        // https://developer.mozilla.org/en-US/docs/Web/API/Element/setAttribute
+      }
      
     }
 
