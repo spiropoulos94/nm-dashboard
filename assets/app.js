@@ -86,14 +86,7 @@
     
         return fetchedData;
     }
-    
-    
-
-
-    
-
-    
-
+   
     function enableLink(domEltoEnable){
       domEltoEnable.className += " active-link"
     }
@@ -260,8 +253,6 @@
     function hydrateUsers(fetchedData) {
       let displaySpace = document.getElementById("space");
       let tableStringHTML = "";
-     
-      
       hideElement(spinner)
       showElement(responsiveTable)
       showElement(data)
@@ -307,7 +298,5 @@
     }
     burgerMenu && burgerMenu.addEventListener("click", toggleNavbar);
   }
-
-  document.addEventListener("DOMContentLoaded", onloadFn);
-  
+  document.addEventListener("DOMContentLoaded", onloadFn); 
 })();

@@ -17,9 +17,6 @@
   /* applies to table row zebra-striping style */
 }
 
-
-
-
 /* Atomic CSS Classes */
 
 .dflex {
@@ -79,8 +76,6 @@ a {
   height: 100vh;
   padding: 0;
   margin: 0;
-  
-  
 }
 
 #wholePageSpinner {
