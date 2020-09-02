@@ -13,8 +13,7 @@
   let coloursLink = document.getElementById("colours");
   let spinner = document.createElement("div");
   responsiveTable.className += " not-visible";
-  // TODO Why use string interpolation? What is the difference between "", '', and ``?
-  // ANSWER  Inside the `` quotes we can use variables using the ${} syntax
+  
   spinner.innerHTML = '<div id="wholePageSpinner" class="loader-wrapper"><div class="loader"></div><p class="loading-msg">loading...</p></div>'
   let navBar = document.querySelector("div.nav-bar");
   document.body.appendChild(spinner);
@@ -49,7 +48,7 @@
 
     // Views eventListeners
     coloursLink.addEventListener("click", getColours);
-    //move inside getUsers
+    
     document.getElementById("users").addEventListener("click", () => {
       getUsers();
       document.getElementById("users").className += " active-link";
@@ -173,7 +172,7 @@
     // https://developer.mozilla.org/en-US/docs/Web/API/Window/confirm
     
     function deleteUser() {
-      //  TODO get delete button element not from variable
+      
        let deleteButton = document.querySelector(".delete-btn");
 
 
@@ -269,9 +268,7 @@
       let displaySpace = document.getElementById("space");
       // let displaySpaceWrapper = document.getElementById("display-wrapper");
       let tableStringHTML = "";
-      // let deleteButton = document.querySelector(".delete-btn");
-      // let selectedRow = null;
-      // let userID = null;
+      
 
       mainHeading.innerText = "User Data";
       displaySpace.innerHTML =
@@ -317,5 +314,5 @@
   }
 
   document.addEventListener("DOMContentLoaded", onloadFn);
-  // window.removeEventListener("load", onloadFn);
+  
 })();
