@@ -151,7 +151,7 @@
 
               imageDiv.innerHTML = `
                           <p class="color-code" style="color:${color.color}" >${color.color}</p>
-                          <div class="color-info">
+                          <div class="color-info dflex aling-center">
                           <p class="color-year">${color.year}</p>
                           <p class="color-name">${color.name}</p>
                           </div>
