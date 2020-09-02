@@ -169,35 +169,32 @@
 
 
       //ANTI NA PERASEIS THN SELECTED ROW KAI TO USERID VRES TA APO TO GLOBAL SCOPE KAI KALESE TA MESA STO FUNCTION
-
+      //otan kanei klik vale to na vrei pio row einai selected kai meta na to svisei
 
       //pws ma exw access sto button mesa ston event handler!(delete user)
       //vres selectedRow kai userID
-      let allTr = document.getElementsByTagName("tr")
-      let allTrArray = Array.from(allTr)
-      allTrArray.shift()
-      console.log(allTrArray)
-      allTrArray.forEach(i => {
-        
-        console.log(i.querySelector('.user-checkbox').value)
-      })
+      let selectedRow = null;
+      let userID = null;
+      console.log(selectedRow)
+      console.log(userID)
+    
       
-      
-
-      if (confirm(`Are you sure you want to delete user ${userID} ?`)) {
-        //remove from table
-        selectedRow.parentNode.removeChild(selectedRow);
-        //remove from session storage
-        let arrayJson = JSON.parse(window.sessionStorage.getItem("usersData"));
-        let newArr = arrayJson.filter(
-          (entry) => parseInt(entry.id) != parseInt(userID) // TODO equality strict
-        );
-        // Update storage
-        window.sessionStorage.setItem("usersData", JSON.stringify(newArr));
-        deleteButton.setAttribute("disabled", "disabled");
-        // Tip: we usually set the name of attribute as the value for our code to be more clear and descriptive
-        // https://developer.mozilla.org/en-US/docs/Web/API/Element/setAttribute
-      }
+      //after specifying UserID and selectedRow proceed with the following  confirmation
+    //  if (confirm(`Are you sure you want to delete user ${userID} ?`)) {
+    //    //remove from table
+    //    selectedRow.parentNode.removeChild(selectedRow);
+    //    //remove from session storage
+    //    let arrayJson = JSON.parse(window.sessionStorage.getItem("usersData"));
+    //    let newArr = arrayJson.filter(
+    //      (entry) => parseInt(entry.id) != parseInt(userID) // TODO equality strict
+    //    );
+    //    // Update storage
+    //    window.sessionStorage.setItem("usersData", JSON.stringify(newArr));
+    //    deleteButton.setAttribute("disabled", "disabled");
+    //    // Tip: we usually set the name of attribute as the value for our code to be more clear and descriptive
+    //    // https://developer.mozilla.org/en-US/docs/Web/API/Element/setAttribute
+    //  }
+      console.log('user deleted')
     }
 
     function getUsers() {
@@ -255,8 +252,8 @@
       // let displaySpaceWrapper = document.getElementById("display-wrapper");
       let tableStringHTML = "";
       // let deleteButton = document.querySelector(".delete-btn");
-      let selectedRow = null;
-      let userID = null;
+      // let selectedRow = null;
+      // let userID = null;
 
       mainHeading.innerText = "User Data";
       displaySpace.innerHTML =
@@ -292,7 +289,7 @@
         deleteButton.removeAttribute("disabled");
         selectedRow = e.target.parentNode.parentNode;
         userID = selectedRow.children[1].innerText;
-        deleteButton && deleteButton.addEventListener("click", deleteUser());
+        deleteButton && deleteButton.addEventListener("click", deleteUser);
       });
     }
 
