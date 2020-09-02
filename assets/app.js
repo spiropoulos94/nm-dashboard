@@ -14,6 +14,7 @@
   let wholePage = document.querySelector(".whole-page");
   let coloursLink = document.getElementById("colours");
   let spinner = document.createElement("div");
+  let navBar = document.querySelector("div.nav-bar");
 
   function hideElement(el){
     if(!el.classList.contains("not-visible")){
@@ -30,7 +31,7 @@
   hideElement(responsiveTable)
   
   spinner.innerHTML = '<div id="wholePageSpinner" class="loader-wrapper dflex align-center flex-direction-col"><div class="loader"></div><p class="loading-msg">loading...</p></div>'
-  let navBar = document.querySelector("div.nav-bar");
+  
   document.body.appendChild(spinner);
 
   hideElement(wholePage)
@@ -50,13 +51,13 @@
 
   function onloadFn() {
     document.body.removeChild(spinner);
+    
 
     showElement(wholePage)
 
     let data = document.querySelector(".data");
     let mainHeading = document.querySelector(".main-heading");
     let mainHeader = document.querySelector(".main-head-top-text");
-
     let flexibleField = document.querySelector(".flexible");
     let displayColorsLength = document.querySelector(".length");
     let burgerMenu = document.querySelector(".burger");
@@ -71,7 +72,13 @@
     
 
     // Views eventListeners
+
+    document
+    .querySelector(".header-start")
+    .addEventListener("click", welcomeScreen);
+
     coloursLink.addEventListener("click", getColours);
+
     
     document.getElementById("users").addEventListener("click", () => {
       getUsers();
@@ -79,6 +86,7 @@
       coloursLink.classList.remove("active-link");
       
     });
+    
 
     function showSpinner() {
       data.appendChild(spinner);
@@ -89,15 +97,8 @@
 
     function welcomeScreen() {
       hideElement(responsiveTable)
-     
-
-      
       disableLink(document.getElementById("colours"))
       disableLink(document.getElementById("users"))
-
-
-      
-
       hideElement(data)
 
       mainHeading.innerText = "Welcome";
@@ -105,18 +106,19 @@
       displayColorsLength.innerHTML = "";
     }
 
-    document
-      .querySelector(".header-start")
-      .addEventListener("click", welcomeScreen);
+    
 
     // Colours Screen ------------------
 
     function getColours() {
+      let coloursDataDiv = document.createElement("div");
+      let blurbsContainer = document.createElement("div");
       showSpinner();
       showElement(data)
       showElement(document.querySelector(".main-head-top-text"))
       coloursLink.className += " active-link";
       document.getElementById("users").classList.remove("active-link");
+      
 
       if (responsiveTable) {
         hideElement(responsiveTable)
@@ -126,11 +128,8 @@
         .then((res) => res.json())
         .then((res) => {
           
-            hideElement(document
-              .querySelector(".loader-wrapper"))
-      
+            hideElement(document.querySelector(".loader-wrapper"))
 
-          let coloursDataDiv = document.createElement("div");
           coloursDataDiv.className = "colours-data dflex";
 
           if (data.children.length < 3) {
@@ -151,7 +150,7 @@
 
           mainHeading.innerText = "Colours";
 
-          let blurbsContainer = document.createElement("div");
+         
           blurbsContainer.className = "blurbs-container";
 
           flexibleField.innerHTML = "<p>items :</p>";
@@ -194,11 +193,12 @@
        let deleteButton = document.querySelector(".delete-btn");
        let userID = null
        let selectedRow = null
+       let userCheckboxes = document.querySelectorAll(".delete-checkbox")  
+       let userCheckboxesArray = Array.from(userCheckboxes)
 
 
       //ANTI NA PERASEIS THN SELECTED ROW KAI TO USERID VRES TA APO TO GLOBAL SCOPE KAI KALESE TA MESA STO FUNCTION
-     let userCheckboxes = document.querySelectorAll(".delete-checkbox")  
-     let userCheckboxesArray = Array.from(userCheckboxes)
+     
       // console.log(userCheckboxesArray)
 
       for(let i=0; i<userCheckboxesArray.length; i++){
@@ -270,20 +270,15 @@
     }
 
     function hydrateUsers(fetchedData) {
-      // declare vars
-      hideElement(spinner)
-      showElement(responsiveTable)
-
-      
-      showElement(data)
-      
-
-      showElement(mainHeader)
-      
       let displaySpace = document.getElementById("space");
       let tableStringHTML = "";
+      let deleteButton = document.querySelector(".delete-btn")
       
-
+      hideElement(spinner)
+      showElement(responsiveTable)
+      showElement(data)
+      showElement(mainHeader)
+      
       mainHeading.innerText = "User Data";
       displaySpace.innerHTML =
         '<button class="delete-btn" type="button" disabled>Delete</button>';
@@ -310,7 +305,7 @@
                 `;
       });
       document.querySelector(".tbody").innerHTML = tableStringHTML;
-      let deleteButton = document.querySelector(".delete-btn")
+      
       document.querySelector(".tbody").addEventListener("change", (e) => {
         deleteButton.removeAttribute("disabled");
         
