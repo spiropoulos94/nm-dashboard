@@ -1,3 +1,4 @@
+"use strict";
 // Format code
 // TODO keep styling in your CSS file
 // "workbench.colorCustomizations": {
@@ -5,8 +6,9 @@
 // },  ==> added this to setting folder to auto-find the unused ones.
 // TODO remove redundant code
 
+
 (function () {
-  ("use strict");
+  
 
   let responsiveTable = document.querySelector(".table-responsive");
   let wholePage = document.querySelector(".whole-page");
@@ -113,7 +115,7 @@
           data.style.width = "105%";
 
           let coloursDataDiv = document.createElement("div");
-          coloursDataDiv.className = "colours-data";
+          coloursDataDiv.className = "colours-data dflex";
 
           if (data.children.length < 3) {
             data.appendChild(coloursDataDiv);
@@ -174,12 +176,14 @@
     function deleteUser() {
       
        let deleteButton = document.querySelector(".delete-btn");
+       let userID = null
+       let selectedRow = null
 
 
       //ANTI NA PERASEIS THN SELECTED ROW KAI TO USERID VRES TA APO TO GLOBAL SCOPE KAI KALESE TA MESA STO FUNCTION
      let userCheckboxes = document.querySelectorAll(".delete-checkbox")  
      let userCheckboxesArray = Array.from(userCheckboxes)
-      console.log(userCheckboxesArray)
+      // console.log(userCheckboxesArray)
 
       for(let i=0; i<userCheckboxesArray.length; i++){
         if(userCheckboxesArray[i].checked){
@@ -188,9 +192,7 @@
           
         }
       }
-      // console.log(selectedRow)
-      // console.log(userID)
-
+     
      
       
       
@@ -299,8 +301,8 @@
       let deleteButton = document.querySelector(".delete-btn")
       document.querySelector(".tbody").addEventListener("change", (e) => {
         deleteButton.removeAttribute("disabled");
-        selectedRow = e.target.parentNode.parentNode;
-        userID = selectedRow.children[1].innerText;
+        //selectedRow = e.target.parentNode.parentNode;
+        //userID = selectedRow.children[1].innerText;
         deleteButton && deleteButton.addEventListener("click", deleteUser);
       });
     }
