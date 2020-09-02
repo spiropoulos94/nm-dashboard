@@ -8,13 +8,14 @@
 
 
 (function () {
-  
-
   let responsiveTable = document.querySelector(".table-responsive");
   let wholePage = document.querySelector(".whole-page");
   let coloursLink = document.getElementById("colours");
-  let spinner = document.createElement("div");
   let navBar = document.querySelector("div.nav-bar");
+  let spinner = document.createElement("div");
+  
+  spinner.innerHTML = '<div id="wholePageSpinner" class="loader-wrapper dflex align-center flex-direction-col"><div class="loader"></div><p class="loading-msg">loading...</p></div>'
+  document.body.appendChild(spinner);
 
   function hideElement(el){
     if(!el.classList.contains("not-visible")){
@@ -30,10 +31,6 @@
 
   hideElement(responsiveTable)
   
-  spinner.innerHTML = '<div id="wholePageSpinner" class="loader-wrapper dflex align-center flex-direction-col"><div class="loader"></div><p class="loading-msg">loading...</p></div>'
-  
-  document.body.appendChild(spinner);
-
   hideElement(wholePage)
    
 
@@ -317,8 +314,6 @@
       navBar.classList.toggle("nav-bar-open");
     }
     burgerMenu && burgerMenu.addEventListener("click", toggleNavbar);
-
-  
   }
 
   document.addEventListener("DOMContentLoaded", onloadFn);
