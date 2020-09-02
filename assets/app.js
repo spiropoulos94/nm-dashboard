@@ -179,73 +179,11 @@
 
       }
   
-    fetchURL("https://reqres.in/api/products/").then(responseData => {
-      console.log(responseData)
-      renderColours(responseData.data)
+    fetchURL("https://reqres.in/api/products/").then(responseObj => {
+      // console.log(responseObj)
+      renderColours(responseObj.data)
     })
     
-   
-
-    
-     
-     
-
-    
-
-      // fetch("https://reqres.in/api/products/")
-      //   .then((res) => res.json())
-      //   .then((res) => {
-      //       hideElement(document.querySelector(".loader-wrapper"))
-      //       coloursDataDiv.className = "colours-data dflex";
-
-      //     if (data.children.length < 3) {
-      //       data.appendChild(coloursDataDiv);
-      //     }
-
-      //     let colours = res.data;
-
-      //     // Sorted with code from https://stackoverflow.com/questions/8837454/sort-array-of-objects-by-single-key-with-date-value
-      //     colours.sort(function (a, b) {
-      //       let keyA = a.year,
-      //         keyB = b.year;
-      //       // Compare the 2 dates
-      //       if (keyA < keyB) return 1;
-      //       if (keyA > keyB) return -1;
-      //       return 0;
-      //     });
-
-      //     blurbsContainer.className = "blurbs-container";
-
-      //     flexibleField.innerHTML = "<p>items :</p>";
-      //     displayColorsLength.innerHTML = `<p>${colours.length}</p>`;
-      //     if (data.getElementsByClassName("blurb").length < colours.length) {
-      //       colours.map((color) => {
-      //         // TODO use map DONE
-      //         // map seems to be slightly faster according to
-      //         // https://www.measurethat.net/Benchmarks/Show/2090/0/array-loop-vs-foreach-vs-map#latest_results_block
-      //         // and it also returns a new arr so it can be possibly chained to other methods
-      //         // https://codeburst.io/javascript-map-vs-foreach-f38111822c0f
-      //         let imageDiv = document.createElement("div");
-      //         imageDiv.className = "blurb flex-direction-col";
-      //         imageDiv.setAttribute("style", `background-color:${color.color}`);
-
-      //         imageDiv.innerHTML = `
-      //                     <p class="color-code" style="color:${color.color}" >${color.color}</p>
-      //                     <div class="color-info dflex aling-center">
-      //                     <p class="color-year">${color.year}</p>
-      //                     <p class="color-name">${color.name}</p>
-      //                     </div>
-      //                     `;
-
-      //         coloursDataDiv.appendChild(imageDiv);
-      //       });
-      //     }
-      //   })
-      //   .catch((err) => {
-      //     console.log(err);
-
-          
-      //   });
     }
 
     // Deleting a user/row
@@ -298,6 +236,24 @@
 
     function getUsers() {
       showSpinner();
+
+      function renderUsers(res){
+        
+        //res.data.map((user) => (user.id = Math.random())); tried to give users random id values to test the following sorting function
+        res.data.sort(function (a, b) {
+          var keyA = a.id,
+            keyB = b.id;
+          // Compare the 2 dates
+          if (keyA < keyB) return -1;
+          if (keyA > keyB) return +1;
+          return 0;
+        });
+        hydrateUsers(res.data);
+        window.sessionStorage.setItem(
+          "usersData",
+          JSON.stringify(res.data)
+        );
+      }
       
       if (document.querySelector(".colours-data")) {
         data.removeChild(document.querySelector(".colours-data"));
@@ -308,28 +264,32 @@
         );
         sessionStorageData && hydrateUsers(sessionStorageData);
       } else {
-        fetch("https://reqres.in/api/users")
-          .then((res) => res.json())
-          .then((res) => {
-            //res.data.map((user) => (user.id = Math.random())); tried to give users random id values to test the following sorting function
-            res.data.sort(function (a, b) {
-              var keyA = a.id,
-                keyB = b.id;
-              // Compare the 2 dates
-              if (keyA < keyB) return -1;
-              if (keyA > keyB) return +1;
-              return 0;
-            });
-            hydrateUsers(res.data);
-            window.sessionStorage.setItem(
-              "usersData",
-              JSON.stringify(res.data)
-            );
-          })
-          .catch((err) => {
-            console.log(err);
+
+        fetchURL("https://reqres.in/api/users").then(responseObj => renderUsers(responseObj))
+
+
+        // fetch("https://reqres.in/api/users")
+        //   .then((res) => res.json())
+        //   .then((res) => {
+        //     //res.data.map((user) => (user.id = Math.random())); tried to give users random id values to test the following sorting function
+        //     res.data.sort(function (a, b) {
+        //       var keyA = a.id,
+        //         keyB = b.id;
+        //       // Compare the 2 dates
+        //       if (keyA < keyB) return -1;
+        //       if (keyA > keyB) return +1;
+        //       return 0;
+        //     });
+        //     hydrateUsers(res.data);
+        //     window.sessionStorage.setItem(
+        //       "usersData",
+        //       JSON.stringify(res.data)
+        //     );
+        //   })
+        //   .catch((err) => {
+        //     console.log(err);
             
-          });
+        //   });
       }
     }
 
