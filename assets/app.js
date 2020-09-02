@@ -75,13 +75,23 @@
     });
 
 
-    function fetchUrl(url){
-      fetch(url)
-      .then(res => res.json)
-      .then(data => console.log(data))
-      .catch(err=> console.log(err))
-
+    
+    const fetchURL = (url) => {
+      const fetchedData = fetch(url)
+        .then(result => result.json())
+        .then(data => {
+            return data;
+        })
+        .catch(err => console.log(err))
+    
+        return fetchedData;
     }
+    
+    
+
+
+    
+
     
 
     function enableLink(domEltoEnable){
@@ -113,6 +123,7 @@
     function getColours() {
       let coloursDataDiv = document.createElement("div");
       let blurbsContainer = document.createElement("div");
+      mainHeading.innerText = "Colours";
       showSpinner();
       showElement(data)
       showElement(document.querySelector(".main-head-top-text"))
@@ -124,19 +135,16 @@
         hideElement(responsiveTable)
       }
 
-      fetch("https://reqres.in/api/products/")
-        .then((res) => res.json())
-        .then((res) => {
-            hideElement(document.querySelector(".loader-wrapper"))
+      function renderColours(responseData){
+        hideElement(document.querySelector(".loader-wrapper"))
             coloursDataDiv.className = "colours-data dflex";
 
           if (data.children.length < 3) {
             data.appendChild(coloursDataDiv);
           }
 
-          let colours = res.data;
+          let colours = responseData;
 
-          // Sorted with code from https://stackoverflow.com/questions/8837454/sort-array-of-objects-by-single-key-with-date-value
           colours.sort(function (a, b) {
             let keyA = a.year,
               keyB = b.year;
@@ -146,20 +154,13 @@
             return 0;
           });
 
-          mainHeading.innerText = "Colours";
-
-         
           blurbsContainer.className = "blurbs-container";
 
           flexibleField.innerHTML = "<p>items :</p>";
           displayColorsLength.innerHTML = `<p>${colours.length}</p>`;
           if (data.getElementsByClassName("blurb").length < colours.length) {
             colours.map((color) => {
-              // TODO use map DONE
-              // map seems to be slightly faster according to
-              // https://www.measurethat.net/Benchmarks/Show/2090/0/array-loop-vs-foreach-vs-map#latest_results_block
-              // and it also returns a new arr so it can be possibly chained to other methods
-              // https://codeburst.io/javascript-map-vs-foreach-f38111822c0f
+              
               let imageDiv = document.createElement("div");
               imageDiv.className = "blurb flex-direction-col";
               imageDiv.setAttribute("style", `background-color:${color.color}`);
@@ -175,12 +176,76 @@
               coloursDataDiv.appendChild(imageDiv);
             });
           }
-        })
-        .catch((err) => {
-          console.log(err);
+
+      }
+  
+    fetchURL("https://reqres.in/api/products/").then(responseData => {
+      console.log(responseData)
+      renderColours(responseData.data)
+    })
+    
+   
+
+    
+     
+     
+
+    
+
+      // fetch("https://reqres.in/api/products/")
+      //   .then((res) => res.json())
+      //   .then((res) => {
+      //       hideElement(document.querySelector(".loader-wrapper"))
+      //       coloursDataDiv.className = "colours-data dflex";
+
+      //     if (data.children.length < 3) {
+      //       data.appendChild(coloursDataDiv);
+      //     }
+
+      //     let colours = res.data;
+
+      //     // Sorted with code from https://stackoverflow.com/questions/8837454/sort-array-of-objects-by-single-key-with-date-value
+      //     colours.sort(function (a, b) {
+      //       let keyA = a.year,
+      //         keyB = b.year;
+      //       // Compare the 2 dates
+      //       if (keyA < keyB) return 1;
+      //       if (keyA > keyB) return -1;
+      //       return 0;
+      //     });
+
+      //     blurbsContainer.className = "blurbs-container";
+
+      //     flexibleField.innerHTML = "<p>items :</p>";
+      //     displayColorsLength.innerHTML = `<p>${colours.length}</p>`;
+      //     if (data.getElementsByClassName("blurb").length < colours.length) {
+      //       colours.map((color) => {
+      //         // TODO use map DONE
+      //         // map seems to be slightly faster according to
+      //         // https://www.measurethat.net/Benchmarks/Show/2090/0/array-loop-vs-foreach-vs-map#latest_results_block
+      //         // and it also returns a new arr so it can be possibly chained to other methods
+      //         // https://codeburst.io/javascript-map-vs-foreach-f38111822c0f
+      //         let imageDiv = document.createElement("div");
+      //         imageDiv.className = "blurb flex-direction-col";
+      //         imageDiv.setAttribute("style", `background-color:${color.color}`);
+
+      //         imageDiv.innerHTML = `
+      //                     <p class="color-code" style="color:${color.color}" >${color.color}</p>
+      //                     <div class="color-info dflex aling-center">
+      //                     <p class="color-year">${color.year}</p>
+      //                     <p class="color-name">${color.name}</p>
+      //                     </div>
+      //                     `;
+
+      //         coloursDataDiv.appendChild(imageDiv);
+      //       });
+      //     }
+      //   })
+      //   .catch((err) => {
+      //     console.log(err);
 
           
-        });
+      //   });
     }
 
     // Deleting a user/row
