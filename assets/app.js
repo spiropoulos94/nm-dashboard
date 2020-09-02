@@ -192,7 +192,7 @@
     
     function deleteUser() {
       
-       let deleteButton = document.querySelector(".delete-btn");
+      //  let deleteButton = document.querySelector(".delete-btn");
        let userID = null
        let selectedRow = null
        let userCheckboxes = document.querySelectorAll(".delete-checkbox")  
@@ -227,7 +227,7 @@
         );
         // Update storage
         window.sessionStorage.setItem("usersData", JSON.stringify(newArr));
-        deleteButton.setAttribute("disabled", "disabled");
+        document.querySelector(".delete-btn").setAttribute("disabled", "disabled");
         // Tip: we usually set the name of attribute as the value for our code to be more clear and descriptive
         // https://developer.mozilla.org/en-US/docs/Web/API/Element/setAttribute
       }
@@ -296,7 +296,7 @@
     function hydrateUsers(fetchedData) {
       let displaySpace = document.getElementById("space");
       let tableStringHTML = "";
-      let deleteButton = document.querySelector(".delete-btn")
+      // let deleteButton = document.querySelector(".delete-btn")
       
       hideElement(spinner)
       showElement(responsiveTable)
@@ -329,9 +329,12 @@
                 `;
       });
       document.querySelector(".tbody").innerHTML = tableStringHTML;
+
+      
+      let deleteButton = document.querySelector(".delete-btn")
       
       document.querySelector(".tbody").addEventListener("change", (e) => {
-        deleteButton.removeAttribute("disabled");
+         deleteButton.removeAttribute("disabled");
         
         deleteButton && deleteButton.addEventListener("click", deleteUser);
       });
