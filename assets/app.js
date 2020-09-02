@@ -36,7 +36,6 @@
   hideElement(wholePage)
    
 
-  document.querySelector(".loader-wrapper").display = "block";
 
   // The following function was added for development purposes.
   function clearStorageShortcut(e) {
@@ -83,7 +82,7 @@
 
     function showSpinner() {
       data.appendChild(spinner);
-      mainHeader.style.display = "none";
+      hideElement(mainHeader)
     }
 
     // Welcome Screen ----------------
@@ -97,9 +96,7 @@
       disableLink(document.getElementById("users"))
 
 
-      if (!mainHeader.classList.contains("block")) {
-        mainHeader.className += " block";
-      }
+      
 
       hideElement(data)
 
@@ -117,31 +114,21 @@
     function getColours() {
       showSpinner();
       showElement(data)
+      showElement(document.querySelector(".main-head-top-text"))
       coloursLink.className += " active-link";
       document.getElementById("users").classList.remove("active-link");
+
       if (responsiveTable) {
-        
         hideElement(responsiveTable)
       }
 
       fetch("https://reqres.in/api/products/")
         .then((res) => res.json())
         .then((res) => {
-          document
-            .querySelector(".loader-wrapper")
-            .setAttribute("style", "display:none");
-          let mainScreenContent = document.querySelector(
-            ".main-screen-content"
-          );
-
-          mainScreenContent.setAttribute("style", "display:block");
-
-          document
-            .querySelector(".main-head-top-text")
-            .setAttribute("style", "display:flex");
-
-          data.setAttribute("style", "height:initial");
-          data.style.width = "105%";
+          
+            hideElement(document
+              .querySelector(".loader-wrapper"))
+      
 
           let coloursDataDiv = document.createElement("div");
           coloursDataDiv.className = "colours-data dflex";
@@ -194,7 +181,7 @@
         })
         .catch((err) => {
           console.log(err);
-          alert(`Request failed. Please try again later. Error:${err}`);
+          
         });
     }
 
@@ -248,7 +235,6 @@
     function getUsers() {
       showSpinner();
       
-      data.style.width = "100%";
       if (document.querySelector(".colours-data")) {
         data.removeChild(document.querySelector(".colours-data"));
       }
@@ -278,22 +264,21 @@
           })
           .catch((err) => {
             console.log(err);
-            alert(`Request failed. Please try again later. Error: ${err}`);
+            
           });
       }
     }
 
     function hydrateUsers(fetchedData) {
       // declare vars
-      spinner.setAttribute("style", "display:none");
+      hideElement(spinner)
       showElement(responsiveTable)
 
-      data.style.display = "block";
-      document
-        .querySelector(".main-screen-content")
-        .setAttribute("style", "display:block");
+      
+      showElement(data)
+      
 
-      mainHeader.setAttribute("style", "display:flex;");
+      showElement(mainHeader)
       
       let displaySpace = document.getElementById("space");
       let tableStringHTML = "";

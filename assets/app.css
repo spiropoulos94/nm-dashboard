@@ -102,7 +102,7 @@ a {
 
 .logo-img {
   background-color: #fff;
-  width: 2rem;
+  width: 2.8rem;
 }
 
 
@@ -458,6 +458,10 @@ tr:nth-child(even) td {
   .table-responsive {
     width: 100%;
   }
+
+  .main-screen-content {
+    padding: 2% 0%;
+}
 
   table th {
     font-size: 13px;
