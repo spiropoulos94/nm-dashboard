@@ -175,9 +175,26 @@
       //vres selectedRow kai userID
       let selectedRow = null;
       let userID = null;
-      console.log(selectedRow)
-      console.log(userID)
-    
+      
+      
+      let userCheckboxes = document.querySelectorAll(".delete-checkbox")
+      
+
+      let userCheckboxesArray = Array.from(userCheckboxes)
+      console.log(userCheckboxesArray)
+
+      for(let i=0; i<userCheckboxesArray.length; i++){
+        if(userCheckboxesArray[i].checked){
+          console.log(userCheckboxesArray[i].id)
+          userID = i + 1
+          console.log(userID)
+        }
+      }
+
+     
+      
+      
+      
       
       //after specifying UserID and selectedRow proceed with the following  confirmation
     //  if (confirm(`Are you sure you want to delete user ${userID} ?`)) {
@@ -194,7 +211,7 @@
     //    // Tip: we usually set the name of attribute as the value for our code to be more clear and descriptive
     //    // https://developer.mozilla.org/en-US/docs/Web/API/Element/setAttribute
     //  }
-      console.log('user deleted')
+     
     }
 
     function getUsers() {
