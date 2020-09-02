@@ -17,6 +17,9 @@
   /* applies to table row zebra-striping style */
 }
 
+
+/* Atomic CSS Classes */
+
 .dflex {
   display: flex;
 }
@@ -29,7 +32,7 @@
   flex-direction: column;
 }
 
-
+/* ----------------------------- */
 
 body,
 html {
