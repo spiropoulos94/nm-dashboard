@@ -15,7 +15,7 @@
   responsiveTable.className += " not-visible";
   // TODO Why use string interpolation? What is the difference between "", '', and ``?
   // ANSWER  Inside the `` quotes we can use variables using the ${} syntax
-  spinner.innerHTML = `<div id="wholePageSpinner" class="loader-wrapper"><div class="loader"></div><p class="loading-msg">loading...</p></div> `;
+  spinner.innerHTML = '<div id="wholePageSpinner" class="loader-wrapper"><div class="loader"></div><p class="loading-msg">loading...</p></div>'
   let navBar = document.querySelector("div.nav-bar");
   document.body.appendChild(spinner);
 
@@ -75,8 +75,8 @@
       }
 
       mainHeading.innerText = "Welcome";
-      flexibleField.innerHTML = ``;
-      displayColorsLength.innerHTML = ``;
+      flexibleField.innerHTML = "";
+      displayColorsLength.innerHTML = "";
     }
 
     document
@@ -300,8 +300,6 @@
       });
       document.querySelector(".tbody").innerHTML = tableStringHTML;
       let deleteButton = document.querySelector(".delete-btn")
-     
-
       document.querySelector(".tbody").addEventListener("change", (e) => {
         deleteButton.removeAttribute("disabled");
         selectedRow = e.target.parentNode.parentNode;
