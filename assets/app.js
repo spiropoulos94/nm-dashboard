@@ -191,31 +191,17 @@
     // https://developer.mozilla.org/en-US/docs/Web/API/Window/confirm
     
     function deleteUser() {
-      
-      //  let deleteButton = document.querySelector(".delete-btn");
        let userID = null
        let selectedRow = null
        let userCheckboxes = document.querySelectorAll(".delete-checkbox")  
        let userCheckboxesArray = Array.from(userCheckboxes)
-
-
-      //ANTI NA PERASEIS THN SELECTED ROW KAI TO USERID VRES TA APO TO GLOBAL SCOPE KAI KALESE TA MESA STO FUNCTION
-     
-      // console.log(userCheckboxesArray)
-
+       //ANTI NA PERASEIS THN SELECTED ROW KAI TO USERID VRES TA APO TO GLOBAL SCOPE KAI KALESE TA MESA STO FUNCTION
       for(let i=0; i<userCheckboxesArray.length; i++){
         if(userCheckboxesArray[i].checked){
           userID = userCheckboxesArray[i].id
-          selectedRow = userCheckboxesArray[i].parentElement.parentElement
-          
+          selectedRow = userCheckboxesArray[i].parentElement.parentElement 
         }
       }
-     
-     
-      
-      
-      
-      
     // after specifying UserID and selectedRow proceed with the following  confirmation
       if (confirm(`Are you sure you want to delete user ${userID} ?`)) {
         //remove from table
@@ -231,7 +217,6 @@
         // Tip: we usually set the name of attribute as the value for our code to be more clear and descriptive
         // https://developer.mozilla.org/en-US/docs/Web/API/Element/setAttribute
       }
-     
     }
 
     function getUsers() {
@@ -267,29 +252,6 @@
 
         fetchURL("https://reqres.in/api/users").then(responseObj => renderUsers(responseObj))
 
-
-        // fetch("https://reqres.in/api/users")
-        //   .then((res) => res.json())
-        //   .then((res) => {
-        //     //res.data.map((user) => (user.id = Math.random())); tried to give users random id values to test the following sorting function
-        //     res.data.sort(function (a, b) {
-        //       var keyA = a.id,
-        //         keyB = b.id;
-        //       // Compare the 2 dates
-        //       if (keyA < keyB) return -1;
-        //       if (keyA > keyB) return +1;
-        //       return 0;
-        //     });
-        //     hydrateUsers(res.data);
-        //     window.sessionStorage.setItem(
-        //       "usersData",
-        //       JSON.stringify(res.data)
-        //     );
-        //   })
-        //   .catch((err) => {
-        //     console.log(err);
-            
-        //   });
       }
     }
 
@@ -335,6 +297,7 @@
       
       document.querySelector(".tbody").addEventListener("change", (e) => {
          deleteButton.removeAttribute("disabled");
+         
         
         deleteButton && deleteButton.addEventListener("click", deleteUser);
       });
