@@ -195,6 +195,8 @@
        let selectedRow = null
        let userCheckboxes = document.querySelectorAll(".delete-checkbox")  
        let userCheckboxesArray = Array.from(userCheckboxes)
+       let deleteButton = this
+       
        //ANTI NA PERASEIS THN SELECTED ROW KAI TO USERID VRES TA APO TO GLOBAL SCOPE KAI KALESE TA MESA STO FUNCTION
       for(let i=0; i<userCheckboxesArray.length; i++){
         if(userCheckboxesArray[i].checked){
@@ -202,7 +204,7 @@
           selectedRow = userCheckboxesArray[i].parentElement.parentElement 
         }
       }
-    // after specifying UserID and selectedRow proceed with the following  confirmation
+        // after specifying UserID and selectedRow proceed with the following  confirmation
       if (confirm(`Are you sure you want to delete user ${userID} ?`)) {
         //remove from table
         selectedRow.parentNode.removeChild(selectedRow);
