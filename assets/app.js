@@ -294,9 +294,6 @@
       });
       document.querySelector(".tbody").innerHTML = tableStringHTML;
 
-      
-      
-      
       document.querySelector(".tbody").addEventListener("change", (e) => {
         document.querySelector(".delete-btn").removeAttribute("disabled");
          
