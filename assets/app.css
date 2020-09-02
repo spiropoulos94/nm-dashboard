@@ -97,7 +97,6 @@ a {
 
 
 .burger {
-  display: none;
   width: 40px;
   height: 40px;
 }
@@ -134,8 +133,6 @@ a {
 .btn-icon {
   margin: auto;
 }
-
-
 
 .title {
   padding: 10px;
