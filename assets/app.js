@@ -8,13 +8,25 @@
 
 
 (function () {
-  //MOVE THE FOLLOWING DOM ELEMENTS INSIDE THE ONLOAD FUNCTION SO THE RUN *AFTER* THE DOCUMENT IS LOADED 
+  
+  // The following function was added for development purposes.
+  function clearStorageShortcut(e) {
+    var evtobj = window.event ? event : e;
+    if (evtobj.keyCode == 90 && evtobj.ctrlKey) {
+      sessionStorage.clear();
+      window.location.reload();
+      console.log("Session storage cleared");
+    }
+  }
+  document.onkeydown = clearStorageShortcut;
+
+  function onloadFn() {
+    //MOVE THE FOLLOWING DOM ELEMENTS INSIDE THE ONLOAD FUNCTION SO THE RUN *AFTER* THE DOCUMENT IS LOADED 
   let responsiveTable = document.querySelector(".table-responsive");
   let wholePage = document.querySelector(".whole-page");
   let coloursLink = document.getElementById("colours");
   let navBar = document.querySelector("div.nav-bar");
   let spinner = document.createElement("div");
-  
   spinner.innerHTML = '<div id="wholePageSpinner" class="loader-wrapper dflex align-center flex-direction-col w100 h100"><div class="loader"></div><p class="loading-msg">loading...</p></div>'
   document.body.appendChild(spinner);
 
@@ -31,23 +43,10 @@
   }
 
   hideElement(responsiveTable)
-  
   hideElement(wholePage)
    
 
 
-  // The following function was added for development purposes.
-  function clearStorageShortcut(e) {
-    var evtobj = window.event ? event : e;
-    if (evtobj.keyCode == 90 && evtobj.ctrlKey) {
-      sessionStorage.clear();
-      window.location.reload();
-      console.log("Session storage cleared");
-    }
-  }
-  document.onkeydown = clearStorageShortcut;
-
-  function onloadFn() {
     document.body.removeChild(spinner);
     
 
@@ -72,6 +71,7 @@
       getUsers();
       enableLink( document.getElementById("users"))
       coloursLink.classList.remove("active-link");
+
       
     });
 
@@ -217,7 +217,9 @@
 
     function getUsers() {
       showSpinner();
-
+      if(document.querySelector(".colours-data")){
+        hideElement(document.querySelector(".colours-data"))
+      }  
       function renderUsers(res){
         
         //res.data.map((user) => (user.id = Math.random())); tried to give users random id values to test the following sorting function
