@@ -47,6 +47,15 @@
     let displayColorsLength = document.querySelector(".length");
     let burgerMenu = document.querySelector(".burger");
 
+    // Views eventListeners
+    coloursLink.addEventListener("click", getColours);
+    //move inside getUsers
+    document.getElementById("users").addEventListener("click", () => {
+      getUsers();
+      document.getElementById("users").className += " active-link";
+      coloursLink.classList.remove("active-link");
+    });
+
     function showSpinner() {
       data.appendChild(spinner);
       mainHeader.style.display = "none";
@@ -294,7 +303,6 @@
      
 
       document.querySelector(".tbody").addEventListener("change", (e) => {
-        console.log(deleteButton)
         deleteButton.removeAttribute("disabled");
         selectedRow = e.target.parentNode.parentNode;
         userID = selectedRow.children[1].innerText;
@@ -307,14 +315,7 @@
     }
     burgerMenu && burgerMenu.addEventListener("click", toggleNavbar);
 
-    // Views eventListeners
-    coloursLink.addEventListener("click", getColours);
-    //move inside getUsers
-    document.getElementById("users").addEventListener("click", () => {
-      getUsers();
-      document.getElementById("users").className += " active-link";
-      coloursLink.classList.remove("active-link");
-    });
+  
   }
 
   document.addEventListener("DOMContentLoaded", onloadFn);
