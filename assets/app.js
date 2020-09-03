@@ -4,6 +4,7 @@
 // "workbench.colorCustomizations": {
 //   "editorUnnecessaryCode.border": "#dd7aab"
 // },  ==> added this to setting folder to auto-find the unused ones.
+
 // TODO remove redundant code
 
 (function () {
