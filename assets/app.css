@@ -384,6 +384,7 @@ tr:nth-child(even) td {
     font-size: 0.9rem;
     padding: 5px 10px;
   }
+  
   .nav-bar {
     position: fixed;
     z-index: 5;

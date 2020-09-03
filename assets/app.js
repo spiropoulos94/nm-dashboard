@@ -19,6 +19,7 @@
     let responsiveTable = document.querySelector(".table-responsive");
     let wholePage = document.querySelector(".whole-page");
     let coloursLink = document.getElementById("colours");
+    let usersLink = document.getElementById("users")
     let menuItems = document.querySelector(".menu-items")
     let navBar = document.querySelector("div.nav-bar");
     let data = document.querySelector(".data");
@@ -48,6 +49,18 @@
       }
     }
 
+    //TODO POU KALOUNTAI // mesa sta view screens afou kanoun render
+    function enableLink(domEltoEnable) {
+      domEltoEnable.classList.add("active-link");
+    }
+    function disableLink(domEltoDisable) {
+      domEltoDisable.classList.remove("active-link");
+    }
+    function showSpinner() {
+      data.appendChild(spinner);
+      hideElement(mainHeader);
+    }
+
    
 
     hideElement(responsiveTable);
@@ -59,7 +72,7 @@
     // Views eventListeners
     document.querySelector(".header-start").addEventListener("click", welcomeScreen);
     coloursLink.addEventListener("click", getColours);
-    document.getElementById("users").addEventListener("click", getUsers);
+    usersLink.addEventListener("click", getUsers);
 
     const fetchURL = (url) => {
       const fetchedData = fetch(url)
@@ -74,24 +87,14 @@
       return fetchedData;
     };
 
-    //TODO POU KALOUNTAI // mesa sta view screens afou kanoun render
-    function enableLink(domEltoEnable) {
-      domEltoEnable.classList.add("active-link");
-    }
-    function disableLink(domEltoDisable) {
-      domEltoDisable.classList.remove("active-link");
-    }
-    function showSpinner() {
-      data.appendChild(spinner);
-      hideElement(mainHeader);
-    }
+    
 
     // Welcome Screen ----------------
 
     function welcomeScreen() {
       hideElement(responsiveTable);
-      disableLink(document.getElementById("colours"));
-      disableLink(document.getElementById("users"));
+      disableLink(coloursLink);
+      disableLink(usersLink);
       hideElement(data);
 
       mainHeading.innerText = "Welcome";
@@ -109,7 +112,7 @@
       showElement(data);
       showElement(document.querySelector(".main-head-top-text"));
       enableLink(coloursLink)
-      disableLink(document.getElementById("users"))
+      disableLink(usersLink)
 
       if (responsiveTable) {
         hideElement(responsiveTable);
@@ -202,8 +205,8 @@
     function getUsers() {
       
       showSpinner();
-      enableLink(document.getElementById("users"))
-      disableLink(document.getElementById("colours"));
+      enableLink(usersLink)
+      disableLink(coloursLink);
 
       if (document.querySelector(".colours-data")) {
         hideElement(document.querySelector(".colours-data"));
