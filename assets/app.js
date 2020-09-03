@@ -15,7 +15,7 @@
   document.onkeydown = clearStorageShortcut;
 
   function onloadFn() {
-    //MOVE THE FOLLOWING DOM ELEMENTS INSIDE THE ONLOAD FUNCTION SO THE RUN *AFTER* THE DOCUMENT IS LOADED
+    
     let responsiveTable = document.querySelector(".table-responsive");
     let wholePage = document.querySelector(".whole-page");
     let coloursLink = document.getElementById("colours");
@@ -32,9 +32,7 @@
       '<div id="wholePageSpinner" class="loader-wrapper dflex align-center flex-direction-col w100 h100"><div class="loader"></div><p class="loading-msg">loading...</p></div>';
     document.body.appendChild(spinner);
 
-    menuItems.addEventListener('click', ()=>{
-      navBar.classList.remove("nav-bar-open")
-    })
+    menuItems.addEventListener('click', toggleNavbar)
 
     
 
@@ -49,6 +47,8 @@
         el.classList.remove("not-visible");
       }
     }
+
+   
 
     hideElement(responsiveTable);
     hideElement(wholePage);
