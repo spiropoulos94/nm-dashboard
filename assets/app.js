@@ -1,6 +1,6 @@
 "use strict";
 // Format code
-// TODO keep styling in your CSS file
+
 // "workbench.colorCustomizations": {
 //   "editorUnnecessaryCode.border": "#dd7aab"
 // },  ==> added this to setting folder to auto-find the unused ones.
@@ -196,7 +196,7 @@
         //remove from session storage
         let arrayJson = JSON.parse(window.sessionStorage.getItem("usersData"));
         let newArr = arrayJson.filter(
-          (entry) => parseInt(entry.id) !== parseInt(userID) // TODO equality strict
+          (entry) => parseInt(entry.id) !== parseInt(userID) 
         );
         // Update storage
         window.sessionStorage.setItem("usersData", JSON.stringify(newArr));
