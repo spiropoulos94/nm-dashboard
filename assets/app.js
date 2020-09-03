@@ -24,11 +24,25 @@
     let responsiveTable = document.querySelector(".table-responsive");
     let wholePage = document.querySelector(".whole-page");
     let coloursLink = document.getElementById("colours");
+    let menuItems = document.querySelector(".menu-items")
     let navBar = document.querySelector("div.nav-bar");
+    let data = document.querySelector(".data");
+    let mainHeading = document.querySelector(".main-heading");
+    let mainHeader = document.querySelector(".main-head-top-text");
+    let flexibleField = document.querySelector(".flexible");
+    let displayColorsLength = document.querySelector(".length");
+    let burgerMenu = document.querySelector(".burger");
+
     let spinner = document.createElement("div");
     spinner.innerHTML =
       '<div id="wholePageSpinner" class="loader-wrapper dflex align-center flex-direction-col w100 h100"><div class="loader"></div><p class="loading-msg">loading...</p></div>';
     document.body.appendChild(spinner);
+
+    menuItems.addEventListener('click', ()=>{
+      navBar.classList.remove("nav-bar-open")
+    })
+
+    
 
     function hideElement(el) {
       if (!el.classList.contains("not-visible")) {
@@ -49,13 +63,7 @@
 
     showElement(wholePage);
 
-    let data = document.querySelector(".data");
-    let mainHeading = document.querySelector(".main-heading");
-    let mainHeader = document.querySelector(".main-head-top-text");
-    let flexibleField = document.querySelector(".flexible");
-    let displayColorsLength = document.querySelector(".length");
-    let burgerMenu = document.querySelector(".burger");
-
+    
     // Views eventListeners
 
     document
@@ -76,13 +84,13 @@
           return data;
         })
         .catch((err) => {
-          console.log("An error happened");
-          console.log(err);
+          console.error(err.message);
         });
 
       return fetchedData;
     };
 
+    //TODO POU KALOUNTAI
     function enableLink(domEltoEnable) {
       domEltoEnable.className += " active-link";
     }
@@ -208,7 +216,9 @@
     }
 
     function getUsers() {
+      
       showSpinner();
+
       if (document.querySelector(".colours-data")) {
         hideElement(document.querySelector(".colours-data"));
       }
