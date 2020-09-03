@@ -196,7 +196,7 @@
         //remove from session storage
         let arrayJson = JSON.parse(window.sessionStorage.getItem("usersData"));
         let newArr = arrayJson.filter(
-          (entry) => parseInt(entry.id) != parseInt(userID) // TODO equality strict
+          (entry) => parseInt(entry.id) !== parseInt(userID) // TODO equality strict
         );
         // Update storage
         window.sessionStorage.setItem("usersData", JSON.stringify(newArr));
