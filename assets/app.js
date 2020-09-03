@@ -83,7 +83,9 @@
         .then(data => {
             return data;
         })
-        .catch(err => console.log(err))
+        .catch(err =>{ 
+          console.log("An error happened")
+          console.log(err)})
     
         return fetchedData;
     }
@@ -198,6 +200,7 @@
           selectedRow = userCheckboxesArray[i].parentElement.parentElement 
         }
       }
+
         // after specifying UserID and selectedRow proceed with the following  confirmation
       if (confirm(`Are you sure you want to delete user ${userID} ?`)) {
         //remove from table
