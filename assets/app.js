@@ -35,6 +35,11 @@
 
     menuItems.addEventListener('click', toggleNavbar)
 
+
+
+    function toggleNavbar() {
+      navBar.classList.toggle("nav-bar-open");
+    }
     
 
     function hideElement(el) {
@@ -96,10 +101,11 @@
       disableLink(coloursLink);
       disableLink(usersLink);
       hideElement(data);
-
-      mainHeading.innerText = "Welcome";
       hideElement(flexibleField)
       hideElement(displayColorsLength)
+
+      mainHeading.innerText = "Welcome";
+      
     }
 
     // Colours Screen ------------------
@@ -178,7 +184,7 @@
       let userCheckboxesArray = Array.from(userCheckboxes);
       let deleteButton = this;
 
-      //ANTI NA PERASEIS THN SELECTED ROW KAI TO USERID VRES TA APO TO GLOBAL SCOPE KAI KALESE TA MESA STO FUNCTION
+      //ANTI NA PERASEIS THN SELECTED ROW KAI TO USER ID VRES TA APO TO GLOBAL SCOPE KAI KALESE TA MESA STO FUNCTION
       for (let i = 0; i < userCheckboxesArray.length; i++) {
         if (userCheckboxesArray[i].checked) {
           userID = userCheckboxesArray[i].id;
@@ -286,9 +292,9 @@
       });
     }
 
-    function toggleNavbar() {
-      navBar.classList.toggle("nav-bar-open");
-    }
+    // function toggleNavbar() {
+    //   navBar.classList.toggle("nav-bar-open");
+    // }
     burgerMenu && burgerMenu.addEventListener("click", toggleNavbar);
   }
   document.addEventListener("DOMContentLoaded", onloadFn);
