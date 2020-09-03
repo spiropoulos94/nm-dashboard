@@ -98,8 +98,8 @@
       hideElement(data);
 
       mainHeading.innerText = "Welcome";
-      flexibleField.innerHTML = "";
-      displayColorsLength.innerHTML = "";
+      hideElement(flexibleField)
+      hideElement(displayColorsLength)
     }
 
     // Colours Screen ------------------
@@ -122,6 +122,7 @@
         hideElement(document.querySelector(".loader-wrapper"));
         coloursDataDiv.classList.add("colours-data", 'dflex', 'w100', 'h100')
 
+        
         if (data.children.length < 3) {
           data.appendChild(coloursDataDiv);
         }
@@ -139,8 +140,8 @@
 
         blurbsContainer.classList.add("blurbs-container")
 
-        flexibleField.innerHTML = "<p>items :</p>";
-        displayColorsLength.innerHTML = `<p>${colours.length}</p>`;
+        flexibleField.innerText = "items :";
+        displayColorsLength.innerText = `${colours.length}`;
         if (data.getElementsByClassName("blurb").length < colours.length) {
           colours.map((color) => {
             let imageDiv = document.createElement("div");
