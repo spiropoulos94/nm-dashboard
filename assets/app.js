@@ -40,7 +40,7 @@
 
     function hideElement(el) {
       if (!el.classList.contains("not-visible")) {
-        el.className += " not-visible";
+        el.classList.add("not-visible")
       }
     }
 
@@ -117,7 +117,7 @@
 
       function renderColours(responseData) {
         hideElement(document.querySelector(".loader-wrapper"));
-        coloursDataDiv.className = "colours-data dflex w100 h100";
+        coloursDataDiv.classList.add("colours-data", 'dflex', 'w100', 'h100')
 
         if (data.children.length < 3) {
           data.appendChild(coloursDataDiv);
@@ -134,14 +134,14 @@
           return 0;
         });
 
-        blurbsContainer.className = "blurbs-container";
+        blurbsContainer.classList.add("blurbs-container")
 
         flexibleField.innerHTML = "<p>items :</p>";
         displayColorsLength.innerHTML = `<p>${colours.length}</p>`;
         if (data.getElementsByClassName("blurb").length < colours.length) {
           colours.map((color) => {
             let imageDiv = document.createElement("div");
-            imageDiv.className = "blurb flex-direction-col";
+            imageDiv.classList.add("blurb","flex-direction-col")
             imageDiv.setAttribute("style", `background-color:${color.color}`);
 
             imageDiv.innerHTML = `
