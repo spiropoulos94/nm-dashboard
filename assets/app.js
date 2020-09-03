@@ -1,10 +1,5 @@
 "use strict";
 // Format code
-
-// "workbench.colorCustomizations": {
-//   "editorUnnecessaryCode.border": "#dd7aab"
-// },  ==> added this to setting folder to auto-find the unused ones.
-
 // TODO remove redundant code
 
 (function () {
@@ -32,7 +27,6 @@
     let flexibleField = document.querySelector(".flexible");
     let displayColorsLength = document.querySelector(".length");
     let burgerMenu = document.querySelector(".burger");
-
     let spinner = document.createElement("div");
     spinner.innerHTML =
       '<div id="wholePageSpinner" class="loader-wrapper dflex align-center flex-direction-col w100 h100"><div class="loader"></div><p class="loading-msg">loading...</p></div>';
@@ -58,24 +52,14 @@
 
     hideElement(responsiveTable);
     hideElement(wholePage);
-
     document.body.removeChild(spinner);
-
     showElement(wholePage);
 
     
     // Views eventListeners
-
-    document
-      .querySelector(".header-start")
-      .addEventListener("click", welcomeScreen);
-
+    document.querySelector(".header-start").addEventListener("click", welcomeScreen);
     coloursLink.addEventListener("click", getColours);
-    document.getElementById("users").addEventListener("click", () => {
-      getUsers();
-      enableLink(document.getElementById("users"));
-      coloursLink.classList.remove("active-link");
-    });
+    document.getElementById("users").addEventListener("click", getUsers);
 
     const fetchURL = (url) => {
       const fetchedData = fetch(url)
@@ -90,9 +74,9 @@
       return fetchedData;
     };
 
-    //TODO POU KALOUNTAI
+    //TODO POU KALOUNTAI // mesa sta view screens afou kanoun render
     function enableLink(domEltoEnable) {
-      domEltoEnable.className += " active-link";
+      domEltoEnable.classList.add("active-link");
     }
     function disableLink(domEltoDisable) {
       domEltoDisable.classList.remove("active-link");
@@ -124,8 +108,8 @@
       showSpinner();
       showElement(data);
       showElement(document.querySelector(".main-head-top-text"));
-      coloursLink.className += " active-link";
-      document.getElementById("users").classList.remove("active-link");
+      enableLink(coloursLink)
+      disableLink(document.getElementById("users"))
 
       if (responsiveTable) {
         hideElement(responsiveTable);
@@ -218,6 +202,8 @@
     function getUsers() {
       
       showSpinner();
+      enableLink(document.getElementById("users"))
+      disableLink(document.getElementById("colours"));
 
       if (document.querySelector(".colours-data")) {
         hideElement(document.querySelector(".colours-data"));
