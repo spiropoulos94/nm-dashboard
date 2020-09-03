@@ -181,13 +181,14 @@ a {
   padding: 2%;
 }
 
-.main-head-wrapper {
+/* .main-head-wrapper {
   justify-content: start;
-}
+} */
 
 .main-head-mini-wrapper {
-  font-size: 1.5rem;
-  width: 6rem;
+  font-size: 1.3rem;
+  width:6rem;
+  
 }
 
 .main-head-top-text {
