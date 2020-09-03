@@ -41,11 +41,11 @@
 }
 
 .w100 {
-  width:100%;
+  width: 100%;
 }
 
 .h100 {
-  height:100%;
+  height: 100%;
 }
 
 /* ----------------------------- */
@@ -58,7 +58,7 @@ html {
 
 body {
   /* color: var(--body-color); */
-  color:white;
+  color: white;
 }
 
 * {
@@ -72,7 +72,7 @@ a {
 }
 
 .whole-page {
-  min-height: 100vh;
+  /* min-height: 100vh; */
   height: 100vh;
   padding: 0;
   margin: 0;
@@ -88,8 +88,6 @@ a {
   box-shadow: 0 4px 2px -2px gray;
   text-transform: uppercase;
 }
-
-
 
 .burger {
   width: 40px;
@@ -118,12 +116,9 @@ a {
   width: 2.8rem;
 }
 
-
-
 .logo-txt {
   margin: 0 25px;
 }
-
 
 .btn-icon {
   margin: auto;
@@ -154,7 +149,6 @@ a {
   height: 89vh;
   padding-bottom: 1rem;
 }
-
 
 .menu-link {
   font-size: 1.5rem;
@@ -206,8 +200,7 @@ a {
 .colours-data {
   flex-wrap: wrap;
   justify-content: center;
-  }
-
+}
 
 .blurb {
   width: 30%;
@@ -217,7 +210,6 @@ a {
 }
 
 .color-info {
-  
   font-weight: bold;
   font-size: 20px;
   opacity: 0.5;
@@ -258,7 +250,6 @@ a {
 .not-visible {
   display: none;
 }
-
 
 .table-responsive {
   overflow-x: auto;
@@ -326,7 +317,7 @@ tr:nth-child(even) td {
   .main-heading {
     font-size: 4vw;
   }
-  
+
   .main-screen {
     width: 80%;
     padding: 2%;
@@ -335,10 +326,8 @@ tr:nth-child(even) td {
 
   .main-head-mini-wrapper {
     font-size: 1.2rem;
-    
   }
 
-  
   .table-head {
     font-size: 1rem;
   }
@@ -420,7 +409,7 @@ tr:nth-child(even) td {
 
   .main-screen-content {
     padding: 2% 0%;
-}
+  }
 
   table th {
     font-size: 13px;
@@ -449,7 +438,7 @@ tr:nth-child(even) td {
     height: 30px;
     width: 30px;
   }
-  
+
   .delete-btn {
     font-size: 0.9rem;
     padding: 5px 5px;
