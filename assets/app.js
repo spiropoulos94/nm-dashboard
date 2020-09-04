@@ -156,7 +156,7 @@
         renderColours(responseObj.data);
       });
     }
-
+    
     function deleteUser() {
       let userID = null;
       let selectedRow = null;
