@@ -165,6 +165,20 @@
       if (document.querySelector(".colours-data")) {
         hideElement(document.querySelector(".colours-data"));
       }
+      
+      if (document.querySelector(".colours-data")) {
+        data.removeChild(document.querySelector(".colours-data"));
+      }
+      if (window.sessionStorage.getItem("usersData")) {
+        let sessionStorageData = JSON.parse(
+          window.sessionStorage.getItem("usersData")
+        );
+        sessionStorageData && hydrateUsers(sessionStorageData);
+      } else {
+        fetchURL("https://reqres.in/api/users").then((responseObj) =>
+          renderUsers(responseObj)
+        );
+      }
       function renderUsers(res) {
         //res.data.map((user) => (user.id = Math.random())); tried to give users random id values to test the following sorting function
         res.data.sort(function (a, b) {
@@ -179,19 +193,6 @@
         window.sessionStorage.setItem("usersData", JSON.stringify(res.data));
       }
 
-      if (document.querySelector(".colours-data")) {
-        data.removeChild(document.querySelector(".colours-data"));
-      }
-      if (window.sessionStorage.getItem("usersData")) {
-        let sessionStorageData = JSON.parse(
-          window.sessionStorage.getItem("usersData")
-        );
-        sessionStorageData && hydrateUsers(sessionStorageData);
-      } else {
-        fetchURL("https://reqres.in/api/users").then((responseObj) =>
-          renderUsers(responseObj)
-        );
-      }
     }
 
     function deleteUser() {
