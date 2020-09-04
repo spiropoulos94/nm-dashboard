@@ -14,8 +14,7 @@
   }
   document.onkeydown = clearStorageShortcut;
 
-  function onloadFn() {
-    
+  function onloadFn() {   
     let responsiveTable = document.querySelector(".table-responsive");
     let wholePage = document.querySelector(".whole-page");
     let coloursLink = document.getElementById("colours");
