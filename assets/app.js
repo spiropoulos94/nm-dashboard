@@ -31,28 +31,32 @@
     spinner.innerHTML =
       '<div id="wholePageSpinner" class="loader-wrapper dflex align-center flex-direction-col w100 h100"><div class="loader"></div><p class="loading-msg">loading...</p></div>';
     document.body.appendChild(spinner);
-
     menuItems.addEventListener('click', toggleNavbar)
+    hideElement(responsiveTable);
+    hideElement(wholePage);
+    document.body.removeChild(spinner);
+    showElement(wholePage);
+    burgerMenu && burgerMenu.addEventListener("click", toggleNavbar);
+     // Views eventListeners
+    document.querySelector(".header-start").addEventListener("click", welcomeScreen);
+    coloursLink.addEventListener("click", getColours);
+    usersLink.addEventListener("click", getUsers);
 
 
 
     function toggleNavbar() {
       navBar.classList.toggle("nav-bar-open");
     }
-    
-
     function hideElement(el) {
       if (!el.classList.contains("not-visible")) {
         el.classList.add("not-visible")
       }
     }
-
     function showElement(el) {
       if (el.classList.contains("not-visible")) {
         el.classList.remove("not-visible");
       }
     }
-
     //TODO POU KALOUNTAI // mesa sta view screens afou kanoun render
     function enableLink(domEltoEnable) {
       domEltoEnable.classList.add("active-link");
@@ -64,19 +68,6 @@
       data.appendChild(spinner);
       hideElement(mainHeader);
     }
-
-   
-
-    hideElement(responsiveTable);
-    hideElement(wholePage);
-    document.body.removeChild(spinner);
-    showElement(wholePage);
-
-    
-    // Views eventListeners
-    document.querySelector(".header-start").addEventListener("click", welcomeScreen);
-    coloursLink.addEventListener("click", getColours);
-    usersLink.addEventListener("click", getUsers);
 
     const fetchURL = (url) => {
       const fetchedData = fetch(url)
@@ -90,11 +81,7 @@
 
       return fetchedData;
     };
-
-    
-
     // Welcome Screen ----------------
-
     function welcomeScreen() {
       hideElement(responsiveTable);
       disableLink(coloursLink);
@@ -106,9 +93,7 @@
       mainHeading.innerText = "Welcome";
       
     }
-
     // Colours Screen ------------------
-
     function getColours() {
       let coloursDataDiv = document.createElement("div");
       let blurbsContainer = document.createElement("div");
@@ -172,10 +157,6 @@
       });
     }
 
-    // Deleting a user/row
-    // TODO Review the following function
-    // https://developer.mozilla.org/en-US/docs/Web/API/Window/confirm
-
     function deleteUser() {
       let userID = null;
       let selectedRow = null;
@@ -207,7 +188,7 @@
         // https://developer.mozilla.org/en-US/docs/Web/API/Element/setAttribute
       }
     }
-
+    //Users Screen
     function getUsers() {
       
       showSpinner();
@@ -245,7 +226,6 @@
         );
       }
     }
-
     function hydrateUsers(fetchedData) {
       let displaySpace = document.getElementById("space");
       let tableStringHTML = "";
@@ -290,11 +270,6 @@
             .addEventListener("click", deleteUser);
       });
     }
-
-    // function toggleNavbar() {
-    //   navBar.classList.toggle("nav-bar-open");
-    // }
-    burgerMenu && burgerMenu.addEventListener("click", toggleNavbar);
-  }
+}
   document.addEventListener("DOMContentLoaded", onloadFn);
 })();
