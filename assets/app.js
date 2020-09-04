@@ -91,6 +91,8 @@
     function getColours() {
       let coloursDataDiv = document.createElement("div");
       let blurbsContainer = document.createElement("div");
+      showElement(displayColorsLength)
+      showElement(flexibleField)
       mainHeading.innerText = "Colours";
       showSpinner();
       showElement(data);
@@ -150,10 +152,13 @@
     }
     //Users Screen ------------------
     function getUsers() {
+      
+      showElement(flexibleField)
       showSpinner();
       enableLink(usersLink)
       disableLink(coloursLink);
-
+      
+      
       if (document.querySelector(".colours-data")) {
         hideElement(document.querySelector(".colours-data"));
       }
