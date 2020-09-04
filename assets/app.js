@@ -89,7 +89,6 @@
       hideElement(data);
       hideElement(flexibleField)
       hideElement(displayColorsLength)
-
       mainHeading.innerText = "Welcome";
       
     }
@@ -111,8 +110,6 @@
       function renderColours(responseData) {
         hideElement(document.querySelector(".loader-wrapper"));
         coloursDataDiv.classList.add("colours-data", 'dflex', 'w100', 'h100')
-
-        
         if (data.children.length < 3) {
           data.appendChild(coloursDataDiv);
         }
