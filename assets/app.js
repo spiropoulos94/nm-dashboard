@@ -42,8 +42,6 @@
     coloursLink.addEventListener("click", getColours);
     usersLink.addEventListener("click", getUsers);
 
-
-
     function toggleNavbar() {
       navBar.classList.toggle("nav-bar-open");
     }
@@ -157,7 +155,6 @@
     
     //Users Screen
     function getUsers() {
-      
       showSpinner();
       enableLink(usersLink)
       disableLink(coloursLink);
@@ -165,7 +162,6 @@
       if (document.querySelector(".colours-data")) {
         hideElement(document.querySelector(".colours-data"));
       }
-      
       if (document.querySelector(".colours-data")) {
         data.removeChild(document.querySelector(".colours-data"));
       }
@@ -192,7 +188,6 @@
         hydrateUsers(res.data);
         window.sessionStorage.setItem("usersData", JSON.stringify(res.data));
       }
-
     }
 
     function deleteUser() {
