@@ -28,8 +28,7 @@
     let displayColorsLength = document.querySelector(".length");
     let burgerMenu = document.querySelector(".burger");
     let spinner = document.createElement("div");
-    spinner.innerHTML =
-      '<div id="wholePageSpinner" class="loader-wrapper dflex align-center flex-direction-col w100 h100"><div class="loader"></div><p class="loading-msg">loading...</p></div>';
+    spinner.innerHTML ='<div id="wholePageSpinner" class="loader-wrapper dflex align-center flex-direction-col w100 h100"><div class="loader"></div><p class="loading-msg">loading...</p></div>';
     document.body.appendChild(spinner);
     menuItems.addEventListener('click', toggleNavbar)
     hideElement(responsiveTable);
@@ -55,7 +54,6 @@
         el.classList.remove("not-visible");
       }
     }
-    //TODO POU KALOUNTAI // mesa sta view screens afou kanoun render
     function enableLink(domEltoEnable) {
       domEltoEnable.classList.add("active-link");
     }
@@ -66,7 +64,6 @@
       data.appendChild(spinner);
       hideElement(mainHeader);
     }
-
     const fetchURL = (url) => {
       const fetchedData = fetch(url)
         .then((result) => result.json())
@@ -151,9 +148,7 @@
         renderColours(responseObj.data);
       });
     }
-    
-    
-    //Users Screen
+    //Users Screen ------------------
     function getUsers() {
       showSpinner();
       enableLink(usersLink)
@@ -189,7 +184,6 @@
         window.sessionStorage.setItem("usersData", JSON.stringify(res.data));
       }
     }
-
     function deleteUser() {
       let userID = null;
       let selectedRow = null;
@@ -221,7 +215,6 @@
         // https://developer.mozilla.org/en-US/docs/Web/API/Element/setAttribute
       }
     }
-
     function hydrateUsers(fetchedData) {
       let displaySpace = document.getElementById("space");
       let tableStringHTML = "";
