@@ -154,37 +154,7 @@
       });
     }
     
-    function deleteUser() {
-      let userID = null;
-      let selectedRow = null;
-      let userCheckboxes = document.querySelectorAll(".delete-checkbox");
-      let userCheckboxesArray = Array.from(userCheckboxes);
-      let deleteButton = this;
-
-      //ANTI NA PERASEIS THN SELECTED ROW KAI TO USER ID VRES TA APO TO GLOBAL SCOPE KAI KALESE TA MESA STO FUNCTION
-      for (let i = 0; i < userCheckboxesArray.length; i++) {
-        if (userCheckboxesArray[i].checked) {
-          userID = userCheckboxesArray[i].id;
-          selectedRow = userCheckboxesArray[i].parentElement.parentElement;
-        }
-      }
-
-      // after specifying UserID and selectedRow proceed with the following  confirmation
-      if (confirm(`Are you sure you want to delete user ${userID} ?`)) {
-        //remove from table
-        selectedRow.parentNode.removeChild(selectedRow);
-        //remove from session storage
-        let arrayJson = JSON.parse(window.sessionStorage.getItem("usersData"));
-        let newArr = arrayJson.filter(
-          (entry) => parseInt(entry.id) !== parseInt(userID) 
-        );
-        // Update storage
-        window.sessionStorage.setItem("usersData", JSON.stringify(newArr));
-        deleteButton.setAttribute("disabled", "disabled");
-        // Tip: we usually set the name of attribute as the value for our code to be more clear and descriptive
-        // https://developer.mozilla.org/en-US/docs/Web/API/Element/setAttribute
-      }
-    }
+    
     //Users Screen
     function getUsers() {
       
@@ -223,6 +193,39 @@
         );
       }
     }
+
+    function deleteUser() {
+      let userID = null;
+      let selectedRow = null;
+      let userCheckboxes = document.querySelectorAll(".delete-checkbox");
+      let userCheckboxesArray = Array.from(userCheckboxes);
+      let deleteButton = this;
+
+      //ANTI NA PERASEIS THN SELECTED ROW KAI TO USER ID VRES TA APO TO GLOBAL SCOPE KAI KALESE TA MESA STO FUNCTION
+      for (let i = 0; i < userCheckboxesArray.length; i++) {
+        if (userCheckboxesArray[i].checked) {
+          userID = userCheckboxesArray[i].id;
+          selectedRow = userCheckboxesArray[i].parentElement.parentElement;
+        }
+      }
+
+      // after specifying UserID and selectedRow proceed with the following  confirmation
+      if (confirm(`Are you sure you want to delete user ${userID} ?`)) {
+        //remove from table
+        selectedRow.parentNode.removeChild(selectedRow);
+        //remove from session storage
+        let arrayJson = JSON.parse(window.sessionStorage.getItem("usersData"));
+        let newArr = arrayJson.filter(
+          (entry) => parseInt(entry.id) !== parseInt(userID) 
+        );
+        // Update storage
+        window.sessionStorage.setItem("usersData", JSON.stringify(newArr));
+        deleteButton.setAttribute("disabled", "disabled");
+        // Tip: we usually set the name of attribute as the value for our code to be more clear and descriptive
+        // https://developer.mozilla.org/en-US/docs/Web/API/Element/setAttribute
+      }
+    }
+
     function hydrateUsers(fetchedData) {
       let displaySpace = document.getElementById("space");
       let tableStringHTML = "";
